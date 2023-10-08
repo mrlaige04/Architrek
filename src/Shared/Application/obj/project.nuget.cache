@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9rwdh/67ulTFtwL9d6y6ziSrfbAaynwQ0CFouaIfOo5ZK0jHNKx+jP04LBYOVsQWRHP94VApljZSruXKfpQyeg==",
+  "success": true,
+  "projectFilePath": "D:\\KPI\\3 курс 1 семестр\\ТРПЗ\\Курсова\\Architrek\\src\\Shared\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\illia\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

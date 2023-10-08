@@ -1,0 +1,71 @@
+version: '3.1'
+
+services:
+	coreapi:
+		image: coreapi
+		build:
+			context: .
+			dockerfile: ./src/API/CoreApi/Dockerfile
+		ports:
+			- "90:80"
+		depends_on:
+			- coredb
+		environment:
+			- ConnectionStrings__DefaultConnection=Host=maindb;Port=5432;
+		networks:
+			- corenetwork
+	
+	urlshortener:
+		image: urlshortener
+		build:
+			context: .
+			dockerfile: ./src/API/UrlShortener/Dockerfile
+		ports:
+			- "100:80"
+		depends_on:
+			- urldb
+		environment:
+			- ConnectionStrings__DefaultConnection=Host=urldb;Port=5431;
+			- ConnectionStrings__CoreApiConnection=coreapi
+	
+	
+	angular:
+	
+	coredb:
+		image: postgres:latest
+		ports:
+			- "5432:5432"
+		environment:
+		    POSTGRES_DB: coredb
+			POSTGRES_USER: sdf
+			POSTGRES_PASSWORD: sdf
+		volumes:
+		    - coredb_data:/var/lib/postgresql/data
+		networks:
+			- corenetwork
+
+	urldb:
+		image: postgres:latest
+		ports:
+			- "5433:5432"
+		environment:
+		    POSTGRES_DB: urldb
+			POSTGRES_USER: sdf
+			POSTGRES_PASSWORD: sdf
+		volumes:
+		    - urldb_data:/var/lib/postgresql/data
+		networks:
+			- corenetwork
+		    
+
+secrets:
+    coredb:
+	urldb:
+
+volumes:
+	coredb_data:
+	urldb_data:
+		
+networks:
+	corenetwork:
+		driver: bridge
