@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ga769/HHgIPf5mTl/27ZcnTHOA3+V9Q0NQtkrp2lmMj13njy7SKL0rErfghJQMbOKKLyBpBwaiVzPP1JRqLiJQ==",
+  "dgSpecHash": "bK9ULbwW8OXW1/VCLHs7Jnq9xS1IcOo5WPzBPJOt8BdP6A9vQLOIP4kMsfWTe/ppgtezD6e+KIRp0ww/PZikVQ==",
   "success": true,
   "projectFilePath": "D:\\KPI\\3 курс 1 семестр\\ТРПЗ\\Курсова\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.11\\microsoft.aspnetcore.cryptography.internal.7.0.11.nupkg.sha512",

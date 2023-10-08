@@ -1,7 +1,7 @@
 ﻿namespace Domain.Enums;
 public enum Mainland
 {
-    Asia = 0,
+    Asia,
     Africa, 
     NorthAmerica,
     SouthAmerica,
