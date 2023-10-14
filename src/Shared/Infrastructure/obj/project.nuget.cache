@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bK9ULbwW8OXW1/VCLHs7Jnq9xS1IcOo5WPzBPJOt8BdP6A9vQLOIP4kMsfWTe/ppgtezD6e+KIRp0ww/PZikVQ==",
+  "dgSpecHash": "eE7nKF4D3StpIaGv2sFWNwDr+2iac8+CjC6tiHJAhKKt0uY/PJn2lVrxo4DjCdgzCGHAz6a5l34k/nJTMHOKgQ==",
   "success": true,
   "projectFilePath": "D:\\KPI\\3 курс 1 семестр\\ТРПЗ\\Курсова\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\illia\\.nuget\\packages\\ardalis.guardclauses\\4.1.1\\ardalis.guardclauses.4.1.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
@@ -25,7 +26,9 @@
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
-    "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+    "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512"
   ],
   "logs": []
 }

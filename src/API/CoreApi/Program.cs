@@ -1,25 +1,27 @@
+using Application;
+using CoreApi;
+using CoreApi.Identity;
+using Infrastructure;
+using Infrastructure.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddWebUI();
+builder.Services.AddIdentity(builder.Configuration);
 
 var app = builder.Build();
+await app.IdentityInitialize();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGroup("Identity").MapIdentityApi<ApplicationUser>();
 app.MapControllers();
 
 app.Run();

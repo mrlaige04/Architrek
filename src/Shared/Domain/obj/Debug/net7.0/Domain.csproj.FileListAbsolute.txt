@@ -10,3 +10,4 @@ D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Domain\obj\Debug\net7.0\Domain.pdb
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache

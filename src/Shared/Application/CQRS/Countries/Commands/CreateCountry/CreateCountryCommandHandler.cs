@@ -21,7 +21,6 @@ public class CreateCountryCommandHandler : IRequestHandler<CreateCountryCommand,
             Language = request.Language,
             Mainland = request.Mainland,
             Cities = request.Cities,
-            Capital = request.Capital,
             Photos = request.Photos,
         };
 

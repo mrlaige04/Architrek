@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7/C4DqnMePv8XMm9Uki7qMfMcasdlDb3SaKp2o3VYNC+WzIqNWXRB3w1a1036LbYt75ASalRYbU7MW29A2UyVg==",
+  "dgSpecHash": "1olOM9bf2z4oKKuPo7W+L+a/7hGOUnCZLNBaDOYnXQ438vjSGwkx8q4HO0JP7jSptK23KBkmYtlg1EVLSLguqA==",
   "success": true,
   "projectFilePath": "D:\\KPI\\3 курс 1 семестр\\ТРПЗ\\Курсова\\Architrek\\src\\Shared\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\illia\\.nuget\\packages\\ardalis.guardclauses\\4.1.1\\ardalis.guardclauses.4.1.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",

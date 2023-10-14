@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Ardalis.GuardClauses/4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Ardalis.GuardClauses.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Ardalis.GuardClauses.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "FluentValidation/11.7.1": {
         "type": "package",
         "compile": {
@@ -262,7 +275,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "MediatR": "12.1.1"
+          "MediatR": "12.1.1",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.11"
         },
         "compile": {
           "bin/placeholder/Domain.dll": {}
@@ -274,6 +288,26 @@
     }
   },
   "libraries": {
+    "Ardalis.GuardClauses/4.1.1": {
+      "sha512": "+UcJ2s+gf2wMNrwadCaHZV2DMcGgBU1t22A+jm40P4MHQRLy9hcleGy5xdVWd4dXZPa5Vlp4TG5xU2rhoDYrBA==",
+      "type": "package",
+      "path": "ardalis.guardclauses/4.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "ardalis.guardclauses.4.1.1.nupkg.sha512",
+        "ardalis.guardclauses.nuspec",
+        "icon.png",
+        "lib/net7.0/Ardalis.GuardClauses.dll",
+        "lib/net7.0/Ardalis.GuardClauses.pdb",
+        "lib/net7.0/Ardalis.GuardClauses.xml",
+        "lib/netstandard2.0/Ardalis.GuardClauses.dll",
+        "lib/netstandard2.0/Ardalis.GuardClauses.pdb",
+        "lib/netstandard2.0/Ardalis.GuardClauses.xml"
+      ]
+    },
     "FluentValidation/11.7.1": {
       "sha512": "w9Al4gls6iVGFbTd/NPOPlwzqDTghH+ntL4c4FYUatc+LeybpIwhYArLykZJP/VjF2n3ihj3ws+1yd7KR5lQlg==",
       "type": "package",
@@ -662,6 +696,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Ardalis.GuardClauses >= 4.1.1",
       "Domain >= 1.0.0",
       "FluentValidation.DependencyInjectionExtensions >= 11.7.1",
       "Microsoft.EntityFrameworkCore >= 7.0.11"
@@ -719,6 +754,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Ardalis.GuardClauses": {
+            "target": "Package",
+            "version": "[4.1.1, )"
+          },
           "FluentValidation.DependencyInjectionExtensions": {
             "target": "Package",
             "version": "[11.7.1, )"

@@ -8,11 +8,6 @@ public class CountryConfiguration : IEntityTypeConfiguration<Country>
     public void Configure(EntityTypeBuilder<Country> builder)
     {
         builder.HasKey(c => c.Id);
-        builder
-            .HasOne(c => c.Capital)
-            .WithOne(c=>c.Country)
-            .HasForeignKey<City>(c=>c.CountryId)
-            .OnDelete(DeleteBehavior.Cascade);
 
         builder
             .HasMany(c=>c.Cities)

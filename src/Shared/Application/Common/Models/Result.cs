@@ -20,4 +20,9 @@ public class Result
     {
         return new Result(false, errors);
     }
+
+    public static Result Failure(params string[] errors)
+    {
+        return new Result(false, errors);
+    }
 }

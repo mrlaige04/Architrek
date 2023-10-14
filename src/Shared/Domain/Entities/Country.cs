@@ -7,8 +7,7 @@ public class Country : BaseAuditableEntity
     public double Area { get; set; }
     public string Language { get; set; }
     public Mainland Mainland { get; set; }
-
-    public City? Capital { get; set; }
+    
     public ICollection<Photo> Photos { get; set; }
     public ICollection<City> Cities { get; set; }
     public ICollection<Review> Reviews { get; set; }

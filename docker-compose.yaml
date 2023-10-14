@@ -29,8 +29,8 @@ services:
 			- ConnectionStrings__CoreApiConnection=coreapi
 	
 	
-	angular:
 	
+
 	coredb:
 		image: postgres:latest
 		ports:
