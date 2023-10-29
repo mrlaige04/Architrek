@@ -1,10 +1,10 @@
 ﻿namespace Domain.Events;
 public class ReviewCreatedEvent : BaseEvent
 {
-    public ReviewCreatedEvent(Review review)
+    public ReviewCreatedEvent(SightReview review)
     {
         Review = review;
     }
 
-    public Review Review { get; }
+    public SightReview Review { get; }
 }

@@ -1,16 +1,38 @@
 ﻿using Application.Common.Interfaces;
 using Application.Common.Models;
 using Domain.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Identity;
 public class IdentityService : IIdentityService
 {
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IAuthorizationService _authorizationService;
+    private readonly IUserClaimsPrincipalFactory<ApplicationUser> _userClaimsPrincipalFactory;
 
-    public IdentityService(UserManager<ApplicationUser> userManager)
+    public IdentityService(
+        UserManager<ApplicationUser> userManager, 
+        IAuthorizationService authorizationService,
+        IUserClaimsPrincipalFactory<ApplicationUser> userClaimsPrincipalFactory)
     {
         _userManager = userManager;
+        _authorizationService = authorizationService;
+        _userClaimsPrincipalFactory = userClaimsPrincipalFactory;
+    }
+
+    public async Task<bool> AuthorizeAsync(Guid userId, string policyName)
+    {
+        var user = await _userManager.Users.SingleOrDefaultAsync(u=>u.Id == userId);
+
+        if (user is null) return false;
+
+        var principal = await _userClaimsPrincipalFactory.CreateAsync(user);
+
+        var result = await _authorizationService.AuthorizeAsync(principal, policyName);
+
+        return result.Succeeded;
     }
 
     public async Task<(Result Result, Guid userId)> CreateUserAsync(string email, string? username, string password)

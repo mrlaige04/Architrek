@@ -1,15 +1,16 @@
 ﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.Interfaces;
 public interface IApplicationDbContext
 {
     DbSet<Category> Categories { get; }
-    DbSet<City> Cities { get; }
+    DbSet<Tag> Tags { get; }
     DbSet<Country> Countries { get; }
-    DbSet<Photo> Photos { get; }
-    DbSet<Review> Reviews { get; }
+    DbSet<SightReviewPhoto> SightReviewPhotos { get; }
+    DbSet<SightReview> SightReviews { get; }
     DbSet<Sight> Sights { get; }
+    DbSet<Property> Properties { get; }
+    DbSet<PropertyValue> PropertyValues { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

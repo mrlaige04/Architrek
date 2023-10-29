@@ -14,29 +14,13 @@ services:
 			- ConnectionStrings__DefaultConnection=Host=maindb;Port=5432;
 		networks:
 			- corenetwork
-	
-	urlshortener:
-		image: urlshortener
-		build:
-			context: .
-			dockerfile: ./src/API/UrlShortener/Dockerfile
-		ports:
-			- "100:80"
-		depends_on:
-			- urldb
-		environment:
-			- ConnectionStrings__DefaultConnection=Host=urldb;Port=5431;
-			- ConnectionStrings__CoreApiConnection=coreapi
-	
-	
-	
 
 	coredb:
 		image: postgres:latest
 		ports:
 			- "5432:5432"
 		environment:
-		    POSTGRES_DB: coredb
+			POSTGRES_DB: coredb
 			POSTGRES_USER: sdf
 			POSTGRES_PASSWORD: sdf
 		volumes:
@@ -56,6 +40,12 @@ services:
 		    - urldb_data:/var/lib/postgresql/data
 		networks:
 			- corenetwork
+	angular:
+		image: angular
+		ports:
+			- "4200:4200"
+		environment:
+			API_URL = "H"
 		    
 
 secrets:

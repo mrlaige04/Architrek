@@ -11,6 +11,7 @@ public class FixAbsoluteUriEmailMessageInterceptor : IEmailMessageInterceptors
     {
         _httpContextAccessor = httpContextAccessor;
     }
+
     public string Intercept(string message)
     {
         var ctx = _httpContextAccessor.HttpContext;

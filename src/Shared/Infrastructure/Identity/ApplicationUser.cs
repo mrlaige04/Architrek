@@ -4,5 +4,8 @@ using Microsoft.AspNetCore.Identity;
 namespace Infrastructure.Identity;
 public class ApplicationUser : IdentityUser<Guid>
 {
-    public ICollection<Review> Reviews { get; set; }
+    public string? RefreshToken { get; set; }
+    public DateTime? RefreshTokenExpires { get; set; }
+
+    public ICollection<SightReview> Reviews { get; set; }
 }

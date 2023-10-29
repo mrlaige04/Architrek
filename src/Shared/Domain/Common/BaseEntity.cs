@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
 
 namespace Domain.Common;
 public abstract class BaseEntity
 {
-    public Guid Id { get; set; }
+    [Key] public Guid Id { get; set; }
 
     private readonly List<BaseEvent> _domainEvents = new();
 
@@ -23,4 +25,6 @@ public abstract class BaseEntity
     {
         _domainEvents.Clear();
     }
+
+    public string ToJson() => JsonSerializer.Serialize(this);
 }

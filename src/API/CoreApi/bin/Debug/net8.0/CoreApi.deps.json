@@ -38,6 +38,19 @@
           }
         }
       },
+      "Elasticsearch.Net/7.17.5": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "System.Buffers": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Elasticsearch.Net.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.17.5.0"
+          }
+        }
+      },
       "FluentValidation/11.7.1": {
         "runtime": {
           "lib/net7.0/FluentValidation.dll": {
@@ -100,6 +113,13 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authorization/7.0.13": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "7.0.13",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1",
+          "Microsoft.Extensions.Options": "7.0.1"
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.11": {},
       "Microsoft.AspNetCore.Cryptography.KeyDerivation/7.0.11": {
         "dependencies": {
@@ -118,6 +138,7 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Metadata/7.0.13": {},
       "Microsoft.AspNetCore.OpenApi/8.0.0-rc.2.23480.2": {
         "dependencies": {
           "Microsoft.OpenApi": "1.4.3"
@@ -129,6 +150,7 @@
           }
         }
       },
+      "Microsoft.CSharp/4.6.0": {},
       "Microsoft.EntityFrameworkCore/7.0.11": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "7.0.11",
@@ -175,7 +197,7 @@
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1",
           "Microsoft.Extensions.Options": "7.0.1",
           "Microsoft.Extensions.Primitives": "7.0.0"
         }
@@ -209,11 +231,11 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1",
           "Microsoft.Extensions.Options": "7.0.1"
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {},
+      "Microsoft.Extensions.Logging.Abstractions/7.0.1": {},
       "Microsoft.Extensions.Options/7.0.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
@@ -309,9 +331,20 @@
           }
         }
       },
+      "NEST/7.17.5": {
+        "dependencies": {
+          "Elasticsearch.Net": "7.17.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Nest.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.17.5.0"
+          }
+        }
+      },
       "Npgsql/7.0.6": {
         "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "7.0.0"
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1"
         },
         "runtime": {
           "lib/net7.0/Npgsql.dll": {
@@ -372,6 +405,8 @@
           }
         }
       },
+      "System.Buffers/4.5.1": {},
+      "System.Diagnostics.DiagnosticSource/5.0.0": {},
       "System.Formats.Asn1/7.0.0": {},
       "System.IdentityModel.Tokens.Jwt/7.0.2": {
         "dependencies": {
@@ -415,7 +450,10 @@
       "Infrastructure/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Elasticsearch.Net": "7.17.5",
+          "Microsoft.AspNetCore.Authorization": "7.0.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.11",
+          "NEST": "7.17.5",
           "Npgsql": "7.0.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
         },
@@ -444,6 +482,13 @@
       "sha512": "sha512-A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ==",
       "path": "bouncycastle.cryptography/2.2.1",
       "hashPath": "bouncycastle.cryptography.2.2.1.nupkg.sha512"
+    },
+    "Elasticsearch.Net/7.17.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-orChsQi1Ceho/NyIylNOn6y4vuGcsbCfMZnCueNN0fzqYEGQmQdPfcVmsR5+3fwpXTgxCdjTUVmqOwvHpCSB+Q==",
+      "path": "elasticsearch.net/7.17.5",
+      "hashPath": "elasticsearch.net.7.17.5.nupkg.sha512"
     },
     "FluentValidation/11.7.1": {
       "type": "package",
@@ -487,6 +532,13 @@
       "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.0-rc.2.23480.2",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.8.0.0-rc.2.23480.2.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authorization/7.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aLjbkxY+0xJcsupIOqgfntFEoYV1k9K11VUpSineBfefVnSccRyYke1CmWEiYRbFsb4Q5ULAYPIlTCXrOmCpQw==",
+      "path": "microsoft.aspnetcore.authorization/7.0.13",
+      "hashPath": "microsoft.aspnetcore.authorization.7.0.13.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.11": {
       "type": "package",
       "serviceable": true,
@@ -508,12 +560,26 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/7.0.11",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.7.0.11.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Metadata/7.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wnQ+neovgezOP2MqAoPEeSxJFJ2a8YrW3G0zzhXzZQI2CxTo76GOB/L9i7+1KzkuBRchVnJnV0uXbzeA6qr3RA==",
+      "path": "microsoft.aspnetcore.metadata/7.0.13",
+      "hashPath": "microsoft.aspnetcore.metadata.7.0.13.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.OpenApi/8.0.0-rc.2.23480.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-52ejkQxLMEqF7zW8DiT7nZoM0fcdbeFFGRsIVmXTFcZigx30ev8BISDZ58lRHWH+hdkDpVOFPiPRDHC/yjgA6A==",
       "path": "microsoft.aspnetcore.openapi/8.0.0-rc.2.23480.2",
       "hashPath": "microsoft.aspnetcore.openapi.8.0.0-rc.2.23480.2.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow==",
+      "path": "microsoft.csharp/4.6.0",
+      "hashPath": "microsoft.csharp.4.6.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/7.0.11": {
       "type": "package",
@@ -606,12 +672,12 @@
       "path": "microsoft.extensions.logging/7.0.0",
       "hashPath": "microsoft.extensions.logging.7.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
+    "Microsoft.Extensions.Logging.Abstractions/7.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kmn78+LPVMOWeITUjIlfxUPDsI0R6G0RkeAMBmQxAJ7vBJn4q2dTva7pWi65ceN5vPGjJ9q/Uae2WKgvfktJAw==",
-      "path": "microsoft.extensions.logging.abstractions/7.0.0",
-      "hashPath": "microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512"
+      "sha512": "sha512-pkeBFx0vqMW/A3aUVHh7MPu3WkBhaVlezhSZeb1c9XD0vUReYH1TLFSy5MxJgZfmz5LZzYoErMorlYZiwpOoNA==",
+      "path": "microsoft.extensions.logging.abstractions/7.0.1",
+      "hashPath": "microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/7.0.1": {
       "type": "package",
@@ -690,6 +756,13 @@
       "path": "mimekit/4.2.0",
       "hashPath": "mimekit.4.2.0.nupkg.sha512"
     },
+    "NEST/7.17.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bo9UyuIoVRx4IUQiuC8ZrlZuvAXKIccernC7UUKukQCEmRq2eVIk+gubHlnMQljrP51q0mN4cjgy9vv5uZPkoA==",
+      "path": "nest/7.17.5",
+      "hashPath": "nest.7.17.5.nupkg.sha512"
+    },
     "Npgsql/7.0.6": {
       "type": "package",
       "serviceable": true,
@@ -731,6 +804,20 @@
       "sha512": "sha512-OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+    },
+    "System.Buffers/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "path": "system.buffers/4.5.1",
+      "hashPath": "system.buffers.4.5.1.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==",
+      "path": "system.diagnostics.diagnosticsource/5.0.0",
+      "hashPath": "system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
     },
     "System.Formats.Asn1/7.0.0": {
       "type": "package",

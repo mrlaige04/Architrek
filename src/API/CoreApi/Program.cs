@@ -2,7 +2,6 @@ using Application;
 using CoreApi;
 using CoreApi.Identity;
 using Infrastructure;
-using Infrastructure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +17,12 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.UseCors("angular");
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGroup("Identity").MapIdentityApi<ApplicationUser>();
 app.MapControllers();
 
 app.Run();

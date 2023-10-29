@@ -60,3 +60,5 @@ D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\Cor
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MailKit.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MimeKit.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Elasticsearch.Net.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Nest.dll

@@ -1,8 +1,6 @@
 ﻿using Application.Common.Interfaces;
 using CoreApi.Services;
 using CoreApi.Services.Interceptors;
-using Infrastructure.Data.Interceptors;
-using MediatR;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.ComponentModel.DataAnnotations;
 
@@ -24,6 +22,18 @@ public static class RegisterServices
         services.AddTransient<IEmailMessageInterceptors, FixAbsoluteUriEmailMessageInterceptor>();
 
         services.AddTransient<IEmailSender, CustomEmailSender>();
+
+        services.AddCors(opt =>
+        {
+            opt.AddPolicy("angular", pol =>
+            {
+                pol.WithOrigins("https://localhost:4200/")
+                    .AllowCredentials()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .SetIsOriginAllowed(pol => true);
+            });
+        });
 
         return services;
     }

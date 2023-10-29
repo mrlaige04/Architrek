@@ -15,17 +15,19 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Id
         Database.EnsureCreated();
     }
     
-    public DbSet<Category> Categories { get; }
-    public DbSet<City> Cities { get; }
-    public DbSet<Country> Countries { get; }
-    public DbSet<Photo> Photos { get; }
-    public DbSet<Review> Reviews { get; }
-    public DbSet<Sight> Sights { get; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<SightReviewPhoto> SightReviewPhotos { get; set; }
+    public DbSet<SightReview> SightReviews { get; set; }
+    public DbSet<Sight> Sights { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+    public DbSet<Property> Properties { get; set; }
+    public DbSet<PropertyValue> PropertyValues { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        
+
         base.OnModelCreating(builder);
     }
 }
