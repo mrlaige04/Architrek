@@ -7,6 +7,10 @@ import {SharedModule} from "./Shared/shared.module";
 import {AuthModule} from "./auth/auth.module";
 import {HttpClientModule} from "@angular/common/http";
 import {CoreModule} from "./core/core.module";
+import {ToastrModule} from "ngx-toastr";
+import {ToastersService} from "./services/ToastersService";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,16 @@ import {CoreModule} from "./core/core.module";
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      maxOpened: 3,
+
+      positionClass: 'toast-top-right',
+
+      preventDuplicates: true,
+      tapToDismiss: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,7 +18,13 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
-app.UseCors("angular");
+app.UseCors(opt =>
+{
+    opt.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+});
+//app.UseCors("angular");
 
 app.UseAuthentication();
 app.UseAuthorization();

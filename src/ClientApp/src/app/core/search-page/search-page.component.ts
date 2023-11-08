@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {CoreService} from "../core.service";
-import {CategoryName} from "../Models/category-name";
 import {Observable} from "rxjs";
-import {Guid} from "guid-typescript";
+import {PaginatedList} from "../Models/PaginatedList";
+import {Sight} from "../Models/Sight";
+import {Category} from "../Models/category";
+import {core} from "@angular/compiler";
 
 @Component({
   selector: 'app-search-page',
@@ -10,14 +12,37 @@ import {Guid} from "guid-typescript";
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent {
-  public selectedCategory: CategoryName | null = null;
+  public selectedCategory: Category | null = null;
+  public categories: Observable<Category[]>;
+  public sights: Observable<PaginatedList<Sight>>;
 
-  public categories: Observable<CategoryName[]>;
+  public pageNumber: number = 1;
+  public pagesCount: number = 10;
+
   constructor(private coreService: CoreService) {
-    this.categories = coreService.getCategories()
+    this.categories = coreService.getAllCategories()
+
+    this.sights = coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
   }
 
-  onSelect(event: Event) {
-    console.log(this.selectedCategory)
+  searchSubmit() {
+    this.coreService.searchSights()
   }
+
+  prevPage() {
+    this.pageNumber--;
+    this.sights = this.coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
+  }
+
+  exactPage(page: number) {
+    this.pageNumber = page+1;
+    this.sights = this.coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
+  }
+
+  nextPage() {
+    this.pageNumber++;
+    this.sights = this.coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
+  }
+
+  protected readonly Array = Array;
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {SearchPageComponent} from "./core/search-page/search-page.component";
+import {SightDetailComponent} from "./core/sight-detail/sight-detail.component";
 
 const authRoutes: Routes = [
   {path:'login', component: LoginComponent, title: 'Login'},
@@ -10,7 +11,8 @@ const authRoutes: Routes = [
 ]
 const routes: Routes = [
   {path:'auth', children: authRoutes},
-  {path:'search', component: SearchPageComponent, title: 'Search' }
+  {path:'search', component: SearchPageComponent, title: 'Search' },
+  {path:'sight/:id', component: SightDetailComponent, title: 'Sight'}
 ];
 
 @NgModule({

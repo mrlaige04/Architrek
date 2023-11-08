@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Linq;
+using System.Reflection;
 using Application.Common.Interfaces;
 using Domain.Entities;
 using Infrastructure.Identity;
@@ -27,6 +28,35 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Id
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+
+        var categories = new List<Category> {
+            new Category("Rivers"),
+            new Category("Buildings"),
+            new Category("Cities"),
+            new Category("Cats")
+        };
+
+        categories.ForEach(category => category.Id = Guid.NewGuid());
+
+        builder.Entity<Category>()
+            .HasData(
+                categories
+            );
+
+        var sights = Enumerable
+            .Range(1, 50)
+            .ToList()
+            .Select(i => new Sight() { Id = Guid.NewGuid(), CategoryId = categories[Random.Shared.Next(0, categories.Count - 1)].Id, Name = $"Test{i}" });
+        
+
+        
+
+        builder.Entity<Sight>()
+            .HasData(
+                sights
+            );
+
 
         base.OnModelCreating(builder);
     }

@@ -37,7 +37,7 @@ public class IdentityController : ApiControllerBase
         var user = new ApplicationUser
         {
             Email = request.Email,
-            UserName = request.Username ?? request.Email
+            UserName = string.IsNullOrEmpty(request.Username) ? request.Email : request.Username
         };
 
         var createResult = await _userManager.CreateAsync(user, request.Password);
@@ -113,10 +113,11 @@ public class IdentityController : ApiControllerBase
     {
         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-        var text = $"""
-            Confirmation code: {code}
-            """;
+        using var sr = new StreamReader("./Identity/VerificationEmailHtml.txt");
+        var msg = await sr.ReadToEndAsync();
 
-        await _emailSender.SendEmailAsync(user.Email, "Confirmation", text);
+        msg = msg.Replace("{{code}}", code);
+
+        await _emailSender.SendEmailAsync(user.Email, "Confirmation", msg);
     }
 }

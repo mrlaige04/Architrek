@@ -40,15 +40,25 @@ export class AuthService {
     return this.http.post(confirmEmailUri, confirmEmailModel, {headers: headers})
   }
 
-  /*isAuthenticated()
+  isAuthenticated(): boolean
   {
     let accessToken = localStorage.getItem('accessToken')
     if (!accessToken) return false;
 
     let jwt = jwtDecode(accessToken);
-    if (!jwt.exp & jwt.exp * 100 > )
 
-    return jwt.exp && jwt.exp * 1000 <= Date.now()
-  }*/
+    if (!jwt.exp) return false;
+    return !this.tokenExpired(accessToken)
+  }
+
+  logout() {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('refreshToken')
+  }
+
+  private tokenExpired(token: string) {
+    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
+  }
 }
 

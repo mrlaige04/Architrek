@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {CategoryName} from "./Models/category-name";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Category} from "./Models/category";
+import {GetAllSightsQuery} from "./cqrs/sights/getSights/getAllSights/GetAllSightsQuery";
+import {PaginatedList} from "./Models/PaginatedList";
+import {Sight} from "./Models/Sight";
+import {Guid} from "guid-typescript";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +14,25 @@ export class CoreService {
   apiUrl: string = "https://localhost:7143/api/"
   constructor(private httpClient: HttpClient) { }
 
-  getCategories() : Observable<CategoryName[]> {
+  getAllCategories(): Observable<Category[]> {
     let uri = this.apiUrl + "categories";
-    return this.httpClient.get<CategoryName[]>(uri)
+    return this.httpClient.get<Category[]>(uri);
+  }
+
+  getAllSights(query: GetAllSightsQuery): Observable<PaginatedList<Sight>> {
+    let uri = this.apiUrl + "sights"
+    let options = new HttpParams()
+      .set('pageNumber', query.pageNumber)
+      .set('pageSize', query.pageSize)
+    return this.httpClient.get<PaginatedList<Sight>>(uri, {params: options})
+  }
+
+  getSightById(id: Guid) {
+    let uri = this.apiUrl + "sights/" + id;
+    return this.httpClient.get<Sight|undefined>(uri)
+  }
+
+  searchSights() {
+
   }
 }

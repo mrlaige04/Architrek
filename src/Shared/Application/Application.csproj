@@ -16,9 +16,5 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CQRS\SightCollection\GetSights\" />
-  </ItemGroup>
-
 
 </Project>

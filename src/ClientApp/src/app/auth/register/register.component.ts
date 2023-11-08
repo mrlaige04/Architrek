@@ -5,6 +5,8 @@ import {AuthService} from "../auth.service";
 import {Guid} from "guid-typescript";
 import {ConfirmEmail} from "../models/ConfirmEmail";
 import {Router} from "@angular/router";
+import {ToastersService} from "../../services/ToastersService";
+import {ThemeService} from "../../Shared/theme.service";
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,12 @@ export class RegisterComponent {
 
   userId: Guid|null = null;
   code: string = "";
-  constructor(fb: FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(fb: FormBuilder,
+              private auth: AuthService,
+              private router: Router,
+              private toastr: ToastersService,
+              public themeService: ThemeService
+              ) {
     this.registerGroup = fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       username: new FormControl(''),
@@ -25,7 +32,6 @@ export class RegisterComponent {
         validation: {
           digit: true,
           lowerCase: true,
-          specialCharacter: false,
           upperCase: true
         }
       })]),
@@ -34,21 +40,27 @@ export class RegisterComponent {
   }
 
   submit() { // TODO : validation
-    if (true) {
+    alert('submit')
+    if (this.registerGroup.valid) {
       this.auth.register(this.registerGroup.value).subscribe(
         (data)=>{
+
           this.userId = data as Guid;
           this.step = 2;
         })
-    } else console.log("not valid")
+    } else alert("not valid")
   }
 
-  sendConfirmation() {
+   sendConfirmation() {
     let confirmModel = new ConfirmEmail(<Guid>this.userId, this.code.toString());
-    console.log(JSON.stringify(confirmModel));
     this.auth.confirmEmail(confirmModel)
-      .subscribe(data=>{
-        if (!data) this.router.navigate(['/'])
+      .subscribe(async data=>{
+        if (!data) {
+          this.toastr.showSuccess("You have successfully registered")
+          await this.router.navigate(['/'])
+        }
       })
   }
+
+  protected readonly alert = alert;
 }

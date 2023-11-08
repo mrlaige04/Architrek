@@ -4,6 +4,8 @@ import {RxwebValidators} from "@rxweb/reactive-form-validators";
 import {AuthService} from "../auth.service";
 import {AccessTokenResponse} from "../models/accesstokenresponse";
 import {jwtDecode} from "jwt-decode";
+import {ThemeService} from "../../Shared/theme.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -12,33 +14,26 @@ import {jwtDecode} from "jwt-decode";
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  constructor(fb: FormBuilder, private auth: AuthService) {
+  constructor(fb: FormBuilder, private auth: AuthService, public themeService: ThemeService, private router: Router) {
     this.loginForm = fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, RxwebValidators.password({
-        validation: {
-          digit: true,
-          lowerCase: true,
-          specialCharacter: false,
-          upperCase: true,
-          alphabet: false
-        }
-      })])
+      password: new FormControl('', [Validators.required])
     })
   }
 
-  submit() {// TODO : form Validation and tokens
-    if (true)
+  submit() {
+    if (this.loginForm.valid)
     {
-      this.auth.login(this.loginForm.value).subscribe((data)=>{
+      this.auth.login(this.loginForm.value).subscribe(async (data)=>{
         let token = <AccessTokenResponse>data;
         if (token) {
           localStorage.setItem('accessToken', token.accessToken)
           localStorage.setItem('refreshToken', token.refreshToken)
-          let tkn = jwtDecode(token.accessToken);
-          console.log(tkn.exp)
+          await this.router.navigate(['/'])
         }
       })
     } else console.log("not valid")
   }
+
+  protected readonly alert = alert;
 }
