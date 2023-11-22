@@ -6,6 +6,6 @@ public class Location : BaseAuditableEntity
 
     public Country Country { get; set; }
     public Guid CountryId { get; set; }
-    public int Longitude { get; set; } 
-    public int Latitude { get; set; }
+    public double Longitude { get; set; } 
+    public double Latitude { get; set; }
 }

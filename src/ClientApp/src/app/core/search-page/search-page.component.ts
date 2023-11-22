@@ -5,6 +5,7 @@ import {PaginatedList} from "../Models/PaginatedList";
 import {Sight} from "../Models/Sight";
 import {Category} from "../Models/category";
 import {core} from "@angular/compiler";
+import {Guid} from "guid-typescript";
 
 @Component({
   selector: 'app-search-page',
@@ -12,9 +13,11 @@ import {core} from "@angular/compiler";
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent {
-  public selectedCategory: Category | null = null;
+  public selectedCategory: Guid | undefined = undefined;
   public categories: Observable<Category[]>;
   public sights: Observable<PaginatedList<Sight>>;
+
+  public query?: string;
 
   public pageNumber: number = 1;
   public pagesCount: number = 10;
@@ -26,7 +29,12 @@ export class SearchPageComponent {
   }
 
   searchSubmit() {
-    this.coreService.searchSights()
+    this.sights = this.coreService.searchSights({
+      pageSize: this.pagesCount,
+      pageNumber: this.pageNumber,
+      categoryId: this.selectedCategory,
+      query: this.query ?? ''
+    })
   }
 
   prevPage() {
@@ -45,4 +53,5 @@ export class SearchPageComponent {
   }
 
   protected readonly Array = Array;
+  protected readonly undefined = undefined;
 }

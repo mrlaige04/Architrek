@@ -6,6 +6,10 @@ import {AccessTokenResponse} from "../models/accesstokenresponse";
 import {jwtDecode} from "jwt-decode";
 import {ThemeService} from "../../Shared/theme.service";
 import {Router} from "@angular/router";
+import { CryptoService } from 'src/app/Shared/crypto.service';
+import {catchError, of, throwError} from "rxjs";
+import {HttpErrorResponse} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +18,12 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  constructor(fb: FormBuilder, private auth: AuthService, public themeService: ThemeService, private router: Router) {
+  hasError = false;
+  errorReason = '';
+  constructor(fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router
+   ) {
     this.loginForm = fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -22,18 +31,34 @@ export class LoginComponent {
   }
 
   submit() {
+    this.hasError = false;
+    this.errorReason = '';
     if (this.loginForm.valid)
     {
-      this.auth.login(this.loginForm.value).subscribe(async (data)=>{
-        let token = <AccessTokenResponse>data;
-        if (token) {
-          localStorage.setItem('accessToken', token.accessToken)
-          localStorage.setItem('refreshToken', token.refreshToken)
-          await this.router.navigate(['/'])
-        }
-      })
-    } else console.log("not valid")
+      this.auth.login(this.loginForm.value)
+          .subscribe(
+          async (data) => {
+              if (data != null && (<LoginError>data).failed) {
+                  this.hasError = true;
+                  this.errorReason = (<LoginError>data).reason
+              } else {
+                  let token = <AccessTokenResponse>data;
+                  if (token) {
+                      this.auth.authenticateFromToken(token);
+                      await this.router.navigate(['/'])
+                  }
+              }
+          }
+      )
+    } else {
+        this.hasError = true;
+        this.errorReason = 'Email is not valid';
+    }
   }
 
-  protected readonly alert = alert;
+
+}
+export class LoginError  {
+    constructor(public failed: boolean, public reason: string) {
+    }
 }

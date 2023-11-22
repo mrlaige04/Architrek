@@ -1,64 +1,206 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {LoginModel} from "./models/loginmodel";
-import {Observable} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, of} from "rxjs";
 import {RegisterModel} from "./models/registermodel";
 import {AccessTokenResponse} from "./models/accesstokenresponse";
 import {ValidationProblem} from "./models/ValidationProblem";
-import {Guid} from "guid-typescript";
-import {ConfirmEmail} from "./models/ConfirmEmail";
-import {jwtDecode} from "jwt-decode";
+import {CryptoService} from '../Shared/crypto.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   baseUri = "https://localhost:7143/api/Identity/"
-  constructor(private http: HttpClient) { }
+  authTokenKey = "authToken"
+  expiresTokenKey = "tokenExpires"
 
-  login(loginModel: LoginModel): Observable<AccessTokenResponse|ValidationProblem> {
+  private readonly isAuthenticatedSubject : BehaviorSubject<boolean>;
+  isAuthenticated$: Observable<boolean>;
+
+  constructor(
+    private http: HttpClient,
+    private crypto: CryptoService,
+    )
+  {
+    this.isAuthenticatedSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
+    this.isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+  }
+
+  private get currentToken(): AccessTokenResponse | null {
+    let codedToken = localStorage.getItem(this.authTokenKey)
+    if (codedToken == null) return null;
+
+    let tokenString = this.crypto.decrypt(codedToken);
+    if (this.isJson(tokenString)) {
+      let json = <AccessTokenResponse>JSON.parse(tokenString);
+      return json as AccessTokenResponse;
+    }
+    return null;
+  }
+
+  get accessToken(): AccessTokenResponse|null {
+    let codedToken = localStorage.getItem(this.authTokenKey)
+    let expires = localStorage.getItem(this.expiresTokenKey)
+
+    if (codedToken == null || expires == null) return null;
+    let tokenString = this.crypto.decrypt(codedToken);
+    let numericExpires = parseFloat(expires)
+
+    if (isNaN(numericExpires) && !isFinite(numericExpires)) {
+      return null;
+    }
+
+    if (this.isJson(tokenString)) {
+      let json = <AccessTokenResponse>JSON.parse(tokenString);
+
+      let token = json as AccessTokenResponse;
+      if (this.tokenExpired(numericExpires)) {
+        let refreshResult = false;
+        this.refresh(token.refreshToken).subscribe(
+            (_refreshResult: boolean) => { refreshResult = _refreshResult; }
+        )
+        if (refreshResult) return this.currentToken;
+        else return null;
+      }
+      else return token;
+    } else return null;
+  }
+
+
+  checkEmailAvailability(email: string): Observable<boolean> {
+    let uri = this.baseUri + "emailAvailable?email=" + email;
+    return this.http.get<boolean>(uri);
+  }
+
+  login(loginModel: LoginModel): Observable<AccessTokenResponse|ValidationProblem|{failed:boolean, reason:string}|null> {
     let loginUri = this.baseUri + "login"
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("accept", "application/json")
     return this.http.post<AccessTokenResponse|ValidationProblem>(loginUri, loginModel, {headers:headers})
+        .pipe(
+          catchError((error: HttpErrorResponse) => {
+            if (error.status == 401) {
+              return of({failed: true, reason: "Invalid credentials or (user does not exists or has not confirmed account)"})
+            }
+            return of(null)
+          }))
   }
 
-  register(registerModel: RegisterModel): Observable<Guid|ValidationProblem> {
+  register(registerModel: RegisterModel): Observable<void|ValidationProblem> {
     let registerUri = this.baseUri + "register"
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("accept", "application/json")
-    return this.http.post<Guid|ValidationProblem>(registerUri, registerModel, {headers: headers})
+    return this.http.post<void|ValidationProblem>(registerUri, registerModel, {headers: headers})
   }
 
-  confirmEmail(confirmEmailModel: ConfirmEmail) {
-    let confirmEmailUri = this.baseUri+"confirmEmail";
-    const headers = new HttpHeaders()
-      .set("Content-Type", "application/json")
-
-    return this.http.post(confirmEmailUri, confirmEmailModel, {headers: headers})
-  }
+  // confirmEmail(confirmEmailModel: ConfirmEmail) {
+  //   let confirmEmailUri = this.baseUri+"confirmEmail";
+  //   const headers = new HttpHeaders()
+  //     .set("Content-Type", "application/json")
+  //
+  //   return this.http.post(confirmEmailUri, confirmEmailModel, {headers: headers})
+  // }
 
   isAuthenticated(): boolean
   {
-    let accessToken = localStorage.getItem('accessToken')
-    if (!accessToken) return false;
+    let codedToken = localStorage.getItem(this.authTokenKey)
+    let expires = localStorage.getItem(this.expiresTokenKey)
 
-    let jwt = jwtDecode(accessToken);
+    if (!codedToken || !expires) {
+      //this.isAuthenticatedSubject.next(false);
+      this.clearAuthData()
+      return false;
+    }
 
-    if (!jwt.exp) return false;
-    return !this.tokenExpired(accessToken)
+    let numericExpires = parseFloat(expires)
+    if (isNaN(numericExpires) && !isFinite(numericExpires)) {
+      //this.isAuthenticatedSubject.next(false);
+      this.clearAuthData();
+      return false;
+    }
+
+    let tokenString = this.crypto.decrypt(codedToken);
+
+    if (this.isJson(tokenString)) {
+      let json = <AccessTokenResponse>JSON.parse(tokenString);
+
+      let token = json as AccessTokenResponse;
+      if (this.tokenExpired(numericExpires)) {
+        let refreshResult = false;
+        this.refresh(token.refreshToken).subscribe(
+          (_refreshResult: boolean) => { refreshResult = _refreshResult; }
+        )
+        //this.isAuthenticatedSubject.next(refreshResult);
+        if (!refreshResult) this.clearAuthData()
+        return refreshResult;
+      } else return true;
+    } else {
+     // this.isAuthenticatedSubject.next(false);
+      this.clearAuthData()
+      return false;
+    }
+  }
+
+  refresh(refreshToken: string): Observable<boolean> {
+    let uri = this.baseUri + "refresh";
+    const headers = new HttpHeaders()
+      .set("Content-Type", "application/json")
+
+    return this.http.post(uri, JSON.stringify({refreshToken: refreshToken}), {headers: headers}).pipe(
+      map((response:any)=>{
+        if (response instanceof AccessTokenResponse) {
+          this.authenticateFromToken(response);
+          return true;
+        }
+        return false;
+      }),
+      catchError(error => {
+        if (error.status === 401) return of(false);
+        throw error;
+      })
+    )
+  }
+
+  isJson(str: string): boolean {
+    try {
+      JSON.parse(str);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  authenticateFromToken(token: AccessTokenResponse) {
+    if (!token) return;
+    const timespan = token.expiresIn * 1000;
+    const expires = new Date().getTime() + timespan;
+
+    let codedToken = this.crypto.encrypt(JSON.stringify(token));
+    localStorage.setItem(this.authTokenKey, codedToken)
+    localStorage.setItem(this.expiresTokenKey, expires.toString())
+    this.isAuthenticatedSubject.next(true);
+  }
+
+
+  private clearAuthData() {
+    localStorage.removeItem(this.authTokenKey)
+    localStorage.removeItem(this.expiresTokenKey)
   }
 
   logout() {
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
+    if (this.isAuthenticated()) {
+      this.isAuthenticatedSubject.next(false);
+    }
+    localStorage.removeItem(this.authTokenKey)
+    localStorage.removeItem(this.expiresTokenKey)
   }
 
-  private tokenExpired(token: string) {
-    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
-    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
+  private tokenExpired(expiresNumber: number): boolean {
+    const currentTime = new Date().getTime();
+    return currentTime > expiresNumber;
   }
 }
-

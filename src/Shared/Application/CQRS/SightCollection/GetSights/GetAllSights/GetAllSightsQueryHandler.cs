@@ -17,6 +17,9 @@ public class GetAllSightsQueryHandler : IRequestHandler<GetAllSightsQuery, Pagin
 
     public Task<PaginatedList<Sight>> Handle(GetAllSightsQuery request, CancellationToken cancellationToken)
     {
-        return _context.Sights.PaginatedListAsync(request.PageNumber, request.PageSize);
+        return _context.Sights
+            .Include(s=>s.SightPhotos)
+            .Include(s=>s.Tags)
+            .PaginatedListAsync(request.PageNumber, request.PageSize);
     }
 }

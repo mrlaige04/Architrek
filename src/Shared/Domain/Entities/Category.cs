@@ -6,9 +6,10 @@ public class Category : BaseAuditableEntity
         Name = name;
     }
 
+    public Category? Parent { get; set; }
+    public Guid? ParentId { get; set; }
+    public ICollection<Category> Subcategories { get; set; }
+
     public string Name { get; set; }
-
-    public ICollection<Property> Properties { get; set; } = null!;
-
     public ICollection<Sight> Sights { get; set; } = null!;
 }

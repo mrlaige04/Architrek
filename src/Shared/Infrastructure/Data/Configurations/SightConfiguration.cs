@@ -9,11 +9,7 @@ public class SightConfiguration : IEntityTypeConfiguration<Sight>
     {
         builder.HasKey(s => s.Id);
 
-        builder
-            .HasMany(s=>s.PropertyValues)
-            .WithOne(pv=>pv.Sight)
-            .HasForeignKey(pv=>pv.SightId)
-            .OnDelete(DeleteBehavior.Cascade);
+       
 
         builder
             .HasOne(s=>s.Location)
@@ -35,7 +31,8 @@ public class SightConfiguration : IEntityTypeConfiguration<Sight>
 
         builder
             .HasMany(s => s.Tags)
-            .WithMany(t => t.Sights)
-            .UsingEntity("SightTag");
+            .WithOne(t => t.Sight)
+            .HasForeignKey(t => t.SightId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

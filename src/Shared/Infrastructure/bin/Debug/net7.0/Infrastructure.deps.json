@@ -9,6 +9,7 @@
       "Infrastructure/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Bogus": "34.0.2",
           "Elasticsearch.Net": "7.17.5",
           "Microsoft.AspNetCore.Authorization": "7.0.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.11",
@@ -25,6 +26,14 @@
           "lib/net7.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "4.1.1.0",
             "fileVersion": "4.1.1.0"
+          }
+        }
+      },
+      "Bogus/34.0.2": {
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "assemblyVersion": "34.0.2.0",
+            "fileVersion": "34.0.2.0"
           }
         }
       },
@@ -366,6 +375,13 @@
       "sha512": "sha512-+UcJ2s+gf2wMNrwadCaHZV2DMcGgBU1t22A+jm40P4MHQRLy9hcleGy5xdVWd4dXZPa5Vlp4TG5xU2rhoDYrBA==",
       "path": "ardalis.guardclauses/4.1.1",
       "hashPath": "ardalis.guardclauses.4.1.1.nupkg.sha512"
+    },
+    "Bogus/34.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2KQAuMn3fLAQ2r6jeiffZnpv0bi3GCW3iRB2v1KeHIEBu8MNTh9dBlLTZwGvM0pr+9doKkU8L5JgCURmTmT88A==",
+      "path": "bogus/34.0.2",
+      "hashPath": "bogus.34.0.2.nupkg.sha512"
     },
     "Elasticsearch.Net/7.17.5": {
       "type": "package",

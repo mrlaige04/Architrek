@@ -1,11 +1,11 @@
 ﻿using Application.Common.Interfaces;
 using CoreApi.Services;
 using CoreApi.Services.Interceptors;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.ComponentModel.DataAnnotations;
 
 namespace CoreApi;
-
 public static class RegisterServices
 {
     public static IServiceCollection AddWebUI(this IServiceCollection services)
@@ -15,7 +15,9 @@ public static class RegisterServices
        
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-        services.AddControllers();
+        services.AddControllers().AddNewtonsoftJson(
+            opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+        ); 
 
         services.AddScoped<EmailAddressAttribute>();
 
@@ -33,6 +35,13 @@ public static class RegisterServices
                     .AllowAnyMethod()
                     .SetIsOriginAllowed(pol => true);
             });
+        });
+
+        services.Configure<FormOptions>(f =>
+        {
+            f.ValueLengthLimit = int.MaxValue;
+            f.MultipartBodyLengthLimit = int.MaxValue;
+            f.MemoryBufferThreshold = int.MaxValue;
         });
 
         return services;

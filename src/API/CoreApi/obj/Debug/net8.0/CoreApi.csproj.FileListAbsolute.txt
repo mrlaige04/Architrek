@@ -29,7 +29,6 @@ D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\Cor
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.AssemblyInfoInputs.cache
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.AssemblyInfo.cs
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.csproj.CoreCompileInputs.cache
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.MvcApplicationPartsAssemblyInfo.cs
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.MvcApplicationPartsAssemblyInfo.cache
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.sourcelink.json
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets.build.json
@@ -62,3 +61,8 @@ D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\Cor
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MimeKit.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Elasticsearch.Net.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Nest.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Bogus.dll

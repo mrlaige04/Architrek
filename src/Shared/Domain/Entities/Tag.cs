@@ -3,6 +3,11 @@ public class Tag : BaseAuditableEntity
 {
     public string Name { get; set; }
     public string NameNormalized => Name.ToUpperInvariant();
+    public Tag(string name)
+    {
+        Name = name;
+    }
 
-    public ICollection<Sight> Sights { get; set; }
+    public Sight Sight { get; set; }
+    public Guid SightId { get; set; }
 }

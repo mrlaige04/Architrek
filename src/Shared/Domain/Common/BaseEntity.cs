@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace Domain.Common;
 public abstract class BaseEntity
 {
-    [Key] public Guid Id { get; set; }
+    [Key] public Guid Id { get; set; } = Guid.NewGuid();
 
     private readonly List<BaseEvent> _domainEvents = new();
 

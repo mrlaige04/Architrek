@@ -6,6 +6,9 @@ import { SearchSightCardComponent } from './search-sight-card/search-sight-card.
 import { SightDetailComponent } from './sight-detail/sight-detail.component';
 import {RouterLink} from "@angular/router";
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import {ReviewComponent} from "./review/review.component";
+import {AddReviewComponent} from "./add-review/add-review.component";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 
@@ -19,7 +22,10 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
   imports: [
     CommonModule,
     FormsModule,
-    RouterLink
+    RouterLink,
+    ReviewComponent,
+    AddReviewComponent,
+    NgxSpinnerModule
   ],
   providers:[AsyncPipe]
 })

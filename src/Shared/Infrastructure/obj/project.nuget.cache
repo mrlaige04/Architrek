@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Px4djNh6pFeRtajaEOcoISxTn/u1q1AYiBR7pnj1Wiwrz5vmVSgcs7/cknTOwT6FmXqOa8MRxWFnZRf+dkpJIg==",
+  "dgSpecHash": "JpRGUll8gyHAHsH1t3jK0WnI01J8HDxEruxK7WX1ixjOb2E8ipeewQDDi4vPiBCY2f/+pRZm/0GZOIVXiUroIQ==",
   "success": true,
   "projectFilePath": "D:\\KPI\\3 курс 1 семестр\\ТРПЗ\\Курсова\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\illia\\.nuget\\packages\\ardalis.guardclauses\\4.1.1\\ardalis.guardclauses.4.1.1.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\elasticsearch.net\\7.17.5\\elasticsearch.net.7.17.5.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",

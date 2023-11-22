@@ -17,6 +17,7 @@ public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryComman
     public async Task<Result> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
         var category = new Category(request.Name);
+
         await _elasticSearch.IndexEntityAsync(category);
 
         await _context.Categories.AddAsync(category, cancellationToken);

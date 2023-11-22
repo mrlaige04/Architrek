@@ -13,7 +13,7 @@ export class HideMenuDirective implements OnInit {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
 
-        if (this.appHideOnRoute.includes(currentRoute)) {
+        if (this.appHideOnRoute.includes(currentRoute) || this.appHideOnRoute.find(route => new RegExp(route).test(currentRoute))) {
           this.renderer.setStyle(this.elementRef.nativeElement, 'display', 'none');
         } else {
           this.renderer.removeStyle(this.elementRef.nativeElement, 'display');

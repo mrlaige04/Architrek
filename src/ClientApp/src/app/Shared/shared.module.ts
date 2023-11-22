@@ -4,6 +4,8 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {FooterComponent} from "./footer/footer.component";
 import { HideMenuDirective } from './hide-menu.directive';
 import {RouterLink} from "@angular/router";
+import {DynamicLogoComponent} from "./dynamic-logo/dynamic-logo.component";
+import {NavbarMenuComponent} from "./navbar/navbar-menu/navbar-menu.component";
 
 
 
@@ -18,9 +20,11 @@ import {RouterLink} from "@angular/router";
     FooterComponent,
     HideMenuDirective
   ],
-    imports: [
-        CommonModule,
-        RouterLink
-    ]
+  imports: [
+    CommonModule,
+    RouterLink,
+    DynamicLogoComponent,
+    NavbarMenuComponent
+  ]
 })
 export class SharedModule { }

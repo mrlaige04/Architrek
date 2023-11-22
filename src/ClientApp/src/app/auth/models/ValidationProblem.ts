@@ -1,6 +1,4 @@
-export interface ValidationProblem {
-  type: string;
-  title: string;
-  status: number;
-  errors: {}
+export class ValidationProblem {
+  constructor(public type: string, public title: string, public status: string, public errors: {}) {
+  }
 }

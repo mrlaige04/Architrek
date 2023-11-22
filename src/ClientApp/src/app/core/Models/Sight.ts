@@ -13,8 +13,8 @@ export class Sight {
               public location: Location,
               public category: Category,
               public sightPhotos: Array<SightPhoto>,
-              public reviews: Array<SightReview>,
               public propertyValues: Array<PropertyValue>,
-              public tags: Array<Tag>) {
+              public tags: Array<Tag>,
+              public reviews: Array<SightReview>,) {
   }
 }

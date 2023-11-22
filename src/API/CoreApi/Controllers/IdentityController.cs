@@ -1,7 +1,9 @@
-﻿using CoreApi.Identity;
+﻿using Application.Common.Models;
+using CoreApi.Identity;
 using CoreApi.Identity.Models.Request;
 using CoreApi.Identity.Models.Response;
 using Infrastructure.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -14,21 +16,36 @@ public class IdentityController : ApiControllerBase
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly EmailAddressAttribute _emailAddressAttribute;
     private readonly IEmailSender _emailSender;
-    private readonly TokenService _tokenService;
+    //private readonly TokenService _tokenService;
 
     public IdentityController(
-        UserManager<ApplicationUser> userManager, 
+        UserManager<ApplicationUser> userManager,
         EmailAddressAttribute emailAddressAttribute,
-        IEmailSender emailSender,
-        TokenService tokenService)
+        IEmailSender emailSender
+        )
     {
         _userManager = userManager;
         _emailAddressAttribute = emailAddressAttribute;
         _emailSender = emailSender;
-        _tokenService = tokenService;
+        //_tokenService = tokenService;
     }
 
-    [HttpPost, Route("register")]
+    [HttpGet, Route("emailAvailable")] public async Task<bool> EmailIsAvailable([FromQuery] string email)
+        => (await _userManager.FindByEmailAsync(email)) == null;
+
+
+    /*[HttpPost, Route(""), Authorize] public async Task<Results<Ok, UnauthorizedResult, Result>> SetUsername([FromBody] SetUsernameRequest request)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user is null) return Unauthorized();
+
+        var setUserNameResult = await _userManager.SetUserNameAsync(user, request.Username);
+        return setUserNameResult.ToApplicationResult();
+    }*/
+
+    //[HttpGet, Route(), Authorize] public async Task<Ok<>>
+
+    /*[HttpPost, Route("register")]
     public async Task<Results<Ok<Guid>, ValidationProblem>> Register([FromBody] RegisterRequest request)
     {
         if (string.IsNullOrEmpty(request.Email) || !_emailAddressAttribute.IsValid(request.Email)) 
@@ -119,5 +136,5 @@ public class IdentityController : ApiControllerBase
         msg = msg.Replace("{{code}}", code);
 
         await _emailSender.SendEmailAsync(user.Email, "Confirmation", msg);
-    }
+    }*/
 }

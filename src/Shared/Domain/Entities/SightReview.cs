@@ -6,8 +6,10 @@ public class SightReview : BaseAuditableEntity
 
     public ICollection<SightReviewPhoto>? Photos { get; set; }
 
+    public DateTime Posted { get; set; }
     public Guid OwnerId { get; set; }
-    public bool IsAnonymous { get; set; } 
+
+    public string? Reviewer { get; set; }
     public double Rating { get; set; }
     public string? ReviewText { get; set; }
 }

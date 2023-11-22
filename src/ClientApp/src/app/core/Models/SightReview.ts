@@ -1,4 +1,7 @@
+import {Guid} from "guid-typescript";
+import {SightReviewPhoto} from "./SightReviewPhoto";
+
 export class SightReview {
-  constructor(public rating: number, public isAnonymous: boolean, public reviewText?: string) {
+  constructor(public id: Guid, public rating: number, public posted: Date, public reviewText?: string, public reviewer?: string, public photos?: SightReviewPhoto[]) {
   }
 }

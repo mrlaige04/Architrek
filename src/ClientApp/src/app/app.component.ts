@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ToastersService} from "./services/ToastersService";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ import {ToastersService} from "./services/ToastersService";
 export class AppComponent {
   hideMenuRoutes = [
     '/auth/login',
-    '/auth/register'
+    '/auth/register',
+    '/admin'
   ]
 
   title = 'Architrek';
+
 }

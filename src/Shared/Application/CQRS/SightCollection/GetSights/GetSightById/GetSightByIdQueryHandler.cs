@@ -15,6 +15,12 @@ public class GetSightByIdQueryHandler : IRequestHandler<GetSightByIdQuery, Sight
 
     public async Task<Sight?> Handle(GetSightByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _context.Sights.FirstOrDefaultAsync(s =>s.Id == request.Id, cancellationToken: cancellationToken);
+        return await _context.Sights
+            .Include(s => s.SightPhotos)
+            .Include(s => s.Tags)
+            .Include(s => s.Location).ThenInclude(l => l.Country)
+            //.Include(s => s.Reviews).ThenInclude(r => r.Photos)
+            .FirstOrDefaultAsync(s => s.Id == request.Id, cancellationToken: cancellationToken);
+
     }
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import {CoreModule} from "./core/core.module";
 import {ToastrModule} from "ngx-toastr";
 import {ToastersService} from "./services/ToastersService";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 @NgModule({
@@ -24,16 +25,17 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AuthModule,
     CoreModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule.forRoot({type:'ball-scale-multiple'}),
     ToastrModule.forRoot({
       maxOpened: 3,
-
       positionClass: 'toast-top-right',
-
       preventDuplicates: true,
       tapToDismiss: true
     })
   ],
-  providers: [],
+  providers: [
+    provideClientHydration()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

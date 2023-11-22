@@ -1,5 +1,4 @@
 ﻿using Ardalis.GuardClauses;
-using CoreApi.Identity.Models.Providers;
 using Domain.Constants;
 using Infrastructure.Data;
 using Infrastructure.Identity;
@@ -42,7 +41,7 @@ public static class RegisterIdentity
             });
 
 
-        services.AddSingleton<IUserTwoFactorTokenProvider<ApplicationUser>, SixDigitUserTokenProvider>();
+        
 
         services
             .AddIdentityCore<ApplicationUser>(opt =>
@@ -62,7 +61,6 @@ public static class RegisterIdentity
             })
             .AddRoles<IdentityRole<Guid>>()
             .AddDefaultTokenProviders()
-            .AddTokenProvider<SixDigitUserTokenProvider>("SixDigitUserTokenProvider")
             .AddEntityFrameworkStores<ApplicationDbContext>();
         
         services.AddAuthorizationBuilder()
@@ -75,7 +73,33 @@ public static class RegisterIdentity
         
         return services;
     }
+    public static IServiceCollection AddIntegratedIdentity<TUser>(this IServiceCollection services) where TUser: IdentityUser<Guid>, new()
+    {
+        services.AddIdentityApiEndpoints<ApplicationUser>(opt =>
+        {
+            opt.User.RequireUniqueEmail = true;
+            opt.Password.RequireDigit = true;
+            opt.Password.RequireLowercase = true;
+            opt.Password.RequireUppercase = true;
+            opt.Password.RequireNonAlphanumeric = false;
+            opt.SignIn.RequireConfirmedAccount = false;
+            opt.SignIn.RequireConfirmedPhoneNumber = false;
+            opt.SignIn.RequireConfirmedEmail = true;
 
+            opt.ClaimsIdentity.RoleClaimType = ClaimTypes.Role;
+        })
+            .AddRoles<IdentityRole<Guid>>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+
+        
+        services.AddAuthorizationBuilder()
+            .AddPolicy("admin", cfg =>
+            {
+                cfg.RequireRole(Roles.Administrator);
+            });
+
+        return services;
+    }
     public static async Task<IApplicationBuilder> IdentityInitialize(this IApplicationBuilder app)
     {
         var sp = app.ApplicationServices.CreateScope();
@@ -101,6 +125,36 @@ public static class RegisterIdentity
             }
         }
 
+        await CreateDefaultAdmin(sp.ServiceProvider);
+
         return app;
+    }
+
+
+    public static async Task CreateDefaultAdmin(IServiceProvider sp)
+    {
+        var userManager = sp.GetRequiredService<UserManager<ApplicationUser>>();
+        var config = sp.GetRequiredService<IConfiguration>();
+
+        var email = config["admin:prebuilt:email"];
+        var password = config["admin:prebuilt:password"];
+
+        Guard.Against.Null(email, message: "Admin email must be set");
+        Guard.Against.Null(password, message: "Admin password must be set");
+
+        var user = await userManager.FindByEmailAsync(email);
+        if (user != null && await userManager.IsInRoleAsync(user, Roles.Administrator)) return;
+
+        var newUser = new ApplicationUser
+        {
+            Email = email,
+            UserName = email,
+            EmailConfirmed = true,
+        };
+        
+        var createUserResult = await userManager.CreateAsync(newUser, password);
+        var addToRoleResult = await userManager.AddToRoleAsync(newUser, Roles.Administrator);
+
+        if (!createUserResult.Succeeded || !addToRoleResult.Succeeded) Guard.Against.Null(newUser, "Admin must be set");
     }
 }
