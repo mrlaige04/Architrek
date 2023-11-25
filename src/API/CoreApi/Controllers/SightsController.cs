@@ -11,17 +11,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using System.Security.Claims;
 
 namespace CoreApi.Controllers;
 public class SightsController : ApiControllerBase
 {
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly ApplicationDbContext _context;
 
-    public SightsController(UserManager<ApplicationUser> userManager)
+    public SightsController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
     {
         _userManager = userManager;
+        _context = context;
     }
 
     [HttpGet, Route("")]
@@ -68,5 +69,39 @@ public class SightsController : ApiControllerBase
     public async Task<IEnumerable<SightReview>> SightReviews(Guid id)
     {
         return await Mediator.Send(new GetSightReviewsQuery { SightId = id });
+    }
+
+    [HttpPost, Route("{id:guid}/like"), Authorize]
+    public async Task<IActionResult> AddToFavorite(Guid id)
+    {
+        var sight = await _context.Sights.FirstOrDefaultAsync(x => x.Id == id);
+        if (sight == null) return NotFound();
+
+        var getUserId = Guid.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out Guid userId);
+        if (!getUserId) return Unauthorized();
+
+        var user = await _context.Users.Include(u=>u.FavoriteSights).FirstOrDefaultAsync(x => x.Id == userId);
+        if (user == null) return Unauthorized();
+
+        user.FavoriteSights.Add(sight);
+        await _context.SaveChangesAsync();
+        return Ok(Result.Success());
+    }
+
+    [HttpDelete, Route("{id:guid}/unlike"), Authorize]
+    public async Task<IActionResult> RemoveFromFavorite(Guid id)
+    {
+        var sight = await _context.Sights.FirstOrDefaultAsync(x => x.Id == id);
+        if (sight == null) return NotFound();
+
+        var getUserId = Guid.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out Guid userId);
+        if (!getUserId) return Unauthorized();
+
+        var user = await _context.Users.Include(u => u.FavoriteSights).FirstOrDefaultAsync(x => x.Id == userId);
+        if (user == null) return Unauthorized();
+
+        user.FavoriteSights.Remove(sight);
+        await _context.SaveChangesAsync();
+        return Ok(Result.Success());
     }
 }

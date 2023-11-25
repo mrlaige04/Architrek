@@ -14,7 +14,7 @@ import {Guid} from "guid-typescript";
 })
 export class SearchPageComponent {
   public selectedCategory: Guid | undefined = undefined;
-  public categories: Observable<Category[]>;
+  public categories: Observable<PaginatedList<Category>>;
   public sights: Observable<PaginatedList<Sight>>;
 
   public query?: string;
@@ -24,7 +24,6 @@ export class SearchPageComponent {
 
   constructor(private coreService: CoreService) {
     this.categories = coreService.getAllCategories()
-
     this.sights = coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
   }
 

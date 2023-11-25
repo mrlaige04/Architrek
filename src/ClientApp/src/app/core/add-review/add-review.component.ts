@@ -25,6 +25,10 @@ export class AddReviewComponent {
   }
 
   submit() {
+    if (this.rating > 5 || this.rating < 0) {
+      this.toastr.showError('Rating must be between 1 and 5')
+      return;
+    }
     this.core.reviewSight({sightId: this.sightId, text: this.text, rating: this.rating}, Array.from(this.photos||[]))
       .subscribe(result => {
         if (result.succeeded) {

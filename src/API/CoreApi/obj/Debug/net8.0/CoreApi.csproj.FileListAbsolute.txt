@@ -66,3 +66,4 @@ D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\Cor
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Bogus.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.MvcApplicationPartsAssemblyInfo.cs

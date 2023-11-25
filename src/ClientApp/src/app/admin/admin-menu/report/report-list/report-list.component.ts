@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-map-marker',
+  selector: 'app-report-list',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './map-marker.component.html',
-  styleUrl: './map-marker.component.scss'
+  templateUrl: './report-list.component.html',
+  styleUrl: './report-list.component.scss'
 })
-export class MapMarkerComponent {
+export class ReportListComponent {
 
 }

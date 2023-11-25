@@ -62,5 +62,12 @@ export class SightDetailComponent implements OnInit {
       else this.rating = nums.reduce((a,b)=>a+b,0) / nums.length
     }
   }
+
+
+  saveToFavorite() {
+    this.coreService.addToFavorite(this.sight!.id).subscribe(data => {
+      console.log(data)
+    })
+  }
 }
 

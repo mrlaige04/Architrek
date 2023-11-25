@@ -34,5 +34,11 @@ public class SightConfiguration : IEntityTypeConfiguration<Sight>
             .WithOne(t => t.Sight)
             .HasForeignKey(t => t.SightId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder
+            .HasMany(s => s.Information)
+            .WithOne(i => i.Sight)
+            .HasForeignKey(i => i.SightId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

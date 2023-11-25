@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Models;
+using Domain.Entities;
 
 namespace Application.CQRS.Categories.GetAllCategories;
-public record GetAllCategoriesQuery : IRequest<IEnumerable<Category>>;
+public record GetAllCategoriesQuery : IRequest<PaginatedList<Category>>;

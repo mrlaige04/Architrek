@@ -5,6 +5,7 @@ import {SightReview} from "./SightReview";
 import {PropertyValue} from "./PropertyValue";
 import {Tag} from "./Tag";
 import {Guid} from "guid-typescript";
+import {Information} from "./Information";
 
 export class Sight {
   constructor(public id: Guid,
@@ -14,6 +15,7 @@ export class Sight {
               public category: Category,
               public sightPhotos: Array<SightPhoto>,
               public propertyValues: Array<PropertyValue>,
+              public information: Array<Information>,
               public tags: Array<Tag>,
               public reviews: Array<SightReview>,) {
   }

@@ -19,9 +19,9 @@ export class CoreService {
   apiUrl: string = "https://localhost:7143/api/"
   constructor(private httpClient: HttpClient) { }
 
-  getAllCategories(): Observable<Category[]> {
+  getAllCategories(): Observable<PaginatedList<Category>> {
     let uri = this.apiUrl + "categories";
-    return this.httpClient.get<Category[]>(uri);
+    return this.httpClient.get<PaginatedList<Category>>(uri);
   }
 
   getAllSights(query: GetAllSightsQuery): Observable<PaginatedList<Sight>> {
@@ -71,6 +71,17 @@ export class CoreService {
     let uri = this.apiUrl + "Sights/" + id.toString() + "/reviews"
     return this.httpClient.get<SightReview[]>(uri)
   }
+
+  addToFavorite(id: Guid) {
+    let uri = this.apiUrl + "Sights/" + id.toString() + "/like"
+    return this.httpClient.post(uri, {})
+  }
+
+  removeFromFavorite(id: Guid) {
+    let uri = this.apiUrl + "Sights/" + id.toString() + "/unlike"
+    return this.httpClient.delete(uri, {})
+  }
+
   private fileToBase64(file: File) {
     return new SynchronousPromise<string>((resolve, reject) => {
       const reader = new FileReader();
@@ -87,4 +98,5 @@ export class CoreService {
       return false;
     }
   }
+
 }

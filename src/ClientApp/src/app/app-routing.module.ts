@@ -11,6 +11,10 @@ import {AdminMenuComponent} from "./admin/admin-menu/admin-menu.component";
 import {AdminMenuUsersComponent} from "./admin/admin-menu/admin-menu-users/admin-menu-users.component";
 import {_404Component} from "./Shared/404/404.component";
 import {CreateCategoryComponent} from "./admin/admin-menu/category/create-category/create-category.component";
+import {FavoriteSightsComponent} from "./user/profile/favorite-sights/favorite-sights.component";
+import {isAuthenticatedGuard} from "./auth/is-authenticated.guard";
+import {ReportComponent} from "./Shared/report/report.component";
+import {CategoryListComponent} from "./admin/admin-menu/category/category-list/category-list.component";
 
 
 const authRoutes: Routes = [
@@ -21,16 +25,23 @@ const authRoutes: Routes = [
 const adminRoutes: Routes = [
   { path:'', redirectTo: 'users', pathMatch: 'full'},
   { path: 'users', component: AdminMenuUsersComponent },
-  { path: 'createCategory', component: CreateCategoryComponent }
+  { path: 'createCategory', component: CreateCategoryComponent },
+  { path: 'categories', component: CategoryListComponent }
 ];
+
+const userRoutes: Routes = [
+  { path: 'favorite', component: FavoriteSightsComponent }
+]
 
 const routes: Routes = [
   {  path: '', component: StartPageComponent },
   {  path: 'auth', children: authRoutes, canActivateChild: [isNotAuthenticatedGuard] },
   {  path: 'search', component: SearchPageComponent, data: { title: 'Search' } },
+  { path: 'report', component: ReportComponent },
   {  path: 'sight/:id', component: SightDetailComponent, data: { title: 'Sight' } },
   {  path: 'admin', component: AdminMenuComponent, children: adminRoutes, canActivate: [isAdminGuard], canActivateChild: [isAdminGuard] },
-  { path: '**', component: _404Component}
+  {  path: 'user', children: userRoutes, canActivate: [isAuthenticatedGuard], canActivateChild: [isAuthenticatedGuard] },
+  {  path: '**', component: _404Component}
 ];
 
 @NgModule({

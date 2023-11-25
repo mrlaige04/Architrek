@@ -5,7 +5,7 @@ import {ThemeService} from "../../theme.service";
 import {AuthMenuComponent} from "./auth-menu/auth-menu.component";
 import {ThemeSwitcherComponent} from "../../theme-switcher/theme-switcher.component";
 import {AdminService} from "../../../admin/admin.service";
-import {Observable} from "rxjs";
+import {catchError, Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-navbar-menu',
@@ -17,7 +17,12 @@ import {Observable} from "rxjs";
 export class NavbarMenuComponent {
   isAdmin$: Observable<boolean>
   constructor(private admin: AdminService) {
-    this.isAdmin$ = admin.isInAdmin$;
+    this.isAdmin$ = admin.isInAdmin$
+      .pipe(
+        catchError(
+          _ =>of(false)
+        )
+      );
   }
 
 }

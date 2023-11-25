@@ -49,10 +49,27 @@ public class MeController : ApiControllerBase
                         new Tag("Church"),
                         new Tag("Turkey"),
                         new Tag("Religious")
-                    }
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The first church on the site was known as the Magna Ecclesia (Μεγάλη Ἐκκλησία, Megálē Ekklēsíā, 'Great Church') because of its size compared to the sizes of the contemporary churches in the city. According to the Chronicon Paschale, the church was consecrated on 15 February 360, during the reign of the emperor Constantius II (r. 337–361) by the Arian bishop Eudoxius of Antioch. It was built next to the area where the Great Palace was being developed. According to the 5th-century ecclesiastical historian Socrates of Constantinople, the emperor Constantius had c. 346 \"constructed the Great Church alongside that called Irene, which because it was too small, the emperor's father [Constantine] had enlarged and beautified.\" A tradition which is not older than the 7th or 8th century reports that the edifice was built by Constantius' father, Constantine the Great (r. 306–337). Hesychius of Miletus wrote that Constantine built Hagia Sophia with a wooden roof and removed 427 (mostly pagan) statues from the site. The 12th-century chronicler Joannes Zonaras reconciles the two opinions, writing that Constantius had repaired the edifice consecrated by Eusebius of Nicomedia, after it had collapsed. Since Eusebius was the bishop of Constantinople from 339 to 341, and Constantine died in 337, it seems that the first church was erected by Constantius." +
+                            "The nearby Hagia Irene (\"Holy Peace\") church was completed earlier and served as the cathedral until the Great Church was completed. Besides Hagia Irene, there is no record of major churches in the city-center before the late 4th century. Rowland Mainstone argued that the 4th-century church was not yet known as Hagia Sophia. Though its name as the 'Great Church' implies that it was larger than other Constantinopolitan churches, the only other major churches of the 4th century were the Church of St Mocius, which lay outside the Constantinian walls and was perhaps attached to a cemetery, and the Church of the Holy Apostles.\r\n\r\nThe church itself is known to have had a timber roof, curtains, columns, and an entrance that faced west. It likely had a narthex and is described as being shaped like a Roman circus. This may mean that it had a U-shaped plan like the basilicas of San Marcellino e Pietro and Sant'Agnese fuori le mura in Rome. However, it may also have been a more conventional three-, four-, or five-aisled basilica, perhaps resembling the original Church of the Holy Sepulchre in Jerusalem or the Church of the Nativity in Bethlehem. The building was likely preceded by an atrium, as in the later churches on the site." +
+                            "According to Ken Dark and Jan Kostenec, a further remnant of the 4th-century basilica may exist in a wall of alternating brick and stone banded masonry immediately to the west of the Justinianic church. The top part of the wall is constructed with bricks stamped with brick-stamps dating from the 5th century, but the lower part is constructed with bricks typical of the 4th century. This wall was probably part of the propylaeum at the west front of both the Constantinian and Theodosian Great Churches.\r\n\r\nThe building was accompanied by a baptistery and a skeuophylakion. A hypogeum, perhaps with a martyrium above it, was discovered before 1946, and the remnants of a brick wall with traces of marble revetment were identified in 2004. The hypogeum was a tomb that may have been part of the 4th-century church or may have been from the pre-Constantinian city of Byzantium. The skeuophylakion is said by Palladius to have had a circular floor plan, and since some U-shaped basilicas in Rome were funerary churches with attached circular mausolea (the Mausoleum of Constantina and the Mausoleum of Helena), it is possible it originally had a funerary function, though by 405 its use had changed. A later account credited a woman called Anna with donating the land on which the church was built in return for the right to be buried there.\r\n\r\nExcavations on the western side of the site of the first church under the propylaeum wall reveal that the first church was built atop a road about 8 m (26 ft) wide. According to early accounts, the first Hagia Sophia was built on the site of an ancient pagan temple, although there are no artifacts to confirm this."
+                        },
+                        new Information
+                        {
+                            Title = "Notable elements and decorations",
+                            Text = "Originally, under Justinian's reign, the interior decorations of Hagia Sophia consisted of abstract designs on marble slabs on the walls and floors, as well as mosaics on the curving vaults. Of these mosaics, the two archangels Gabriel and Michael are still visible in the spandrels (corners) of the bema. There were already a few figurative decorations, as attested by the late 6th-century ekphrasis of Paul the Silentiary, the Description of Hagia Sophia. The spandrels of the gallery are faced in inlaid thin slabs (opus sectile), showing patterns and figures of flowers and birds in precisely cut pieces of white marble set against a background of black marble. In later stages, figurative mosaics were added, which were destroyed during the iconoclastic controversy (726–843). Present mosaics are from the post-iconoclastic period.\r\n\r\nApart from the mosaics, many figurative decorations were added during the second half of the 9th century: an image of Christ in the central dome; Eastern Orthodox saints, prophets, and Church Fathers in the tympana below; historical figures connected with this church, such as Patriarch Ignatius; and some scenes from the Gospels in the galleries. Basil II let artists paint a giant six-winged seraph on each of the four pendentives. The Ottomans covered their faces with golden stars, but in 2009, one of them was restored to its original state."
+                        }
+                    },
+                    Description = "Hagia Sophia (lit. 'Holy Wisdom'; Turkish: Ayasofya; Greek: Ἁγία Σοφία, romanized: Hagía Sophía; Latin: Sancta Sapientia), officially the Hagia Sophia Grand Mosque (Turkish: Ayasofya-i Kebir Cami-i Şerifi), is a mosque and a major cultural and historical site in Istanbul, Turkey. The last of three church buildings to be successively erected on the site by the Eastern Roman Empire, it was completed in 537 AD. The site was an Eastern Orthodox church from 360 AD to 1204 when it was converted to a Catholic church following the Fourth Crusade. It was reclaimed in 1261 and remained Eastern Orthodox until the Ottoman conquest of Constantinople in 1453. It served as a mosque until 1935 when it became a museum. In 2020, the site once again became a mosque."
                 },
                 new Sight("Basilica of the Mother of God Peace")
                 {
+                    Description = "The Basilica of Our Lady of Peace (French: Basilique Notre-Dame de la Paix) is a Catholic minor basilica dedicated to Our Lady of Peace in Yamoussoukro, the administrative capital of Côte d'Ivoire (Ivory Coast). Guinness World Records lists it as the largest church in the world, having surpassed the previous record holder, Saint Peter's Basilica, upon completion. It has an area of 30,000 square meters (320,000 sq ft) and is 158 meters (518 ft) tall. However, it also includes a rectory and a villa (counted in the overall area), which are not strictly part of the church. It can accommodate 18,000 worshippers, compared to 60,000 for St. Peter's. Ordinary liturgies conducted at the basilica are usually attended by only a few hundred people. The basilica is administered by Polish Pallottines at a cost of US$1.5 million annually.",
                     Location = new Location
                     {
                         Country = ivoryCoast,
@@ -69,10 +86,24 @@ public class MeController : ApiControllerBase
                         new Tag("Church"),
                         new Tag("IvoryCoast"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "Architecture",
+                            Text = "While designing it after the Vatican basilica, the Lebanese architect Pierre Fakhoury constructed the dome to be slightly lower than the Basilica of Saint Peter but ornamented with a larger cross on top. The finished height is 158 meters (518 ft). The dome is more than twice the diameter of St. Peter's in Rome, 90 meters versus 41 meters (300 ft versus 136 ft). The base of the dome is much lower than Saint Peter's, so the overall height is slightly less. The basilica is constructed with marble imported from Italy and is furnished with 8,400 square meters (90,000 sq ft) of contemporary stained glass from France.\r\n\r\nColumns are plentiful throughout the basilica but are not uniform in style; the smaller columns are there for structural reasons, while the bigger ones are decorative and contain elevators, rainwater evacuation from the roof, and other building mechanical devices. There is enough space to seat 7,000 people in the nave, with standing room for an additional 11,000 people. Apart from the basilica are two identical villas. One of the villas accommodates the clergymen who operate the basilica. A room in the other villa is reserved for papal visits, of which only one has occurred, when the basilica was consecrated.\r\n\r\nThe wood chosen for the 7,000 pews in the Our Lady of Peace Basilica is iroko wood."
+                        },
+                        new Information
+                        {
+                            Title = "Construction",
+                            Text = "The cost of the basilica was met with some controversy globally when construction began, especially as Côte d'Ivoire was going through an economic and fiscal crisis at the time. Pope John Paul II agreed to consecrate the basilica on the condition that a hospital also be built nearby. This hospital, whose construction was frozen during the politico-military crisis from 2002 to 2011, was finally completed in 2014 and opened in January 2015, at a cost of €21.3 million."
+                        },
                     }
                 },
                 new Sight("Basilica of the Sacred Heart")
                 {
+                    Description = "The National Basilica of the Sacred Heart (French: Basilique nationale du Sacré-Cœur, Dutch: Nationale Basiliek van het Heilig-Hart) is a Roman Catholic minor basilica and parish church in Brussels, Belgium. It is dedicated to the Sacred Heart, inspired by the Basilique du Sacré-Coeur in Paris. Symbolically, King Leopold II laid the first stone in 1905 during the celebrations of the 75th anniversary of Belgian independence. The construction was halted by the two World Wars and finished only in 1970. Belonging to the Metropolitan Archdiocese of Mechelen–Brussels, it is one of the largest churches by area in the world.\r\n\r\n\r\n\r\n\r\n\r\n",
                     Location = new Location
                     {
                         Country = belgium,
@@ -89,10 +120,24 @@ public class MeController : ApiControllerBase
                         new Tag("Church"),
                         new Tag("Belgium"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = " In the mid-19th century, King Leopold I dreamed of turning the uninhabited Koekelberg hill in north-western Brussels into a royal residence area. After his death, his son, King Leopold II, envisioned building a Belgian Panthéon dedicated to Great Belgians there, inspired by the French Panthéon in Paris, to commemorate the 50th anniversary of Belgian independence. The king dropped this project due to the lack of enthusiasm of the Belgian population. It is nonetheless still attested today by the two large avenues—the Avenue des Gloires Nationales/Landsroemlaan and the Avenue du Panthéon/Pantheonlaan—that adjoin the site.\r\n\r\nIn 1902, Leopold II visited the Basilique du Sacré-Coeur of Paris, and inspired by it, decided to build a pilgrimage church back home, a national sanctuary dedicated to the Sacred Heart of Jesus. While he saw the opportunity to build his national Panthéon at the Namur Gate in Ixelles, Leopold II accepted that the land of Koekelberg be ceded by the Compagnie immobilière de Belgique to the Catholic Church with a view to building instead the national basilica there. The deed of donation of the 3.32 ha (8.2 acres) of land was signed on 12 December and confirmed on 31 December through a royal decree."
+                        },
+                        new Information
+                        {
+                            Title = "Building",
+                            Text = "The Koekelberg Basilica is one of the largest Art Deco buildings in the world and, at the time of its construction, was the fifth largest church building in the world, at 89 meters (292 ft) high and 164.5 meters (540 ft) long (outside length). It remains today one of the largest basilicas and can accommodate 3,500 people. The central nave is 141 meters (463 ft) long, and at its widest, the building is 107 meters (351 ft). The cupola rises 89 meters (292 ft) above ground and has a diameter of 33 meters (108 ft).\r\n\r\nThis enormous building houses Catholic Church celebrations in the two main Belgian national languages (Dutch and French), as well as conferences, exhibitions (as in 2007–08, the International Leonardo da Vinci Expo), a restaurant, a Catholic radio station, a theatre, and two museums. The building's exterior combines reinforced concrete with terracotta layering, Dutch belvédère bricks, and white dimension stone from Burgundy. The green roofs and domes are clad in Congolese copper.\r\n\r\nThe main entrance is flanked by two slender towers, 65 meters (213 ft) high, topped with reduced domes. The narthex-portal has a large balcony intended for open-air masses, the parapet of which was carved with a bas-relief depicting Christ the Merciful. Its pillars are extended by statues of the four evangelists by the Belgian-Danish sculptor Harry Elstrøm. From left to right, they depict Saint John and his eagle (1955), Saint Luke carrying the bull (1958), Saint Mark enlaced by the lion (1958), and Saint Matthew with man (1964)."
+                        }
                     }
                 },
                 new Sight("Basilica of Our Lady of Guadalupe")
                 {
+                    Description = "The Basilica of Santa María de Guadalupe, officially called Insigne y Nacional Basílica de Santa María de Guadalupe (in English: Basilica of Our Lady of Guadalupe), is a basilica of the Catholic Church dedicated to the Virgin Mary in her invocation of Our Lady of Guadalupe. It is located at the foot of the Hill of Tepeyac in the Gustavo A. Madero borough of Mexico City. It belongs to the Primate Archdiocese of Mexico through the Guadalupana Vicariate, which since November 4, 2018, is in the care of Monsignor Salvador Martínez Ávila, who has the title of general and episcopal vicar of Guadalupe and abbot of the basilica.\r\n\r\nEvery year, around twenty million pilgrims visit the sanctuary, with about nine million doing so in the days around December 12, the day on which Saint Mary of Guadalupe is celebrated. Annually, the Basilica of Santa María de Guadalupe has at least twice as many visitors as the best-known Marian shrines, making it an outstanding social and cultural phenomenon.",
                     Location = new Location
                     {
                         Country = mexico,
@@ -109,10 +154,23 @@ public class MeController : ApiControllerBase
                         new Tag("Church"),
                         new Tag("Mexico"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The church known as the Old Basilica of Guadalupe was built by the architect Pedro de Arrieta, with construction beginning in March 1695. On May 1, 1709, it opened its doors with a solemn novena. In 1749, it received the title of a collegiate church, meaning it had its own chapter and an abbot, although it was not a cathedral. Its portal is freestanding and simulates a screen. The four octagonal towers on its corners are crowned with mosaics or azulejos of the type called Talavera yellow with a blue border, similar to the dome of the transept, symbolizing the New Jerusalem mentioned in the Apocalypse (Rev 21, 18).\r\n\r\nAt the beginning of the 19th century, due to the construction nearby of the Capuchine Convent, the collegiate church suffered serious damage to walls and vaults, necessitating restoration and allowing redecoration of the sanctuary in the Neoclassical style, replacing the Baroque. The repairs to the sanctuary began around 1804 and were not concluded until 1836. Between 1810 and 1822, the work was suspended due to the War of Independence. The design was made by Agustín Paz and executed by the Neoclassicist architect Manuel Tolsá."
+                        },
+                        new Information  {
+                            Title = "Religious complex of Tepeyac",
+                            Text = "It is a temple built in 1649 by Luis Lasso de la Vega. According to tradition, it housed the image of Saint Mary of Guadalupe from 1695 to 1709 —the year in which it was transferred to the temple known as the Old Basilica— and the standard of Miguel Hidalgo from 1853 to 1896. The name is due to the fact that this chapel was originally built for the cult of the indigenous population to the Virgin. The foundations of the first two temples dedicated to the Virgin that Friar Juan de Zumárraga ordered to be built in the place indicated by Saint Juan Diego, days after the declared apparition of the Virgin of Guadalupe, are preserved under it. From 1531 until his death in 1548, Juan Diego lived in this place (and his relics or remains are kept in the same place), in charge of taking care of the first temple."
+                        }
                     }
                 },
                 new Sight("Ulm church")
                 {
+                    Description = "Ulm Minster (German: Ulmer Münster) is a Lutheran church located in Ulm, State of Baden-Württemberg, Germany. It is currently the tallest church in the world, with a steeple measuring 161.53 meters. The church is the fifth-tallest structure built before the 20th century.\r\n\r\nThough it is sometimes referred to as Ulm Cathedral because of its great size, the church is not a cathedral as it has never been the episcopal see of a bishop. Despite the towers and decorative elements being made of stone masonry, most of the walls, including the façades of the nave and choir, consist of visible brick. Therefore, the building is sometimes referred to as a brick church. As such, it lays claim to the rank of the second- to fourth-largest, after San Petronio Basilica in Bologna and together with Frauenkirche in Munich and St. Mary's Church in Gdańsk. The tower, however, was mainly built from sandstone.",
                     Location = new Location
                     {
                         Country = germany,
@@ -129,6 +187,19 @@ public class MeController : ApiControllerBase
                         new Tag("Church"),
                         new Tag("Germany"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The original parish church in Ulm caused difficulties for the citizens during the 14th-century conflicts involving Ulm, as it was located outside the city walls. Emperor Charles IV's siege of the city highlighted this issue. The citizens of Ulm sought a new, independent church within the city walls, leading to the decision by the city's nearly 10,000 inhabitants to finance the construction themselves. On June 30, 1377, Mayor Ludwig Krafft laid the foundation stone for the new church, designed by Heinrich Parler, the architect of Holy Cross Minster in Schwäbisch Gmünd.\r\n\r\nMichael Parler, with experience from working at the Dombauhütte in Prague, took over construction in 1381. Construction continued on the nave, initially conceived as a triple-aisled hall church with nearly equal height and width. Heinrich III Parler managed construction from 1387 to 1391. In 1392, Ulrich Ensingen, associated with Strasbourg Cathedral, was appointed master builder. It was Parler's plan to construct the Ulm Minster's 150 meters (490 ft) spire, the highest of any church. To balance proportions, the nave was designed to be much taller than initially intended, creating a noticeable height difference between the chancel and nave. The church was consecrated on July 25, 1405.\r\n\r\nIn 1446, Ulrich's son Matthäus took over construction, finishing the choir vault in 1449 and the vault over the northern nave in 1452. When he died in 1463, his son, Moritz, took over construction. Moritz completed the vaulting over the nave and constructed the sacrament house, ultimately realizing the church as a basilica according to Ulrich's plan."
+                        },
+                        new Information
+                        {
+                            Title = "Bells",
+                            Text = "The tower contains 13 bells in total and only 10 of the 13 swing. 6 bells in including the bourdon Gloriosa were cast by Heinrich Kurtz in Stuttgart 1956. Three bells serve for the clock, Leichenglocke is responsible to chime the quarter-hours, followed by the second largest bell Dominica chimes the hours. Prior to Dominica chiming the hours, a small bell called the Schlagglocke in the octogon also calls the hours. Only 9 of the 10 main bells swing electronically, this is because one of them known as the Schwörglocke rings only on Oath Monday via hand. The Schwörglocke is also the oldest bell in the Minister."
+                        }
                     }
                 }
             }
@@ -144,6 +215,7 @@ public class MeController : ApiControllerBase
             {
                 new Sight("Alcobaca Monastery")
                 {
+                    Description = "The Alcobaça Monastery (Mosteiro de Alcobaça) is a Catholic monastic complex located in the town of Alcobaça, in central Portugal. Established in 1153 by the first Portuguese king, Afonso Henriques, the monastery developed a close association with the Portuguese monarchy throughout its seven-century-long history. This association made the monastery the richest and most influential in Portugal by 1300, with a population of almost 1,000 monks and diverse business interests, including farming, fishing, and trade. The monastery closed in 1834 during the dissolution of the monasteries in Portugal.",
                     Location = new Location
                     {
                         Country = portugal,
@@ -160,10 +232,19 @@ public class MeController : ApiControllerBase
                         new Tag("Monasteries"),
                         new Tag("Portugal"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The Alcobaça Monastery, founded in 1153 by the first Portuguese king, Afonso Henriques, as a gift to Bernard of Clairvaux, is one of the first buildings associated with the Cistercian Order in Portugal. Construction began in 1178, and the monks initially lived in wooden houses, moving to the newly built monastery in 1223. The church proper was completed in 1252, making it the largest in Portugal at the time and an early example of truly Gothic architecture in the country.\r\n\r\nIn the late 13th century, King Denis I ordered the construction of the Gothic cloister, known as the Cloister of Silence, completing the medieval ensemble. The monks at Alcobaça dedicated their lives to religious meditation and produced illuminated manuscripts in a scriptorium. They also authored an early authoritative history of Portugal. The monastery's library was one of the largest medieval libraries in Portugal but was pillaged by the French in 1810 and suffered losses in an anti-clerical riot in 1834. The remaining manuscripts are now housed in the Biblioteca Nacional de Portugal, the national library in Lisbon."
+                        }
                     }
                 },
                 new Sight("Sümela Monastery")
                 {
+                    Description = "The Sumela Monastery, known as Moní Panagías Soumelá in Greek and Sümela Manastırı in Turkish, is a Greek Orthodox monastery dedicated to Mary. It is located at Karadağ (Sou Melá in Greek, meaning \"Black Mountain\") within the Pontic Mountains, in the Maçka district of Trabzon Province in modern Turkey.\r\n\r\nNestled in a steep cliff at an altitude of about 1,200 metres (3,900 ft) facing the Altındere valley, the Sumela Monastery holds great historical and cultural significance. It is also a major tourist attraction within Altındere National Park. Due to an increase in rock falls, the monastery was closed to the public on September 22, 2015, for safety reasons. Initially planned for one year, the closure was later extended to three years. The monastery finally reopened to tourists on May 25, 2019. It remains one of the most important historic and touristic venues in Trabzon.",
                     Location = new Location
                     {
                         Country = turkey,
@@ -180,10 +261,24 @@ public class MeController : ApiControllerBase
                         new Tag("Monasteries"),
                         new Tag("Turkey"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The Sumela Monastery has a rich history, and while its exact founding date is not known, the Turkish Ministry of Culture and Tourism suggests it was around AD 386, during the reign of the emperor Theodosius I (375–395). According to William Miller, Athenian monks named Barnabas and Sophronios are credited with founding the monastery, which became famous for an icon of the Theotokos known as the Panagia Gorgoepekoos, said to have been painted by the Apostle Luke.\r\n\r\nThroughout its long history, the monastery experienced periods of ruin and restoration by various emperors. In the 6th century, it was restored and enlarged by the Byzantine general Belisarius under the orders of Emperor Justinian. The monastery reached its present form in the 13th century, gaining prominence during the existence of the Empire of Trebizond.\r\n\r\nDuring the reign of Alexios III (1349–1390), Sumela received significant support and largess. According to legend, Alexios III was saved from a storm by the Theotokos and was instructed by her to restore the monastery. A chrysobull dated to 1365 confirmed the freedom and autonomy of the monastery, exempting it from most taxes and restoring serfs who had been taken illegally. The monastery continued to prosper with further grants during the reigns of subsequent princes."
+                        },
+                        new Information
+                        {
+                            Title = "Construction and buildings",
+                            Text = "The Sumela Monastery complex is rich in historical and architectural significance. The Rock Church, several chapels, kitchens, student rooms, a guesthouse, a library, and a sacred spring are among its principal elements.\r\n\r\nThe aqueduct at the entrance, which supplied water to the Monastery, is an impressive structure with restored arches. The entrance leads up a long stairway, and a guard-room is located next to it. The inner courtyard, accessed from the stairs, contains various monastery buildings, with a cave converted into a church at its center. The library is situated to the right.\r\n\r\nThe large building with a balcony, dating from 1840, served as the monks' cells and guest housing. The inner and outer walls of the Rock Church and the adjacent chapel are adorned with frescoes. The frescoes on the inner wall of the Rock Church, dating from the era of Alexios III of Trebizond, depict biblical scenes related to the story of Jesus and the Virgin Mary. The chapel's frescoes, painted in three different periods, date back to the early 18th century.\r\n\r\nDespite the historical significance, the frescoes have suffered serious damage due to vandalism. During the restoration works in 2015–2017, a secret tunnel leading to a place believed to have served as a temple or chapel for Christians was discovered. Additionally, previously unseen frescoes were uncovered, depicting themes such as heaven and hell, life, and death.\r\n\r\n\r\n\r\n\r\n\r\n"
+                        }
                     }
                 },
                 new Sight("Ostrog Monastery")
                 {
+                    Description = "The Ostrog Monastery in Montenegro is a remarkable site of the Serbian Orthodox Church, situated against an almost vertical background in the large rock of Ostroška Greda. Dedicated to Saint Basil of Ostrog (Sveti Vasilije Ostroški), who was buried here, the monastery offers stunning views of the Bjelopavlići plain.\r\n\r\nLocated in Danilovgrad Municipality, 50 km from Podgorica and 15 km from Nikšić, the Ostrog Monastery is renowned as the most popular pilgrimage place in Montenegro. Pilgrims and visitors are drawn to the spiritual and natural beauty of this unique site.\r\n\r\nIf you have any specific questions or topics you'd like to explore about the Ostrog Monastery, feel free to let me know!",
                     Location = new Location
                     {
                         Country = montenegro,
@@ -200,10 +295,19 @@ public class MeController : ApiControllerBase
                         new Tag("Monasteries"),
                         new Tag("Montenegro"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The Ostrog Monastery's history, with its founding by Metropolitan Bishop Vasilije in the 17th century, reflects a significant spiritual and historical legacy. The preservation of the cave-churches, especially the Church of the Presentation of the Mother of God to the Temple and the Holy Cross, contributes to the monastery's unique character.\r\n\r\nThe reconstruction in 1923–1926 after a fire underscores the enduring importance of the site. The frescoes in the Church of the Presentation, created in the late 17th century, and those in the Holy Cross church, painted by master Radul, are valuable cultural and artistic treasures.\r\n\r\nThe monastery's role during World War II, providing refuge for a detachment of Chetniks, adds another layer to its history, with events that unfolded during that tumultuous period."
+                        }
                     }
                 },
                 new Sight("Kiev Pechersk Lavra")
                 {
+                    Description = "Kyiv-Pechersk Lavra, also known as the Kyiv Monastery of the Caves, holds immense historical and religious significance in Eastern Orthodox Christianity. Established in 1051 as a cave monastery, it has played a central role in the religious and cultural life of Kyiv and Eastern Europe.\r\n\r\nThe Lavra's founding dates back to the monastic community that developed around the caves, and it has evolved into a major spiritual and cultural center over the centuries. The Lavra complex includes churches, underground caves with the relics of saints, and other architectural and artistic treasures.",
                     Location = new Location
                     {
                         Country = ukraine,
@@ -220,10 +324,19 @@ public class MeController : ApiControllerBase
                         new Tag("Monasteries"),
                         new Tag("Ukraine"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The history of Kyiv-Pechersk Lavra is indeed fascinating and rich. It's remarkable how the monastery, founded by Anthony, played a crucial role in the spread of monastic tradition in Kyivan Rus'. The Lavra's inclusion in the UNESCO World Heritage Site list and its recognition as one of the Seven Wonders of Ukraine underscore its cultural and historical significance.\r\n\r\nThe recent developments regarding the change in jurisdiction and the return of certain properties to direct state control highlight the ongoing dynamics between the state and religious institutions in Ukraine.\r\n\r\n"
+                        }
                     }
                 },
                 new Sight("Gelati Monastery")
                 {
+                    Description = " Gelati is indeed a remarkable medieval monastic complex with rich historical and cultural significance. Founded by King David IV of Georgia in 1106, it stands as a symbol of the Georgian Golden Age and houses impressive murals dating back to the 12th century.\r\n\r\nThe Gelati Monastery, with its stunning architecture and contributions to education and science in medieval Georgia, was rightfully recognized as a UNESCO World Heritage Site in 1994.",
                     Location = new Location
                     {
                         Country = georgia,
@@ -240,6 +353,14 @@ public class MeController : ApiControllerBase
                         new Tag("Monasteries"),
                         new Tag("Georgia"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The Gelati Monastery's history is fascinating, and it played a significant role not only as a religious center but also as an academy of science and education in Georgia during the Byzantine Empire. The construction, initiated by King David IV in 1106, reflects the cultural and intellectual achievements of the time.\r\n\r\nThe completion of the main church, the Church of the Virgin the Blessed, in 1130 under Demetrius I marked a significant milestone. The monastery served as the final resting place for King David IV, and it also housed treasures like the Ancient Gates of Ganja, acquired by King Demetrius I in 1138.\r\n\r\nMoreover, Gelati Monastery became a hub for scholars, scientists, theologians, and philosophers. The Gelati Academy, established by King David IV, attracted prominent figures such as Ioane Petritsi and Arsen Ikaltoeli. The academy's efforts in translating and compiling important works contributed to its reputation as \"a new Hellas\" and \"a second Athos.\""
+                        }
                     }
                 }
             }
@@ -262,6 +383,7 @@ public class MeController : ApiControllerBase
             {
                 new Sight("Mont Saint-Michel Castle")
                 {
+                    Description = " Mont-Saint-Michel is a truly remarkable place with a rich history. Its tidal island location off France's north-western coast, the abbey, and the surrounding area have made it a unique and iconic site.\r\n\r\nThe island's accessibility during low tide made it a significant pilgrimage destination, drawing many visitors to its abbey. The strategic location also played a role in its defense during historical conflicts, notably remaining unconquered during the Hundred Years' War. Even during a full attack by the English in 1433, a small garrison successfully defended the island.\r\n\r\nRecognizing its natural defensive advantages, Louis XI repurposed Mont-Saint-Michel as a prison during his reign. The abbey served regularly as a prison throughout the Ancien Régime, showcasing the versatility and historical significance of this picturesque island.",
                     Location = new Location
                     {
                         Country = france,
@@ -278,10 +400,24 @@ public class MeController : ApiControllerBase
                         new Tag("Castle"),
                         new Tag("France"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "Geography",
+                            Text = "The geological history of Mont-Saint-Michel is fascinating. The transformation from a dry land area in prehistoric times to the rocky tidal island we see today is a result of sea-level changes and coastal erosion.\r\n\r\nThe emergence of granite outcrops, including Mont-Saint-Michel, in the bay can be attributed to the durability of these rocks compared to the surrounding ones. The leucogranite that forms Mont-Saint-Michel solidified from molten magma around 525 million years ago during the Cambrian period. It's interesting to note that early geological descriptions referred to the leucogranite as \"granulite,\" but this terminology is now considered obsolete.\r\n\r\nMont-Saint-Michel's leucogranite is part of the Mancellian granitic batholith, and the Mont itself has a circumference of about 960 meters, with its highest point reaching 92 meters above sea level."
+                        },
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The history of Mont-Saint-Michel is indeed rich and steeped in legend. The story of the archangel Michael appearing to Bishop Aubert of Avranches in 708, instructing him to build a church on the rocky islet, adds a mystical and sacred dimension to the island's origin.\r\n\r\nThe strategic significance of Mont-Saint-Michel became evident during historical events, such as the Treaty of Compiègne in the 10th century, where the Cotentin Peninsula, including Mont-Saint-Michel, was granted to the Bretons. However, it remained outside the duchy of Brittany, and around 989-90, the bishoprics, including Mont-Saint-Michel, regained their bishops.\r\n\r\nIn 933, the mount gained further importance when William I Longsword annexed the Cotentin Peninsula, definitively making Mont-Saint-Michel part of Normandy. This period is depicted in the Bayeux Tapestry, illustrating events like Harold Godwinson rescuing Norman knights during the Breton–Norman war.\r\n\r\nThe Norman ducal patronage played a significant role in financing the spectacular Norman architecture of the abbey in the centuries that followed."
+                        }
                     }
                 },
                 new Sight("Neuschwanstein Castle")
                 {
+                    Description = " Neuschwanstein Castle is a remarkable historic palace with a fascinating history. Commissioned by King Ludwig II of Bavaria in the 19th century, the castle stands on a rugged hill in the foothills of the Alps, providing a picturesque and fairy-tale-like appearance.\r\n\r\nKing Ludwig II's decision to build Neuschwanstein Palace was driven by his desire to escape the constraints he perceived in Munich, despite the grandeur of the Munich Residenz, the main residence of the Bavarian monarchs. The castle also served as a tribute to the renowned composer Richard Wagner, whom King Ludwig II greatly admired.\r\n\r\nThe castle's location above the narrow gorge of the Pöllat stream, near lakes Alpsee and Schwansee, contributes to its scenic setting. Neuschwanstein Castle has become an iconic symbol of romantic architecture and is one of the most visited castles in Europe.",
                     Location = new Location
                     {
                         Country = germany,
@@ -298,10 +434,24 @@ public class MeController : ApiControllerBase
                         new Tag("Castle"),
                         new Tag("Germany"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "Location",
+                            Text = "The history of Schwangau and its surrounding castles, including Hohenschwangau Castle and the ruins of Schwanstein Castle, adds an intriguing layer to the cultural and architectural landscape of the region. It's interesting to note the role that King Maximilian II played in acquiring the ruins of Schwanstein Castle in 1832 and replacing them with the neo-Gothic palace, Hohenschwangau Castle, which became a summer residence for the royal family.\r\n\r\nThe presence of Vorderhohenschwangau Castle and Hinterhohenschwangau Castle, situated on a rugged hill overlooking Schwanstein Castle, the lakes Alpsee and Schwansee, and the village, provides a glimpse into the medieval history of the area. The fact that only ruins remained in the 19th century adds a sense of mystery and historical depth to the landscape."
+                        },
+                        new Information
+                        {
+                            Title = "History",
+                            Text = " Neuschwanstein Castle is indeed a fascinating example of castle Romanticism and the personal vision of King Ludwig II. The influence of Richard Wagner's operas on Ludwig's architectural choices is particularly interesting, as it reflects the king's desire to bring to life a Romanticist interpretation of the Middle Ages inspired by both architecture and musical mythology.\r\n\r\nThe fact that Ludwig drew inspiration from his journeys to the reconstructed Wartburg near Eisenach and the Château de Pierrefonds, transformed by Eugène Viollet-le-Duc, underscores the Romanticist trend of the time to create picturesque and historically evocative structures. The connection between Ludwig's vision, Wagner's operas, and the architectural projects of his time adds depth to the cultural and artistic context of Neuschwanstein Castle."
+                        }
                     }
                 },
                 new Sight("Prague Castle")
                 {
+                    Description = "Prague Castle is a remarkable historical complex with a rich history spanning centuries. Its role as the official office of the President of the Czech Republic adds a contemporary layer to its long-standing significance.\r\n\r\nThe castle's immense size, recognized by the Guinness Book of Records as the largest ancient castle in the world, reflects its importance as a seat of power for various rulers throughout history. From Bohemian kings to Holy Roman emperors and presidents of Czechoslovakia, Prague Castle has witnessed and played a crucial role in the political and cultural development of the region.\r\n\r\nThe inclusion of the Bohemian Crown Jewels within a hidden room adds an intriguing element of mystery to the castle's allure. ",
                     Location = new Location
                     {
                         Country = czech,
@@ -318,10 +468,19 @@ public class MeController : ApiControllerBase
                         new Tag("Castle"),
                         new Tag("Czech Republic"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = " The history of Prague Castle is truly fascinating, with roots dating back to the 9th century. The establishment of the Church of the Virgin Mary in 870 marked the beginning of this historic complex. The subsequent construction of the Basilica of Saint George and the Basilica of St. Vitus during the reign of Vratislaus I and St. Wenceslaus in the 10th century further enriched the architectural and cultural landscape.\r\n\r\nThe presence of the first convent in Bohemia within the castle, adjacent to the Church of St. George, adds a significant religious dimension to its history. Additionally, the erection of a Romanesque palace in the 12th century reflects the evolving architectural styles over the centuries.\r\n\r\nThe discovery of 13th-century Venetian coins at the site adds an intriguing layer of historical detail."
+                        }
                     }
                 },
                 new Sight("Bran Castle")
                 {
+                    Description = "Bran Castle has a rich history, and its association with the Dracula legend adds to its mystique. Built in 1377 by Saxons who were granted the privilege by Louis I of Hungary, the castle has become a national monument and landmark in Transylvania. While commonly known as Dracula's Castle, it's interesting to note that there's no direct evidence linking it to Bram Stoker's Dracula, and Stoker's description of Dracula's castle doesn't resemble Bran Castle.\r\n\r\nIt's fascinating how historical landmarks like Bran Castle can become intertwined with literary and cultural legends over time.",
                     Location = new Location
                     {
                         Country = romania,
@@ -338,10 +497,19 @@ public class MeController : ApiControllerBase
                         new Tag("Castle"),
                         new Tag("Romania"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = "The first documented mention of Bran Castle is the act issued by Louis I of Hungary on 19 November, 1377, giving the Saxons of Kronstadt, modern Brașov, the privilege to build the stone castle at their own expense and labor force; the settlement of Bran began to develop nearby. In 1438–1442, the castle was used in defense against the Ottoman Empire, and later became a customs post on the mountain pass between Transylvania and Wallachia. Although many castles of the time belonged to members of the nobility, it has been established that Bran Castle was built almost exclusively for fortification and protection of German colonists in Transylvania. It is believed the castle was briefly held by Mircea the Elder of Wallachia (r. 1386–95, 1397–1418) during whose period the customs point was established. The Wallachian ruler Vlad Țepeș, Vlad the Impaler (1448–1476), does not seem to have had a significant role in the history of the fortress, although he passed several times through the Bran Gorge. At some point, Bran Castle belonged to the Hungarian kings, but due to the failure of King Vladislas II (r. 1471–1516) to repay loans, the city of Brașov regained possession of the fortress in 1533. Bran played a militarily strategic role up to the mid-18th century."
+                        }
                     }
                 },
                 new Sight("Conwy Castle")
                 {
+                    Description = "Conwy Castle (Welsh: Castell Conwy; Welsh pronunciation: [kastɛɬ 'kɔnwɨ̞]) is a fortification in Conwy, located in North Wales. It was built by Edward I, during his conquest of Wales, between 1283 and 1287. Constructed as part of a wider project to create the walled town of Conwy, the combined defences cost around £15,000, a massive sum for the period. Over the next few centuries, the castle played an important part in several wars. It withstood the siege of Madog ap Llywelyn in the winter of 1294–95, acted as a temporary haven for Richard II in 1399, and was held for several months by forces loyal to Owain Glyndŵr in 1401.",
                     Location = new Location
                     {
                         Country = uk,
@@ -358,6 +526,14 @@ public class MeController : ApiControllerBase
                         new Tag("Castle"),
                         new Tag("United Kingdom"),
                         new Tag("Religious")
+                    },
+                    Information = new List<Information>
+                    {
+                        new Information
+                        {
+                            Title = "History",
+                            Text = " Before the English built the town of Conwy, Aberconwy Abbey, the site was occupied by a Cistercian monastery favored by the Welsh princes, as well as the location of one of the palaces (called llys) of the Welsh princes. From Conwy: \"the oldest structure is part of the town walls, at the southern end of the east side. Here one wall and the tower of a llys [palace/court house] belonging to Llywelyn the Great and his grandson Llywelyn ap Gruffydd have been incorporated into the wall. Built on a rocky outcrop, with an apsidal tower, it is a classic, native, Welsh build and stands out from the rest of the town walls, due to the presence of four window openings. It dates from the early 13th century and is the most complete remnant of any of his Llys.\"\r\n\r\nThe location also controlled an important crossing point over the River Conwy between the coastal and inland areas of North Wales, that Deganwy Castle for many years had defended. The kings of England and the Welsh princes had vied for control of the region since the 1070s, and the conflict had resumed during the 13th century, leading to Edward I intervening in North Wales for the second time during his reign in 1282."
+                        }
                     }
                 }
             }

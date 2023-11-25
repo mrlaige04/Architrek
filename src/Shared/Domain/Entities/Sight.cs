@@ -26,4 +26,6 @@ public class Sight : BaseAuditableEntity
     public ICollection<SightPhoto> SightPhotos { get; set; }
     public ICollection<SightReview> Reviews { get; set; }
     public ICollection<Tag> Tags { get; set; }
+
+    public ICollection<Information> Information { get; set; }
 }

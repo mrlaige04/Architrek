@@ -1,8 +1,10 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Mappings;
+using Application.Common.Models;
 using Domain.Entities;
 
 namespace Application.CQRS.Categories.GetAllCategories;
-public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, IEnumerable<Category>>
+public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, PaginatedList<Category>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IElasticSearchService _elasticSearch;
@@ -13,9 +15,9 @@ public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuer
         _elasticSearch = elasticSearch;
     }
 
-    public async Task<IEnumerable<Category>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
+    public async Task<PaginatedList<Category>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
     {
-        var categories = await _context.Categories.ToListAsync(cancellationToken);
+        var categories = await _context.Categories.PaginatedListAsync(1, 10);
         
         return categories;
     }

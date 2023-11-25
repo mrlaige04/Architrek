@@ -30,8 +30,6 @@ public class GetSightsFilteredQueryHandler : IRequestHandler<GetSightsFilteredQu
         }
 
 
-
-
         if (!string.IsNullOrEmpty(request.Query))
         {
             queryable = queryable.Where(s => EF.Functions.Like(s.Name.ToLower(), $"%{request.Query.ToLower()}%"));

@@ -19,7 +19,7 @@ public class GetSightByIdQueryHandler : IRequestHandler<GetSightByIdQuery, Sight
             .Include(s => s.SightPhotos)
             .Include(s => s.Tags)
             .Include(s => s.Location).ThenInclude(l => l.Country)
-            //.Include(s => s.Reviews).ThenInclude(r => r.Photos)
+            .Include(s=>s.Information)
             .FirstOrDefaultAsync(s => s.Id == request.Id, cancellationToken: cancellationToken);
 
     }

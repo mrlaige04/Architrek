@@ -9,6 +9,7 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
 import {ReviewComponent} from "./review/review.component";
 import {AddReviewComponent} from "./add-review/add-review.component";
 import {NgxSpinnerModule} from "ngx-spinner";
+import {SightLocationRouteComponent} from "./sight-location-route/sight-location-route.component";
 
 
 
@@ -19,14 +20,15 @@ import {NgxSpinnerModule} from "ngx-spinner";
     SightDetailComponent,
     StarRatingComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink,
-    ReviewComponent,
-    AddReviewComponent,
-    NgxSpinnerModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterLink,
+        ReviewComponent,
+        AddReviewComponent,
+        NgxSpinnerModule,
+        SightLocationRouteComponent
+    ],
   providers:[AsyncPipe]
 })
 export class CoreModule { }

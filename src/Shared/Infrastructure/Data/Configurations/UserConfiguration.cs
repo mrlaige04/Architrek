@@ -1,4 +1,5 @@
-﻿using Infrastructure.Identity;
+﻿using Domain.Entities;
+using Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,6 +14,16 @@ public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
             .HasMany(u => u.Reviews)
             .WithOne()
             .HasForeignKey(r => r.OwnerId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder
+            .HasMany(u => u.FavoriteSights)
+            .WithMany();
+
+        builder
+            .HasOne(u => u.Avatar)
+            .WithOne()
+            .HasForeignKey<UserAvatar>(a => a.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

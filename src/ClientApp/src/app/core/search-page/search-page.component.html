@@ -9,7 +9,7 @@
         rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100
         dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600">
       <option [defaultSelected]="true" [value]="undefined">All categories</option>
-      <option class="py-2 text-sm text-gray-700 dark:text-gray-200" *ngFor="let category of categories | async" [ngValue]="category.id">{{category.name}}</option>
+      <option class="py-2 text-sm text-gray-700 dark:text-gray-200" *ngFor="let category of (categories | async)?.items" [ngValue]="category.id">{{category.name}}</option>
     </select>
 
 
@@ -50,6 +50,6 @@
     </div>
   </div>
   <ng-template #notFound>
-    Not found(
+    Not found
   </ng-template>
 </div>
