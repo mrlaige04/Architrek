@@ -1,6 +1,8 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Mappings;
 using Application.Common.Models;
 using Application.CQRS.Admin.Categories.CreateCategoryCommand;
+using Application.CQRS.Admin.Sights.CreateSightCommand;
 using Domain.Constants;
 using Domain.Entities;
 using Infrastructure.Identity;
@@ -29,9 +31,9 @@ public class AdminController : ApiControllerBase
     }
 
     [HttpGet, Route("users")] 
-    public async Task<IEnumerable<ApplicationUser>> GetUsers()
+    public async Task<PaginatedList<ApplicationUser>> GetUsers([FromQuery] int pageSize, [FromQuery] int pageNumber)
     {
-        return await _userManager.Users.Include(u=>u.Avatar).ToListAsync();
+        return await _userManager.Users.Include(u=>u.Avatar).PaginatedListAsync(pageNumber, pageSize);
     }
 
     [HttpGet, Route("categories")]
@@ -69,6 +71,28 @@ public class AdminController : ApiControllerBase
 
         _context.Categories.Remove(category);
         await _context.SaveChangesAsync(CancellationToken.None);
+        return Result.Success();
+    }
+
+    [HttpGet, Route("countries")]
+    public async Task<List<Country>> GetCountries()
+    {
+        return await _context.Countries.ToListAsync();
+    }
+
+    [HttpPost, Route("sights")]
+    public async Task<Result> CreateSight([FromBody] CreateSightCommand command)
+        => await Mediator.Send(command);
+
+    [HttpDelete, Route("sights/{id:guid}")]
+    public async Task<Result> DeleteSight(Guid id)
+    {
+        var sight = await _context.Sights.FirstOrDefaultAsync(s => s.Id == id);
+        if (sight == null) return Result.Failure("Not found");
+
+        _context.Sights.Remove(sight);
+        await _context.SaveChangesAsync(CancellationToken.None);
+
         return Result.Success();
     }
 

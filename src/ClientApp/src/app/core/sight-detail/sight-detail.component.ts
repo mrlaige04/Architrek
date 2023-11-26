@@ -22,11 +22,13 @@ export class SightDetailComponent implements OnInit {
 
   rating: number = 0;
   isAuthenticated$: Observable<boolean>
+  hasInFavorite?: Observable<boolean>
   constructor(private route: ActivatedRoute,
               private location: Location,
               private coreService: CoreService,
               private auth: AuthService
               ) {
+
     this.isAuthenticated$ = auth.isAuthenticated$
   }
   ngOnInit() {
@@ -41,7 +43,7 @@ export class SightDetailComponent implements OnInit {
       this.location.back()
       return;
     }
-
+    this.hasInFavorite = this.coreService.hasSightInFavorite(this.id)
     this.coreService.getSightById(this.id).subscribe(
       sight => {
         if (!sight) {

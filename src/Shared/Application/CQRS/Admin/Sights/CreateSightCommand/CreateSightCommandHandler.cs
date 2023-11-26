@@ -14,38 +14,53 @@ public class CreateSightCommandHandler : IRequestHandler<CreateSightCommand, Res
 
     public async Task<Result> Handle(CreateSightCommand request, CancellationToken cancellationToken)
     {
-        /*var category = await _context.Categories
-            .Include(c => c.Properties)
-            .FirstOrDefaultAsync(cat => cat.Id == request.CategoryId, cancellationToken: cancellationToken);
-        if (category == null) return Result.Failure("Category was not found");
+        var category = await _context
+            .Categories
+            //.Include(c => c.Sights)
+            .FirstOrDefaultAsync(c => c.Id == request.CategoryId, cancellationToken: cancellationToken);
+
+        if (category == null) return Result.Failure("Category not found");
 
         var sight = new Sight
         {
-            Name = request.Name,
-            Description = request.Description,
-            CategoryId = category.Id,
             Category = category,
+            Name = request.Name,
+            Description = request.Description
         };
 
-        var properties = category.Properties.Join(request.PropertyValues,
-            (prop) => prop.Id,
-            (property) => property.PropertyId,
-            (prop, property) =>
+        var country = await _context.Countries.FirstOrDefaultAsync(c=>c.Id == request.Location.CountryId, cancellationToken: cancellationToken);
+
+        if (country == null) return Result.Failure("Country not found");
+
+        sight.Location = new Location
+        {
+            Country = country,
+            Latitude = request.Location.latitude,
+            Longitude = request.Location.longitude
+        };
+
+
+        if (request.Photos != null && request.Photos.Count > 0)
+        {
+            sight.SightPhotos = new List<SightPhoto>();
+            foreach (var photo in request.Photos)
             {
-                return new PropertyValue
-                {
-                    Id = property.PropertyId,
-                    Property = prop,
-                    JsonValue = property.JsonValue
-                };
-            });
+                sight.SightPhotos.Add(new SightPhoto(photo.Url));
+            }
+        }
 
-        sight.PropertyValues = properties.ToList();
+        if (request.Tags != null && request.Tags.Count > 0)
+        {
+            sight.Tags = new List<Tag>();
+            foreach (var tag in request.Tags)
+            {
+                sight.Tags.Add(new Tag(tag.Name));
+            }
+        }
 
-        var entry = await _context.Sights.AddAsync(sight);
-        var saveChanges = await _context.SaveChangesAsync(cancellationToken);
+        await _context.Sights.AddAsync(sight);
+        await _context.SaveChangesAsync(cancellationToken);
 
-        return entry != null && saveChanges > 0 ? Result.Success() : Result.Failure("Failure while adding new sight");*/
         return Result.Success();
     }
 }

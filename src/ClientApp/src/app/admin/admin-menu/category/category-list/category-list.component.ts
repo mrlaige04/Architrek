@@ -8,24 +8,25 @@ import {PaginatedList} from "../../../../core/Models/PaginatedList";
 import {Guid} from "guid-typescript";
 import {AdminService} from "../../../admin.service";
 import {ToastersService} from "../../../../services/ToastersService";
+import {CreateCategoryFormComponent} from "../create-category-form/create-category-form.component";
 
 @Component({
   selector: 'app-category-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CreateCategoryFormComponent],
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.scss'
 })
 export class CategoryListComponent {
   categories$: Observable<PaginatedList<Category>>;
 
-  newCategoryName?: string;
-  newCategoryId: Guid|undefined;
+/*  newCategoryName?: string;
+  newCategoryId: Guid|undefined;*/
   constructor(private core: CoreService, private admin: AdminService, private toastr: ToastersService) {
     this.categories$ = core.getAllCategories()
   }
 
-  createCategory() {
+ /* createCategory() {
     if (!this.newCategoryName) {
       this.toastr.showError('Name is required')
       return;
@@ -42,7 +43,7 @@ export class CategoryListComponent {
           }
         }
       })
-  }
+  }*/
 
   deleteCategory(id: Guid) {
     this.admin.deleteCategory(id).subscribe(result => {

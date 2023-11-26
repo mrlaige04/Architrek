@@ -67,6 +67,11 @@ export class CoreService {
       );
   }
 
+  hasSightInFavorite(id: Guid) {
+    let uri = this.apiUrl + "Sights/" + id.toString() + "/hasFav"
+    return this.httpClient.get<boolean>(uri)
+  }
+
   sightReviews(id: Guid) {
     let uri = this.apiUrl + "Sights/" + id.toString() + "/reviews"
     return this.httpClient.get<SightReview[]>(uri)

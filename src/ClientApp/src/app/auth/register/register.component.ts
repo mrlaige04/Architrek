@@ -1,13 +1,10 @@
 import {Component} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {debounceTime} from 'rxjs';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn} from "@angular/forms";
 import {RxwebValidators} from "@rxweb/reactive-form-validators";
 import {AuthService} from "../auth.service";
-import {Guid} from "guid-typescript";
-import {ConfirmEmail} from "../models/ConfirmEmail";
 import {Router} from "@angular/router";
 import {ToastersService} from "../../services/ToastersService";
-import {ThemeService} from "../../Shared/theme.service";
-import { catchError, debounceTime, throwError } from 'rxjs';
 import {NgxSpinnerService} from "ngx-spinner";
 import {ValidationProblem} from "../models/ValidationProblem";
 
@@ -27,9 +24,9 @@ export class RegisterComponent {
   constructor(fb: FormBuilder,
               private auth: AuthService,
               private router: Router,
-              private toastr: ToastersService,
               public spinner: NgxSpinnerService
               ) {
+
     this.registerGroup = fb.group({
       email: new FormControl('', [
         requiredValidator("Email is required"),

@@ -1,4 +1,6 @@
+import {Guid} from "guid-typescript";
+
 export class Country {
-  constructor(public  name: string) {
+  constructor(public id: Guid, public  name: string) {
   }
 }

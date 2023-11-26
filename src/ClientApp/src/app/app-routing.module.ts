@@ -10,11 +10,12 @@ import {isAdminGuard} from "./admin/is-admin.guard";
 import {AdminMenuComponent} from "./admin/admin-menu/admin-menu.component";
 import {AdminMenuUsersComponent} from "./admin/admin-menu/admin-menu-users/admin-menu-users.component";
 import {_404Component} from "./Shared/404/404.component";
-import {CreateCategoryComponent} from "./admin/admin-menu/category/create-category/create-category.component";
+
 import {FavoriteSightsComponent} from "./user/profile/favorite-sights/favorite-sights.component";
 import {isAuthenticatedGuard} from "./auth/is-authenticated.guard";
 import {ReportComponent} from "./Shared/report/report.component";
 import {CategoryListComponent} from "./admin/admin-menu/category/category-list/category-list.component";
+import {SightListComponent} from "./admin/admin-menu/sights/sight-list/sight-list.component";
 
 
 const authRoutes: Routes = [
@@ -25,8 +26,8 @@ const authRoutes: Routes = [
 const adminRoutes: Routes = [
   { path:'', redirectTo: 'users', pathMatch: 'full'},
   { path: 'users', component: AdminMenuUsersComponent },
-  { path: 'createCategory', component: CreateCategoryComponent },
-  { path: 'categories', component: CategoryListComponent }
+  { path: 'categories', component: CategoryListComponent },
+  { path: 'sights', component: SightListComponent }
 ];
 
 const userRoutes: Routes = [

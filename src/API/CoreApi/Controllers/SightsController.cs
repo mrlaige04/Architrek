@@ -104,4 +104,20 @@ public class SightsController : ApiControllerBase
         await _context.SaveChangesAsync();
         return Ok(Result.Success());
     }
+
+    [HttpGet, Route("{id:guid}/hasFav")]
+    public async Task<bool> HasInFavorite(Guid id)
+    {
+        if (Guid.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out Guid userId))
+        {
+            var user = await _context.Users
+                .Include(u=>u.FavoriteSights)
+                .FirstOrDefaultAsync(x => x.Id == userId);
+            if (user == null) return false;
+
+            return user.FavoriteSights.FirstOrDefault(x => x.Id == id) != null;
+        } 
+        
+        return false;
+    }
 }
