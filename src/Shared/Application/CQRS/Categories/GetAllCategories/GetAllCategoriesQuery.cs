@@ -2,4 +2,4 @@
 using Domain.Entities;
 
 namespace Application.CQRS.Categories.GetAllCategories;
-public record GetAllCategoriesQuery : IRequest<PaginatedList<Category>>;
+public record GetAllCategoriesQuery(int PageNumber, int PageSize) : IRequest<PaginatedList<Category>>;

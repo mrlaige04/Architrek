@@ -5,17 +5,18 @@
 <ng-template #userMenu>
   <button id="dropdownUserAvatarButton" data-dropdown-toggle="userDropdown" aria-expanded="false" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
     <span class="sr-only">Open user menu</span>
-    <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+
+    <img class="w-8 h-8 rounded-full"
+         [src]="(userProfile$|async)?.data?.avatar?.url ?? 'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg'">
   </button>
   <!-- Dropdown menu -->
   <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="userDropdown">
     <div class="py-3 px-4">
-      <span class="block text-sm font-semibold text-gray-900 dark:text-white">Neil sims</span>
-      <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name&#64;flowbite.com</span>
+      <span class="block text-sm font-semibold text-gray-900 dark:text-white">{{(userProfile$|async)?.data?.email}}</span>
     </div>
     <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
       <li>
-        <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My profile</a>
+        <a routerLink="/user/profile" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My profile</a>
       </li>
     </ul>
     <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">

@@ -4,9 +4,9 @@ using Application.CQRS.SightCollection.GetSights.GetSightById;
 using Application.CQRS.SightCollection.GetSights.GetSightsByCategory;
 using Application.CQRS.SightCollection.Reviews.AddReview;
 using Application.CQRS.SightCollection.Reviews.GetSightReviews;
+using Application.Identity;
 using Domain.Entities;
 using Infrastructure.Data;
-using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -83,7 +83,9 @@ public class SightsController : ApiControllerBase
         var user = await _context.Users.Include(u=>u.FavoriteSights).FirstOrDefaultAsync(x => x.Id == userId);
         if (user == null) return Unauthorized();
 
-        user.FavoriteSights.Add(sight);
+        if (user.FavoriteSights.Any(fs => fs.SightId == id)) return BadRequest();
+
+        user.FavoriteSights.Add(new UserFavoriteSight { Sight = sight });
         await _context.SaveChangesAsync();
         return Ok(Result.Success());
     }
@@ -100,7 +102,10 @@ public class SightsController : ApiControllerBase
         var user = await _context.Users.Include(u => u.FavoriteSights).FirstOrDefaultAsync(x => x.Id == userId);
         if (user == null) return Unauthorized();
 
-        user.FavoriteSights.Remove(sight);
+        var userFavoriteSight = user.FavoriteSights.FirstOrDefault(x => x.SightId == sight.Id);
+
+
+        user.FavoriteSights.Remove(userFavoriteSight);
         await _context.SaveChangesAsync();
         return Ok(Result.Success());
     }

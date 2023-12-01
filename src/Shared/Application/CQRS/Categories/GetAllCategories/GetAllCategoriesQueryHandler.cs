@@ -7,18 +7,14 @@ namespace Application.CQRS.Categories.GetAllCategories;
 public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, PaginatedList<Category>>
 {
     private readonly IApplicationDbContext _context;
-    private readonly IElasticSearchService _elasticSearch;
 
-    public GetAllCategoriesQueryHandler(IApplicationDbContext context, IElasticSearchService elasticSearch)
+    public GetAllCategoriesQueryHandler(IApplicationDbContext context)
     {
         _context = context;
-        _elasticSearch = elasticSearch;
     }
 
-    public async Task<PaginatedList<Category>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
+    public Task<PaginatedList<Category>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
     {
-        var categories = await _context.Categories.PaginatedListAsync(1, 10);
-        
-        return categories;
+        return _context.Categories.PaginatedListAsync(request.PageNumber, request.PageSize);
     }
 }

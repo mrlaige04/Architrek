@@ -1,6 +1,4 @@
-﻿
-
-namespace Domain.Entities;
+﻿namespace Domain.Entities;
 public class Sight : BaseAuditableEntity
 {
     public string Name { get; set; }

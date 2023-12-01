@@ -1,8 +1,7 @@
 ﻿using Domain.Entities;
-using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Identity;
-public class ApplicationUser : IdentityUser<Guid>
+/*public class ApplicationUser : IdentityUser<Guid>
 {
     public UserAvatar Avatar { get; set; }
     public Guid AvatarId { get; set; }
@@ -11,3 +10,4 @@ public class ApplicationUser : IdentityUser<Guid>
 
     public ICollection<SightReview> Reviews { get; set; }
 }
+*/

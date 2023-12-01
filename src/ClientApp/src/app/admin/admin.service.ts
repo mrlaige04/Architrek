@@ -10,6 +10,7 @@ import {ApiResult} from "../core/Models/ApiResult";
 import {SynchronousPromise} from "synchronous-promise";
 import {Country} from "../core/Models/Country";
 import {PaginatedList} from "../core/Models/PaginatedList";
+import {UrlSegment} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ export class AdminService {
       .set('pageSize', query.pageSize)
     return this.http.get<PaginatedList<User>>(uri, {params: options})
   }
+  deleteUser(id: Guid):Observable<boolean> {
+    let uri = this.baseUrl + 'users/' + id.toString()
+    return this.http.delete<boolean>(uri)
+  }
 
   isAdmin(): boolean {
     let isAdmin = false;
@@ -45,20 +50,18 @@ export class AdminService {
     return this.http.get<boolean>(uri)
   }
 
-  deleteUser(id: Guid) {
-    let uri = this.baseUrl + 'users/' + id.toString()
-    return this.http.delete<boolean>(uri)
-  }
+
 
   createCategory(category: CreateCategory) {
-    let uri = this.baseUrl + "category"
+    let uri = this.baseUrl + "categories"
     return this.http.post<Result>(uri, category).pipe(catchError(err=> {
       return of({succeeded: false, errors: [err]})
     }))
   }
 
   deleteCategory(id: Guid) {
-    let uri = this.baseUrl + "category/" + id.toString()
+    let uri = this.baseUrl + "categories/" + id.toString()
+
     return this.http.delete<ApiResult>(uri).pipe(catchError(err=> {
       return of({succeeded: false, errors: [err]})
     }))
@@ -84,16 +87,30 @@ export class AdminService {
         })
       )
   }
-
   deleteSight(id: Guid) {
     let uri = this.baseUrl + "sights/" + id.toString();
     return this.http.delete<ApiResult>(uri)
   }
 
-  getAllCountries() {
+  getAllCountries(pageNumber: number = 1, pageSize: number = 10) {
     let uri = this.baseUrl + "countries";
-    return this.http.get<Array<Country>>(uri)
+    let params = new HttpParams()
+      .set("pageNumber", pageNumber)
+      .set("pageSize", pageSize)
+
+    return this.http.get<PaginatedList<Country>>(uri, {params: params})
   }
+
+  createCountry(command: {name: string}) {
+    let uri = this.baseUrl + "countries"
+    return this.http.post<ApiResult>(uri, command)
+  }
+
+  deleteCountry(id: Guid) {
+    let uri = this.baseUrl + "countries/" + id.toString()
+    return this.http.delete<ApiResult>(uri)
+  }
+
 
   private fileToBase64(file: File) {
     return new SynchronousPromise<string>((resolve, reject) => {

@@ -6,6 +6,9 @@ import {Sight} from "../Models/Sight";
 import {Category} from "../Models/category";
 import {core} from "@angular/compiler";
 import {Guid} from "guid-typescript";
+import {DistanceUnit} from "../Models/DistanceUnit";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {RxwebValidators} from "@rxweb/reactive-form-validators";
 
 @Component({
   selector: 'app-search-page',
@@ -22,9 +25,16 @@ export class SearchPageComponent {
   public pageNumber: number = 1;
   public pagesCount: number = 10;
 
-  constructor(private coreService: CoreService) {
+  findNearForm: FormGroup;
+
+  constructor(private coreService: CoreService, private fb: FormBuilder) {
     this.categories = coreService.getAllCategories()
     this.sights = coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
+
+    this.findNearForm = fb.group({
+      distance: new FormControl(0, [Validators.required, RxwebValidators.numeric()]),
+      distanceUnit: new FormControl(DistanceUnit.Kilometers, [Validators.required]),
+    })
   }
 
   searchSubmit() {
@@ -51,6 +61,14 @@ export class SearchPageComponent {
     this.sights = this.coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
   }
 
+
   protected readonly Array = Array;
   protected readonly undefined = undefined;
+}
+
+export type FindNearQuery = {
+  distance: number,
+  distanceUnit: DistanceUnit,
+  latitude: number,
+  longitude: number
 }

@@ -16,6 +16,12 @@ import {isAuthenticatedGuard} from "./auth/is-authenticated.guard";
 import {ReportComponent} from "./Shared/report/report.component";
 import {CategoryListComponent} from "./admin/admin-menu/category/category-list/category-list.component";
 import {SightListComponent} from "./admin/admin-menu/sights/sight-list/sight-list.component";
+import {CountryListComponent} from "./admin/admin-menu/countries/country-list/country-list.component";
+import {UserProfileMainComponent} from "./user/profile/user-profile-main/user-profile-main.component";
+import {UserProfile} from "./user/models/UserProfile";
+import {MaininfoComponent} from "./user/profile/maininfo/maininfo.component";
+import {MyReviewsComponent} from "./user/profile/my-reviews/my-reviews.component";
+import {MyReportsComponent} from "./user/profile/my-reports/my-reports.component";
 
 
 const authRoutes: Routes = [
@@ -27,11 +33,20 @@ const adminRoutes: Routes = [
   { path:'', redirectTo: 'users', pathMatch: 'full'},
   { path: 'users', component: AdminMenuUsersComponent },
   { path: 'categories', component: CategoryListComponent },
-  { path: 'sights', component: SightListComponent }
+  { path: 'sights', component: SightListComponent },
+  { path: 'countries', component: CountryListComponent }
 ];
 
+const userProfileRoutes: Routes = [
+
+]
+
 const userRoutes: Routes = [
-  { path: 'favorite', component: FavoriteSightsComponent }
+  { path: 'favorite', component: FavoriteSightsComponent },
+  { path: 'profile', component: MaininfoComponent },
+  { path: 'reviews', component: MyReviewsComponent },
+  { path: 'reports', component: MyReportsComponent },
+  { path: '**', redirectTo: '/user/profile' }
 ]
 
 const routes: Routes = [
@@ -41,7 +56,7 @@ const routes: Routes = [
   { path: 'report', component: ReportComponent },
   {  path: 'sight/:id', component: SightDetailComponent, data: { title: 'Sight' } },
   {  path: 'admin', component: AdminMenuComponent, children: adminRoutes, canActivate: [isAdminGuard], canActivateChild: [isAdminGuard] },
-  {  path: 'user', children: userRoutes, canActivate: [isAuthenticatedGuard], canActivateChild: [isAuthenticatedGuard] },
+  {  path: 'user', component: UserProfileMainComponent, children: userRoutes, canActivate: [isAuthenticatedGuard], canActivateChild: [isAuthenticatedGuard] },
   {  path: '**', component: _404Component}
 ];
 

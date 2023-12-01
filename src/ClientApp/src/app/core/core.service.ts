@@ -11,6 +11,8 @@ import {AddReviewCommand} from "./cqrs/sights/reviews/addreview/addReviewCommand
 import {SynchronousPromise} from "synchronous-promise";
 import {SightReview} from "./Models/SightReview";
 import {ApiResult} from "./Models/ApiResult";
+import {FindNearQuery} from "./search-page/search-page.component";
+import {request} from "express";
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +21,13 @@ export class CoreService {
   apiUrl: string = "https://localhost:7143/api/"
   constructor(private httpClient: HttpClient) { }
 
-  getAllCategories(): Observable<PaginatedList<Category>> {
+  getAllCategories(pageNumber:number = 1, pageSize:number = 10): Observable<PaginatedList<Category>> {
     let uri = this.apiUrl + "categories";
-    return this.httpClient.get<PaginatedList<Category>>(uri);
+    let params = new HttpParams()
+      .set("pageNumber", pageNumber)
+      .set("pageSize", pageSize)
+
+    return this.httpClient.get<PaginatedList<Category>>(uri, {params: params});
   }
 
   getAllSights(query: GetAllSightsQuery): Observable<PaginatedList<Sight>> {
@@ -86,6 +92,8 @@ export class CoreService {
     let uri = this.apiUrl + "Sights/" + id.toString() + "/unlike"
     return this.httpClient.delete(uri, {})
   }
+
+
 
   private fileToBase64(file: File) {
     return new SynchronousPromise<string>((resolve, reject) => {

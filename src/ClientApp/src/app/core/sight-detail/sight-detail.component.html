@@ -92,7 +92,6 @@
           </div>
           <div *ngIf="sight.reviews && sight.reviews.length > 0; else noReviews">
             <app-review *ngFor="let review of sight.reviews" [review]="review"></app-review>
-            <app-review *ngFor="let review of sight.reviews" [review]="review"></app-review>
           </div>
           <ng-template #noReviews>
             <div role="status" *ngIf="hasReviews">

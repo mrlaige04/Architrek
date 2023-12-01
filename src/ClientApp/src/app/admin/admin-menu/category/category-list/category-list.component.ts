@@ -19,31 +19,12 @@ import {CreateCategoryFormComponent} from "../create-category-form/create-catego
 })
 export class CategoryListComponent {
   categories$: Observable<PaginatedList<Category>>;
+  pageNumber = 1;
+  pageSize = 10;
 
-/*  newCategoryName?: string;
-  newCategoryId: Guid|undefined;*/
-  constructor(private core: CoreService, private admin: AdminService, private toastr: ToastersService) {
+  constructor(core: CoreService, private admin: AdminService, private toastr: ToastersService) {
     this.categories$ = core.getAllCategories()
   }
-
- /* createCategory() {
-    if (!this.newCategoryName) {
-      this.toastr.showError('Name is required')
-      return;
-    }
-
-    this.admin.createCategory({parentCategoryId: this.newCategoryId, name: this.newCategoryName!})
-      .subscribe(res => {
-        if (res as {succeeded: boolean, errors: string[]}) {
-          let result = <{succeeded: boolean, errors: string[]}>res;
-          if (result.succeeded) {
-            this.toastr.showSuccess('Success')
-          } else {
-            this.toastr.showError(result.errors.reduce((a,b)=>a+" ; " + b))
-          }
-        }
-      })
-  }*/
 
   deleteCategory(id: Guid) {
     this.admin.deleteCategory(id).subscribe(result => {

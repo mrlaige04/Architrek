@@ -1,4 +1,8 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Models;
+using Application.CQRS.User.Profile.GetProfile;
+using Application.CQRS.User.Profile.RemoveAvatar;
+using Application.CQRS.User.Profile.SetAvatar;
+using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +20,8 @@ namespace CoreApi.Controllers;
         _context = context;
     }
 
+    
+
     [HttpGet, Route("favorites")]
     public async Task<IEnumerable<Sight>> GetMyFavorites()
     {
@@ -23,10 +29,23 @@ namespace CoreApi.Controllers;
         if (!hasUserId) return Array.Empty<Sight>();
 
         var user = await _context.Users
-            .Include(u=>u.FavoriteSights).ThenInclude(s=>s.SightPhotos)
+            .Include(u=>u.FavoriteSights).ThenInclude(s=>s.Sight).ThenInclude(s=>s.SightPhotos)
             .FirstOrDefaultAsync(u=>u.Id == userId);
         if (user is null) return Array.Empty<Sight>();
 
-        return user.FavoriteSights;
+        return user.FavoriteSights.Select(uf=>uf.Sight);
     }
+
+    [HttpGet, Route("profile")]
+    public async Task<DataResult<UserProfile>> GetProfile()
+        => await Mediator.Send(new GetProfileQuery { User = User });
+
+
+    [HttpPost, Route("avatar")]
+    public async Task<Result> SetAvatar([FromBody] SetAvatarCommand command)
+        => await Mediator.Send(new SetAvatarCommand(command.Url) { User = User });
+
+    [HttpDelete, Route("avatar")]
+    public async Task<Result> RemoveAvatar()
+        => await Mediator.Send(new RemoveAvatarCommand { User = User });
 }

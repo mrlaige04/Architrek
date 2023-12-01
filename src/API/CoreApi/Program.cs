@@ -1,8 +1,8 @@
 using Application;
+using Application.Identity;
 using CoreApi;
 using CoreApi.Identity;
 using Infrastructure;
-using Infrastructure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 

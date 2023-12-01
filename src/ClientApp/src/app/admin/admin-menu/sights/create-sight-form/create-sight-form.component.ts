@@ -30,7 +30,7 @@ import {NgxSpinnerService} from "ngx-spinner";
 })
 export class CreateSightFormComponent {
   categories$: Observable<PaginatedList<Category>>
-  countries$: Observable<Country[]>;
+  countries$: Observable<PaginatedList<Country>>;
   form: FormGroup;
   photos?: File[];
 
@@ -42,7 +42,7 @@ export class CreateSightFormComponent {
               private toastr: ToastersService,
               private admin: AdminService) {
     this.categories$ = core.getAllCategories()
-    this.countries$ = admin.getAllCountries()
+    this.countries$ = admin.getAllCountries(-1)
 
     this.form = fb.group({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),

@@ -7,6 +7,6 @@ namespace CoreApi.Controllers;
 public class CategoriesController : ApiControllerBase
 {
     [HttpGet, Route("")]
-    public async Task<PaginatedList<Category>> GetCategoriesAsync()
-        => await Mediator.Send(new GetAllCategoriesQuery());
+    public async Task<PaginatedList<Category>> GetCategoriesAsync([FromQuery] GetAllCategoriesQuery query)
+        => await Mediator.Send(query);
 }

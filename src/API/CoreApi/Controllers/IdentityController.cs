@@ -1,10 +1,4 @@
-﻿using Application.Common.Models;
-using CoreApi.Identity;
-using CoreApi.Identity.Models.Request;
-using CoreApi.Identity.Models.Response;
-using Infrastructure.Identity;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Application.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;

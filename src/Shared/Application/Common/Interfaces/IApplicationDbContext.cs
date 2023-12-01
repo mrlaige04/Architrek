@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Identity;
+using Domain.Entities;
 
 namespace Application.Common.Interfaces;
 public interface IApplicationDbContext
@@ -12,6 +13,8 @@ public interface IApplicationDbContext
     DbSet<SightReviewPhoto> SightReviewPhotos { get; }
     DbSet<Tag> Tags { get; }
     DbSet<Report> Reports { get; }
+    DbSet<ApplicationUser> Users { get; }
+    DbSet<UserAvatar> UserAvatars { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }
