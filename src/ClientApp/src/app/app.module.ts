@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SharedModule} from "./Shared/shared.module";
 import {AuthModule} from "./auth/auth.module";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {CoreModule} from "./core/core.module";
 import {ToastrModule} from "ngx-toastr";
-import {ToastersService} from "./services/ToastersService";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgxSpinnerModule} from "ngx-spinner";
 
@@ -39,3 +37,4 @@ import {NgxSpinnerModule} from "ngx-spinner";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -20,11 +20,11 @@ import {NavbarMenuComponent} from "./navbar/navbar-menu/navbar-menu.component";
     FooterComponent,
     HideMenuDirective
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    DynamicLogoComponent,
-    NavbarMenuComponent
-  ]
+    imports: [
+        CommonModule,
+        RouterLink,
+        DynamicLogoComponent,
+        NavbarMenuComponent
+    ]
 })
 export class SharedModule { }

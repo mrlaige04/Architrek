@@ -43,7 +43,7 @@ export class CreateCategoryFormComponent {
           if (result.succeeded) {
             this.toastr.showSuccess('Success')
           } else {
-            console.log(result)
+            console.log(result.errors)
             this.toastr.showError(result.errors.reduce((a,b)=>a+" ; " + b))
           }
         }

@@ -1,20 +1,20 @@
 <div class="mx-auto p-6 rounded-md mt-4 shadow-md dark:shadow-blue-400">
-  <h2 class="text-2xl font-semibold mb-6 dark:text-white">Add your review</h2>
+  <h2 i18n="@@CORE.ADD_REVIEW.TITLE" class="text-2xl font-semibold mb-6 dark:text-white">Add your review</h2>
 
   <!-- Textarea for feedback -->
   <div class="mb-4">
-    <label for="feedback" class="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Text</label>
+    <label i18n="@@CORE.ADD_REVIEW.TEXT" for="feedback" class="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Text</label>
     <textarea [(ngModel)]="text" id="feedback" name="text" rows="4"  class="resize-none w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"></textarea>
   </div>
 
   <!-- Rating input -->
   <div class="mb-4">
-    <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Rating*</label>
+    <label i18n="@@CORE.ADD_REVIEW.RATING" class="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Rating*</label>
     <input [(ngModel)]="rating" name="rating" type="number" step="0.1" min="1" max="5" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
   </div>
 
 
-  <label for="review-images" class="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Photos</label>
+  <label i18n="@@CORE.ADD_REVIEW.PHOTOS" for="review-images" class="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Photos</label>
   <input
     id="review-images"
     multiple
@@ -29,7 +29,7 @@
   />
 
   <!-- Submit button -->
-  <button (click)="submit()" class="bg-blue-500 text-white px-4 py-2 w-full rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+  <button i18n="@@CORE.ADD_REVIEW.SUBMIT" (click)="submit()" class="bg-blue-500 text-white px-4 py-2 w-full rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
     Submit
   </button>
 </div>

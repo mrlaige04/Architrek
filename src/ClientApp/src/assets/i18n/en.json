@@ -1,0 +1,32 @@
+{
+  "CORE": {
+    "START-PAGE": {
+      "FIRSTSECTION": {
+        "TRIPTOOL": "Trip tool for tourists",
+        "EMBARK": "Embark your journey with architrek"
+      },
+      "SECONDSECTION": {
+        "DISCOVER": "Discover, Explore, Architect: Your Journey Awaits with Architrek!",
+        "DESCRIPTION": "At Architrek, our mission is to harness the power of technology and innovation in the tourism sector, where connectivity and information converge to enhance your travel experience. Through strategic initiatives, we aim to unlock the vast potential within the travel industry, driving economic growth and fostering a deeper connection between tourists and the rich tapestry of sights our app showcases.",
+        "FEATURES": {
+          "SEARCHING": {
+            "TITLE": "Searching",
+            "TEXT": "In Architrek, our advanced Search feature serves as your compass in the realm of exploration. Seamlessly tailored to your preferences, it effortlessly sifts through a myriad of sights, providing you with a personalized journey through the wonders of each destination. Whether you seek historical landmarks, hidden gems, or cultural treasures, our Search feature is your guide to unlocking the extraordinary at your fingertips. Welcome to a world of discovery with Architrek."
+          },
+          "ROUTING": {
+            "TITLE": "Routing",
+            "TEXT": "Navigate the extraordinary with Architrek's Routing feature. Effortlessly plan your journey as this innovative tool crafts the perfect route, ensuring you don't miss a single marvel. Whether you prefer the scenic path or the most efficient route, our Routing feature optimizes your travel experience. Immerse yourself in the adventure, and let Architrek guide you seamlessly from one breathtaking sight to the next, making every step of your journey memorable."
+          },
+          "REVIEWING": {
+            "TITLE": "Reviewing",
+            "TEXT": "Embrace the power of shared experiences with Architrek's Reviewing feature. Your fellow travelers become your guides as you explore destinations through their eyes. Post and read reviews to uncover hidden gems, learn travel tips, and make informed choices about the sights you want to explore. The Reviewing feature in Architrek is more than just feedback; it's a community-driven compass that enriches your journey and ensures every step is backed by the wisdom of those who've ventured before. Join the community, share your insights, and let the collective adventure unfold!"
+          },
+          "FAVORITE": {
+            "TITLE": "Saving to favorite",
+            "TEXT": "Cherish your travel aspirations with Architrek's Saving to Favorites feature. Easily bookmark the destinations that capture your heart and create a personalized collection of your dream sights. Whether it's a charming cafe, a historic landmark, or a scenic viewpoint, this feature allows you to curate your own adventure wishlist. With just a tap, secure your most cherished spots, ensuring that your journey is a tailored tapestry of the places that resonate with you. Embark on a voyage uniquely crafted for your preferences, guided by the destinations you've saved with Architrek."
+          }
+        }
+      }
+    }
+  }
+}

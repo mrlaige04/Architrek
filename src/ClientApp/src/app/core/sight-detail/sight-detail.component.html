@@ -52,14 +52,14 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row -mx-4">
         <div class="md:flex-1 px-4">
-          <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Location</h2>
+          <h2 i18n="@@CORE.SIGHT_DETAILS.LOCATION" class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Location</h2>
           <div>
             <p class="text-gray-600 dark:text-gray-300  mt-2">
-              Country: {{sight.location!.country!.name!}}
+              <span i18n="@@CORE.SIGHT_DETAIL.COUNTRY">Country</span>: {{sight.location!.country!.name!}}
             </p>
             <p class="text-gray-600 dark:text-gray-300  mt-2">
-              Latitude: {{sight.location!.latitude}}
-              Longitude: {{sight.location!.longitude}}
+              <span i18n="@@CORE.SIGHT_DETAIL.LATITUDE">Latitude</span>: {{sight.location!.latitude}}
+              <span i18n="@@CORE.SIGHT_DETAIL.LONGITUDE">Longitude</span>: {{sight.location!.longitude}}
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@
       <div class="md:flex-1 px-4">
         <div>
           <div class="flex justify-between items-center mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Reviews</h2>
+            <h2 i18n="@@CORE.SIGHT_DETAIL.REVIEWS" class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Reviews</h2>
           </div>
           <div *ngIf="sight.reviews && sight.reviews.length > 0; else noReviews">
             <app-review *ngFor="let review of sight.reviews" [review]="review"></app-review>
@@ -105,7 +105,7 @@
 
           <app-add-review [sightId]="sight.id" *ngIf="(isAuthenticated$|async);else noAuthed"></app-add-review>
           <ng-template #noAuthed >
-            <p class="text-dark dark:text-white">Only authenticated users can add reviews</p>
+            <p i18n="@@CORE.SIGHT_DETAIL.REVIEW_ONLY_AUTHED" class="text-dark dark:text-white">Only authenticated users can add reviews</p>
           </ng-template>
         </div>
       </div>
