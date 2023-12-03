@@ -1,0 +1,17 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.ng-dirty.ng-touched.ng-invalid:not(form) {
+  border: 1px solid red;
+}
+
+.ng-dirty.ng-touched.ng-valid:not(form) {
+  border: 1px solid green;
+}

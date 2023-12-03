@@ -1,0 +1,11 @@
+<ngx-slick-carousel
+  class="carousel overflow-x-clip overflow-y-clip"
+  #slickModal="slick-carousel"
+  [config]="slideConfig"
+>
+  @for (slide of slides; track slide.img) {
+    <div ngxSlickItem class="slide">
+      <img src={{slide.img}} alt="" width="100%">
+    </div>
+  }
+</ngx-slick-carousel>
