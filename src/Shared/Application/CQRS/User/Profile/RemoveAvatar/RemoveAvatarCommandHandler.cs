@@ -16,9 +16,9 @@ public class RemoveAvatarCommandHandler : IRequestHandler<RemoveAvatarCommand, R
     }
     public async Task<Result> Handle(RemoveAvatarCommand request, CancellationToken cancellationToken)
     {
-        if (request.User == null) return Result.Failure(ErrorDescriber.User.Unauthorized());
+        if (request.User == null) return Result.Failure(ResultStatus.Unauthorized, ErrorDescriber.User.Unauthorized());
         var user = await _userManager.GetUserAsync(request.User);
-        if (user == null) return Result.Failure(ErrorDescriber.User.Unauthorized());
+        if (user == null) return Result.Failure(ResultStatus.Unauthorized, ErrorDescriber.User.Unauthorized());
 
         var avatar = await _context.UserAvatars.FirstOrDefaultAsync(ua => ua.UserId == user.Id);
         if (avatar == null) return Result.Success();

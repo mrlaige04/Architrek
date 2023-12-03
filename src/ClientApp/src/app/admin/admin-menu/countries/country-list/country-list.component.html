@@ -6,14 +6,10 @@
       </div>
       <div class="sm:flex">
         <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
-          <button type="button" data-modal-toggle="add-category-modal" class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+          <button (click)="openModal()" type="button" data-modal-toggle="add-category-modal" class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
             <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
             Add country
           </button>
-          <a href="#" class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-            <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"></path></svg>
-            Export
-          </a>
         </div>
       </div>
     </div>
@@ -33,8 +29,8 @@
               </th>
             </tr>
             </thead>
-            <tbody *ngIf="(countries$|async)?.items && (countries$|async)?.items!.length > 0" class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-            <tr *ngFor="let country of (countries$|async)?.items" class="hover:bg-gray-100 dark:hover:bg-gray-700">
+            <tbody *ngIf="countries$|async as countryList" class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+            <tr *ngFor="let country of countryList.items" class="hover:bg-gray-100 dark:hover:bg-gray-700">
               <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
                 <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                   <div class="text-base font-semibold text-gray-900 dark:text-white">{{country.name}}</div>
@@ -54,21 +50,21 @@
       </div>
     </div>
   </div>
-  <div class="sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between dark:bg-gray-800 dark:border-gray-700">
+  <div *ngIf="countries$|async as countryList" class="sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between dark:bg-gray-800 dark:border-gray-700">
     <div class="flex items-center mb-4 sm:mb-0">
-      <button (click)="prevPage()" *ngIf="(countries$|async)?.hasPreviousPage" class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+      <button (click)="prevPage()" *ngIf="countryList.hasPreviousPage" class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
       </button>
-      <button (click)="nextPage()" *ngIf="(countries$|async)?.hasNextPage" class="inline-flex justify-center p-1 mr-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+      <button (click)="nextPage()" *ngIf="countryList.hasNextPage" class="inline-flex justify-center p-1 mr-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
       </button>
-      <span *ngIf="(countries$|async)?.items && (countries$|async)?.items!.length > 0" class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">{{(countries$|async)?.items?.length}}</span></span>
+      <span *ngIf="countryList.items && countryList.items.length > 0" class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">{{countryList.items.length}}</span></span>
     </div>
   </div>
 
 
   <!-- Add Category Modal -->
-  <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full" id="add-category-modal">
-    <app-create-country-form></app-create-country-form>
+  <div #addCountryModal class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full" id="add-category-modal">
+    <app-create-country-form (closeModalEvent)="closeModal()"></app-create-country-form>
   </div>
 </main>

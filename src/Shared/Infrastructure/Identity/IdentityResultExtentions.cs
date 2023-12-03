@@ -8,6 +8,6 @@ public static class IdentityResultExtentions
     {
         return result.Succeeded ?
             Result.Success() :
-            Result.Failure(result.Errors.Select(e => e.Description));
+            Result.Failure(ResultStatus.BadRequest, result.Errors.Select(e => e.Description));
     }
 }

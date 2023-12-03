@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CreateCategoryFormComponent} from "../../category/create-category-form/create-category-form.component";
 import {CreateSightFormComponent} from "../create-sight-form/create-sight-form.component";
@@ -8,6 +8,8 @@ import {PaginatedList} from "../../../../core/Models/PaginatedList";
 import {Sight} from "../../../../core/Models/Sight";
 import {Guid} from "guid-typescript";
 import {AdminService} from "../../../admin.service";
+import {Modal} from "flowbite";
+import {AdminModalOptions} from "../../category/category-list/category-list.component";
 
 @Component({
   selector: 'app-sight-list',
@@ -16,13 +18,29 @@ import {AdminService} from "../../../admin.service";
   templateUrl: './sight-list.component.html',
   styleUrl: './sight-list.component.scss'
 })
-export class SightListComponent {
+export class SightListComponent implements AfterViewInit {
   sights$: Observable<PaginatedList<Sight>>
-
   pageNumber= 1;
   pageSize = 10;
+
+  @ViewChild('addSightModal') element?: ElementRef
+
+  modal = new Modal(null, AdminModalOptions)
+
   constructor(private core: CoreService, private admin: AdminService) {
     this.sights$ = core.getAllSights({pageNumber: this.pageNumber, pageSize: this.pageSize})
+  }
+
+  ngAfterViewInit() {
+    this.modal._targetEl = this.element?.nativeElement
+  }
+
+  openModal() {
+    this.modal.show()
+  }
+
+  closeModal() {
+    this.modal.hide()
   }
 
   getSights() {

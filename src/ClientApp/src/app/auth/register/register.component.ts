@@ -56,7 +56,6 @@ export class RegisterComponent {
       })
   }
 
-
   get emailErrors(): any {
     return this.registerGroup.get('email')?.errors;
   }

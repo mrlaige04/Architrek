@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import {ReactiveTypedFormsModule} from "@rxweb/reactive-form-validators";
@@ -21,8 +21,15 @@ export class CreateCategoryFormComponent {
   @Input({required: true}) categories$!: Observable<PaginatedList<Category>>;
   newCategoryName?: string;
   newCategoryId: Guid|undefined;
+
+  @Output() closeModalEvent = new EventEmitter<any>()
   constructor(private admin: AdminService, private toastr: ToastersService) {
   }
+
+  closeModal() {
+    this.closeModalEvent.emit()
+  }
+
   createCategory() {
     if (!this.newCategoryName) {
       this.toastr.showError('Name is required')

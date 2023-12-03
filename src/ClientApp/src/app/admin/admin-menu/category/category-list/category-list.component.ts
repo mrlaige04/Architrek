@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Observable} from "rxjs";
 import {Category} from "../../../../core/Models/category";
@@ -9,6 +9,7 @@ import {Guid} from "guid-typescript";
 import {AdminService} from "../../../admin.service";
 import {ToastersService} from "../../../../services/ToastersService";
 import {CreateCategoryFormComponent} from "../create-category-form/create-category-form.component";
+import {Modal, ModalOptions} from "flowbite";
 
 @Component({
   selector: 'app-category-list',
@@ -17,13 +18,36 @@ import {CreateCategoryFormComponent} from "../create-category-form/create-catego
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.scss'
 })
-export class CategoryListComponent {
+export class CategoryListComponent implements AfterViewInit{
   categories$: Observable<PaginatedList<Category>>;
   pageNumber = 1;
   pageSize = 10;
 
-  constructor(core: CoreService, private admin: AdminService, private toastr: ToastersService) {
+  @ViewChild("addCategoryModal") element?: ElementRef;
+
+  modal = new Modal(
+      null,
+      AdminModalOptions
+  )
+  constructor(private core: CoreService, private admin: AdminService, private toastr: ToastersService) {
     this.categories$ = core.getAllCategories()
+  }
+
+  ngAfterViewInit() {
+    this.modal._targetEl = this.element?.nativeElement
+  }
+
+  openModal() {
+    this.modal._targetEl = document.querySelector("#add-category-modal");
+    this.modal.show()
+  }
+
+  closeModal() {
+    this.modal.hide()
+  }
+
+  getCategories() {
+    this.categories$ = this.core.getAllCategories(this.pageNumber, this.pageSize)
   }
 
   deleteCategory(id: Guid) {
@@ -33,4 +57,18 @@ export class CategoryListComponent {
       } else this.toastr.showError(result.errors.reduce((a,b)=>a+" ; " + b))
     })
   }
+
+  nextPage() {
+    this.pageNumber++;
+    this.getCategories()
+  }
+
+  previousPage() {
+    if (this.pageNumber > 0) {
+      this.pageNumber--;
+      this.getCategories()
+    }
+  }
 }
+
+export const AdminModalOptions: ModalOptions = {placement: 'center', backdrop: "static", closable: true}

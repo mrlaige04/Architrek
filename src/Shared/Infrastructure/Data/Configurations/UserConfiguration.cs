@@ -24,8 +24,12 @@ public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
             .WithOne()
             .HasForeignKey<UserAvatar>(a => a.UserId)
             .OnDelete(DeleteBehavior.Cascade);
-    }
 
-    
+        builder
+            .HasMany(u => u.FavoriteSights)
+            .WithOne(fs => fs.User)
+            .HasForeignKey(fs => fs.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }   
 }
 

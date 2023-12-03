@@ -11,6 +11,8 @@ import {SynchronousPromise} from "synchronous-promise";
 import {Country} from "../core/Models/Country";
 import {PaginatedList} from "../core/Models/PaginatedList";
 import {UrlSegment} from "@angular/router";
+import {SightReview} from "../core/Models/SightReview";
+import {Report} from "../Shared/report/models/Report";
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +33,9 @@ export class AdminService {
       .set('pageSize', query.pageSize)
     return this.http.get<PaginatedList<User>>(uri, {params: options})
   }
-  deleteUser(id: Guid):Observable<boolean> {
+  deleteUser(id: Guid):Observable<ApiResult> {
     let uri = this.baseUrl + 'users/' + id.toString()
-    return this.http.delete<boolean>(uri)
+    return this.http.delete<ApiResult>(uri)
   }
 
   isAdmin(): boolean {
@@ -44,7 +46,6 @@ export class AdminService {
     }))
     return isAdmin;
   }
-
   get isInAdmin$(): Observable<boolean> {
     let uri = this.baseUrl + "isAdmin";
     return this.http.get<boolean>(uri)
@@ -54,11 +55,10 @@ export class AdminService {
 
   createCategory(category: CreateCategory) {
     let uri = this.baseUrl + "categories"
-    return this.http.post<Result>(uri, category).pipe(catchError(err=> {
+    return this.http.post<ApiResult>(uri, category).pipe(catchError(err=> {
       return of({succeeded: false, errors: [err]})
     }))
   }
-
   deleteCategory(id: Guid) {
     let uri = this.baseUrl + "categories/" + id.toString()
 
@@ -100,17 +100,56 @@ export class AdminService {
 
     return this.http.get<PaginatedList<Country>>(uri, {params: params})
   }
-
   createCountry(command: {name: string}) {
     let uri = this.baseUrl + "countries"
     return this.http.post<ApiResult>(uri, command)
   }
-
   deleteCountry(id: Guid) {
     let uri = this.baseUrl + "countries/" + id.toString()
     return this.http.delete<ApiResult>(uri)
   }
 
+  getAllReviews(pageNumber: number = 1, pageSize: number = 10) {
+    let uri = this.baseUrl + "reviews"
+    let params = new HttpParams()
+      .set("pageNumber", pageNumber)
+      .set("pageSize", pageSize)
+
+    return this.http.get<PaginatedList<SightReview>>(uri, {params: params})
+  }
+  deleteReview(id: Guid) {
+    let uri = this.baseUrl + "reviews/" + id.toString()
+    return this.http.delete<ApiResult>(uri)
+  }
+
+  getAllReports(pageNumber: number = 1, pageSize: number = 10) {
+    let uri = this.baseUrl + "reports";
+    let params = new HttpParams()
+        .set("pageNumber", pageNumber)
+        .set("pageSize", pageSize)
+
+    return this.http.get<PaginatedList<Report>>(uri, {params: params})
+  }
+
+  deleteReport(id: Guid) {
+    let uri = this.baseUrl + "reports/" + id.toString()
+    return this.http.delete<ApiResult>(uri)
+  }
+
+  setActiveReport(id: Guid) {
+    let uri = this.baseUrl + "reports/" + id.toString()
+    return this.http.post<ApiResult>(uri, {})
+  }
+
+  rejectReport(id: Guid) {
+    let uri = this.baseUrl + "reports/" + id.toString() + "/rejects"
+    return this.http.post<ApiResult>(uri, {})
+  }
+
+  answerReport(id: Guid, message: string) {
+    let uri = this.baseUrl + "reports/answers"
+    return this.http.post<ApiResult>(uri, {id: id, message: message})
+  }
 
   private fileToBase64(file: File) {
     return new SynchronousPromise<string>((resolve, reject) => {

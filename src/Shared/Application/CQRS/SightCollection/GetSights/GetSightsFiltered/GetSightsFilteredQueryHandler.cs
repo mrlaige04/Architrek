@@ -23,22 +23,17 @@ public class GetSightsFilteredQueryHandler : IRequestHandler<GetSightsFilteredQu
             .Include(s => s.Tags)
             .AsQueryable();
 
-        var category = await _context.Categories.Include(c=>c.Subcategories).FirstOrDefaultAsync(c => c.Id == request.CategoryId);
+        var category = await _context.Categories
+            .Include(c=>c.Subcategories)
+            .FirstOrDefaultAsync(c => c.Id == request.CategoryId, cancellationToken: cancellationToken);
+
         if (category != null) { 
             var ids = GetCategoryAndSubcategoryIds(category);
             queryable = queryable.Where(s=>ids.Contains(s.CategoryId));
         }
 
-
-        if (!string.IsNullOrEmpty(request.Query))
-        {
-            queryable = queryable.Where(s => EF.Functions.Like(s.Name.ToLower(), $"%{request.Query.ToLower()}%"));
-        }
-
-        /*if (!string.IsNullOrEmpty(request.Query))
-        {
-            queryable = queryable.Where(s => new Regex(request.Query, RegexOptions.IgnoreCase).IsMatch(s.Name));
-        }*/
+        if (!string.IsNullOrEmpty(request.Q))
+            queryable = queryable.Where(s => EF.Functions.Like(s.Name.ToLower(), $"%{request.Q.ToLower()}%"));
 
         var sights = await queryable.PaginatedListAsync(request.PageNumber, request.PageSize);
         return await queryable

@@ -14,7 +14,7 @@ public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryComman
     public async Task<Result> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
     {
         var category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == request.Id);
-        if (category == null) return Result.Failure(ErrorDescriber.Category.NotFound(request.Id));
+        if (category == null) return Result.Failure(ResultStatus.NotFound, ErrorDescriber.Category.NotFound(request.Id));
 
         _context.Categories.Remove(category);
         await _context.SaveChangesAsync(cancellationToken);

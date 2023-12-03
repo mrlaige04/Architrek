@@ -18,19 +18,17 @@ public class SetAvatarCommandHandler : IRequestHandler<SetAvatarCommand, Result>
 
     public async Task<Result> Handle(SetAvatarCommand request, CancellationToken cancellationToken)
     {
-        if (request.User == null) return Result.Failure(ErrorDescriber.User.Unauthorized());
+        if (request.User == null) return Result.Failure(ResultStatus.Unauthorized, ErrorDescriber.User.Unauthorized());
 
         var userFromUM = await _userManager.GetUserAsync(request.User);
-        if (userFromUM == null) return Result.Failure(ErrorDescriber.User.Unauthorized());
+        if (userFromUM == null) return Result.Failure(ResultStatus.Unauthorized, ErrorDescriber.User.Unauthorized());
 
         var previousAvatars = _context.UserAvatars
             .Where(ua => ua.UserId == userFromUM.Id);
 
         _context.UserAvatars.RemoveRange(previousAvatars);
 
-
         await _context.UserAvatars.AddAsync(new UserAvatar { Url = request.Url, UserId = userFromUM.Id });
-
         await _context.SaveChangesAsync(cancellationToken);
 
         return Result.Success();

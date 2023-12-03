@@ -1,4 +1,5 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Models;
 using Application.Identity;
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -14,7 +15,6 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Id
     public ApplicationDbContext(DbContextOptions options) : base(options)
     {
         Database.EnsureCreated();
-        
     }
     
     public DbSet<Category> Categories { get; set; }
@@ -27,6 +27,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Id
     public DbSet<SightPhoto> SightPhotos { get; set; }
     public DbSet<Report> Reports { get; set; }
     public DbSet<UserAvatar> UserAvatars { get; set; }
+    public DbSet<UserFavoriteSight> UserFavoriteSights { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

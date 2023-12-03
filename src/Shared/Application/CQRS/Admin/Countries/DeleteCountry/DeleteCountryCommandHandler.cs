@@ -14,7 +14,7 @@ public class DeleteCountryCommandHandler : IRequestHandler<DeleteCountryCommand,
     public async Task<Result> Handle(DeleteCountryCommand request, CancellationToken cancellationToken)
     {
         var country = await _context.Countries.FirstAsync(c => c.Id == request.Id, cancellationToken);
-        if (country == null) return Result.Failure("Country not found");
+        if (country == null) return Result.Failure(ResultStatus.NotFound, ErrorDescriber.Country.NotFound(request.Id));
 
         var sightsFromThisCountry = _context.Sights
             .Include(s => s.Location)

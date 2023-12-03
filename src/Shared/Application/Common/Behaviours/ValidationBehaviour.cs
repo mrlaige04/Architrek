@@ -19,7 +19,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
                 _validators.Select(v => v.ValidateAsync(validationContext, cancellationToken)));
             var errors = validationFailures.SelectMany(r => r.Errors).Where(error => error != null).ToList();
 
-            if (errors.Any())
+            if (errors.Count != 0)
                 throw new ValidationException(errors);
         }
 

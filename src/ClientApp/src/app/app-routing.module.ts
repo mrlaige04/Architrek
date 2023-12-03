@@ -18,10 +18,11 @@ import {CategoryListComponent} from "./admin/admin-menu/category/category-list/c
 import {SightListComponent} from "./admin/admin-menu/sights/sight-list/sight-list.component";
 import {CountryListComponent} from "./admin/admin-menu/countries/country-list/country-list.component";
 import {UserProfileMainComponent} from "./user/profile/user-profile-main/user-profile-main.component";
-import {UserProfile} from "./user/models/UserProfile";
-import {MaininfoComponent} from "./user/profile/maininfo/maininfo.component";
+import {MainInfoComponent} from "./user/profile/maininfo/main-info.component";
 import {MyReviewsComponent} from "./user/profile/my-reviews/my-reviews.component";
 import {MyReportsComponent} from "./user/profile/my-reports/my-reports.component";
+import {ReviewListComponent} from "./admin/admin-menu/reviews/review-list/review-list.component";
+import {ReportListComponent} from "./admin/admin-menu/reports/report-list/report-list.component";
 
 
 const authRoutes: Routes = [
@@ -34,16 +35,15 @@ const adminRoutes: Routes = [
   { path: 'users', component: AdminMenuUsersComponent },
   { path: 'categories', component: CategoryListComponent },
   { path: 'sights', component: SightListComponent },
-  { path: 'countries', component: CountryListComponent }
+  { path: 'countries', component: CountryListComponent },
+  { path: 'reviews', component: ReviewListComponent },
+  { path: 'reports', component: ReportListComponent }
 ];
 
-const userProfileRoutes: Routes = [
-
-]
 
 const userRoutes: Routes = [
   { path: 'favorite', component: FavoriteSightsComponent },
-  { path: 'profile', component: MaininfoComponent },
+  { path: 'profile', component: MainInfoComponent },
   { path: 'reviews', component: MyReviewsComponent },
   { path: 'reports', component: MyReportsComponent },
   { path: '**', redirectTo: '/user/profile' }
@@ -53,7 +53,7 @@ const routes: Routes = [
   {  path: '', component: StartPageComponent },
   {  path: 'auth', children: authRoutes, canActivateChild: [isNotAuthenticatedGuard] },
   {  path: 'search', component: SearchPageComponent, data: { title: 'Search' } },
-  { path: 'report', component: ReportComponent },
+  {  path: 'report', component: ReportComponent },
   {  path: 'sight/:id', component: SightDetailComponent, data: { title: 'Sight' } },
   {  path: 'admin', component: AdminMenuComponent, children: adminRoutes, canActivate: [isAdminGuard], canActivateChild: [isAdminGuard] },
   {  path: 'user', component: UserProfileMainComponent, children: userRoutes, canActivate: [isAuthenticatedGuard], canActivateChild: [isAuthenticatedGuard] },

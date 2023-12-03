@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Sight} from "../core/Models/Sight";
 import {Guid} from "guid-typescript";
 import {CoreService} from "../core/core.service";
@@ -8,6 +8,7 @@ import {UserProfile} from "./models/UserProfile";
 import {SynchronousPromise} from "synchronous-promise";
 import {forkJoin, switchMap} from "rxjs";
 import {ApiResult} from "../core/Models/ApiResult";
+import {PaginatedList} from "../core/Models/PaginatedList";
 
 
 @Injectable({
@@ -17,9 +18,13 @@ export class UserService {
   baseUrl:string = "https://localhost:7143/api/user/"
   constructor(private http: HttpClient, private core: CoreService) { }
 
-  getMyFavorites() {
+  getMyFavorites(pageNumber: number = 1, pageSize: number = 10) {
     let uri = this.baseUrl+"favorites"
-    return this.http.get<Array<Sight>>(uri)
+    let params = new HttpParams()
+        .set("pageNumber", pageNumber)
+        .set("pageSize", pageSize)
+
+    return this.http.get<DataResult<PaginatedList<Sight>>>(uri, {params: params})
   }
 
   removeFromFavorite(id: Guid) {
@@ -43,6 +48,11 @@ export class UserService {
 
   removeAvatar() {
     let uri = this.baseUrl + "avatar"
+    return this.http.delete<ApiResult>(uri)
+  }
+
+  deleteAccount() {
+    let uri = this.baseUrl + "account"
     return this.http.delete<ApiResult>(uri)
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {forkJoin, Observable, switchMap} from "rxjs";
+import {EMPTY, forkJoin, Observable, switchMap} from "rxjs";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Category} from "./Models/category";
 import {GetAllSightsQuery} from "./cqrs/sights/getSights/getAllSights/GetAllSightsQuery";
@@ -49,7 +49,7 @@ export class CoreService {
       uri += `q=${filter.query}`;
 
     if (filter.categoryId && filter.categoryId.toString() != 'undefined' && this.isGuid(filter.categoryId.toString()))
-      uri += `&id=${filter.categoryId.toString()}`;
+      uri += `&categoryId=${filter.categoryId.toString()}`;
 
     uri += `&pageNumber=${filter.pageNumber}&pageSize=${filter.pageSize}`
     return this.httpClient.get<PaginatedList<Sight>>(uri)
@@ -84,15 +84,14 @@ export class CoreService {
   }
 
   addToFavorite(id: Guid) {
-    let uri = this.apiUrl + "Sights/" + id.toString() + "/like"
+    let uri = this.apiUrl + "Sights/" + id.toString() + "/favorite"
     return this.httpClient.post(uri, {})
   }
 
   removeFromFavorite(id: Guid) {
-    let uri = this.apiUrl + "Sights/" + id.toString() + "/unlike"
-    return this.httpClient.delete(uri, {})
+    let uri = this.apiUrl + "Sights/" + id.toString() + "/favorite"
+    return this.httpClient.delete<ApiResult>(uri, {})
   }
-
 
 
   private fileToBase64(file: File) {

@@ -14,12 +14,12 @@ import {SightLocationRouteComponent} from "./sight-location-route/sight-location
 
 
 @NgModule({
-  declarations: [
-    SearchPageComponent,
-    SearchSightCardComponent,
-    SightDetailComponent,
-    StarRatingComponent
-  ],
+    declarations: [
+        SearchPageComponent,
+        SearchSightCardComponent,
+        SightDetailComponent,
+        StarRatingComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -29,6 +29,9 @@ import {SightLocationRouteComponent} from "./sight-location-route/sight-location
         NgxSpinnerModule,
         SightLocationRouteComponent
     ],
-  providers:[AsyncPipe]
+    exports: [
+        StarRatingComponent
+    ],
+    providers: [AsyncPipe]
 })
 export class CoreModule { }

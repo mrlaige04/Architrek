@@ -18,7 +18,7 @@ public class GetProfileQueryHandler : IRequestHandler<GetProfileQuery, DataResul
     public async Task<DataResult<UserProfile>> Handle(GetProfileQuery request, CancellationToken cancellationToken)
     {
         var userFromUM = await _userManager.GetUserAsync(request.User);
-        if (userFromUM == null) return DataResult<UserProfile>.Failure(ErrorDescriber.User.Unauthorized());
+        if (userFromUM == null) return DataResult<UserProfile>.Failure(ResultStatus.Unauthorized, ErrorDescriber.User.Unauthorized());
 
         var user = await _context.Users
             .Include(u => u.Avatar)

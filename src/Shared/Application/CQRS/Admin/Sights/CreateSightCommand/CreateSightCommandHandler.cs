@@ -16,10 +16,10 @@ public class CreateSightCommandHandler : IRequestHandler<CreateSightCommand, Res
     {
         var category = await _context
             .Categories
-            //.Include(c => c.Sights)
             .FirstOrDefaultAsync(c => c.Id == request.CategoryId, cancellationToken: cancellationToken);
 
-        if (category == null) return Result.Failure("Category not found");
+        if (category == null)
+            return Result.Failure(ResultStatus.NotFound, ErrorDescriber.Category.NotFound(request.CategoryId));
 
         var sight = new Sight
         {
@@ -30,7 +30,8 @@ public class CreateSightCommandHandler : IRequestHandler<CreateSightCommand, Res
 
         var country = await _context.Countries.FirstOrDefaultAsync(c=>c.Id == request.Location.CountryId, cancellationToken: cancellationToken);
 
-        if (country == null) return Result.Failure("Country not found");
+        if (country == null) 
+            return Result.Failure(ResultStatus.NotFound, ErrorDescriber.Category.NotFound(request.CategoryId));
 
         sight.Location = new Location
         {

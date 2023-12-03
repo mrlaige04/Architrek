@@ -54,7 +54,7 @@ public class IdentityService : IIdentityService
         var user = await _userManager.FindByIdAsync(userId.ToString());
 
         if (user == null)
-            return Result.Failure("User not found");
+            return Result.Failure(ResultStatus.NotFound, ErrorDescriber.User.NotFound(userId));
 
         var result = await _userManager.DeleteAsync(user);
 

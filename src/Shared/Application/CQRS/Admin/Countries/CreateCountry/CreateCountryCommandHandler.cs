@@ -18,7 +18,7 @@ public class CreateCountryCommandHandler : IRequestHandler<CreateCountryCommand,
             .AnyAsync(c => 
                 EF.Functions.Like(c.Name, $"%{request.Name}%"), cancellationToken
             );
-        if (hasCountryWithSuchName) return Result.Failure("Country with such name already exists");
+        if (hasCountryWithSuchName) return Result.Failure(ResultStatus.BadRequest, ErrorDescriber.Country.AlreadyExists(request.Name));
 
         await _context.Countries.AddAsync(new Country(request.Name), cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);

@@ -1,15 +1,21 @@
 ﻿using Application.Common.Interfaces;
-using Application.Common.Mappings;
 using Application.Common.Models;
 using Application.CQRS.Admin.Categories.CreateCategoryCommand;
 using Application.CQRS.Admin.Categories.DeleteCategory;
 using Application.CQRS.Admin.Countries.CreateCountry;
 using Application.CQRS.Admin.Countries.DeleteCountry;
 using Application.CQRS.Admin.Countries.GetAllCountries;
+using Application.CQRS.Admin.IsAdmin;
+using Application.CQRS.Admin.Reports.AnswerReport;
+using Application.CQRS.Admin.Reports.DeleteReport;
+using Application.CQRS.Admin.Reports.GetAllReports;
+using Application.CQRS.Admin.Reports.RejectReport;
+using Application.CQRS.Admin.Reports.SetActive;
+using Application.CQRS.Admin.Reviews.DeleteReview;
+using Application.CQRS.Admin.Reviews.GetAllReviews;
 using Application.CQRS.Admin.Sights.CreateSightCommand;
 using Application.CQRS.Admin.Users.DeleteUser;
 using Application.CQRS.Admin.Users.GetAllUsers;
-using Application.CQRS.Categories.GetAllCategories;
 using Application.Identity;
 using Domain.Constants;
 using Domain.Entities;
@@ -39,61 +45,34 @@ public class AdminController : ApiControllerBase
     }
 
 
-    [HttpGet, Route("users")]
-    public async Task<PaginatedList<ApplicationUser>> GetAllUsers([FromQuery] GetAllUsersQuery query)
+    [HttpGet, Route("users")] public async Task<PaginatedList<ApplicationUser>> GetAllUsers([FromQuery] GetAllUsersQuery query)
         => await Mediator.Send(query);
 
-    [HttpDelete, Route("users/{Id:guid}")]
-    public async Task<Result> DeleteUser([FromRoute] DeleteUserCommand command)
+    [HttpDelete, Route("users/{Id:guid}")] public async Task<Result> DeleteUser([FromRoute] DeleteUserCommand command)
         => await Mediator.Send(command);
 
 
 
-    [HttpPost, Route("categories")]
-    public async Task<Result> CreateCategory([FromBody] CreateCategoryCommand command)
+    [HttpPost, Route("categories")] public async Task<Result> CreateCategory([FromBody] CreateCategoryCommand command)
         => await Mediator.Send(command);
     
-    [HttpDelete, Route("categories/{Id:guid}")]
-    public async Task<Result> DeleteCategory([FromRoute] DeleteCategoryCommand command)
+    [HttpDelete, Route("categories/{Id:guid}")] public async Task<Result> DeleteCategory([FromRoute] DeleteCategoryCommand command)
         => await Mediator.Send(command);
 
-    /*[HttpGet, Route("categories")]
-    public async Task<IEnumerable<Category>> GetCategories()
-    {
-        return await _context.Categories.ToListAsync();
-    }*/
-
-
-    /*[HttpDelete, Route("users/{id:guid}")]
-    public async Task<bool> DeleteUser(Guid id)
-    {
-        var user = await _userManager.FindByIdAsync(id.ToString());
-        if (user == null) return false;
-        return !IsSuperAdmin(user) && (await _userManager.DeleteAsync(user)).Succeeded;
-    }*/
 
     [HttpGet, Route("isAdmin"), AllowAnonymous]
     public async Task<bool> IsAdmin()
-    {
-        var user = await _userManager.GetUserAsync(User);
-        if (user == null) return false;
-
-        return await _userManager.IsInRoleAsync(user, Roles.Administrator);
-    }
+        => await Mediator.Send(new IsAdminQuery() { User = User});
 
     
 
-    
-
-    [HttpPost, Route("sights")]
-    public async Task<Result> CreateSight([FromBody] CreateSightCommand command)
+    [HttpPost, Route("sights")] public async Task<Result> CreateSight([FromBody] CreateSightCommand command)
         => await Mediator.Send(command);
 
-    [HttpDelete, Route("sights/{id:guid}")]
-    public async Task<Result> DeleteSight(Guid id)
+    [HttpDelete, Route("sights/{id:guid}")] public async Task<Result> DeleteSight(Guid id)
     {
         var sight = await _context.Sights.FirstOrDefaultAsync(s => s.Id == id);
-        if (sight == null) return Result.Failure("Not found");
+        if (sight == null) return Result.Failure(ResultStatus.NotFound, "Not found");
 
         _context.Sights.Remove(sight);
         await _context.SaveChangesAsync(CancellationToken.None);
@@ -101,23 +80,41 @@ public class AdminController : ApiControllerBase
         return Result.Success();
     }
 
-    private bool IsSuperAdmin(ApplicationUser user)
-    {
-        var email = _configuration["admin:prebuilt:email"];
-        return email == user.Email;
-    }
-
-
-
-    [HttpGet, Route("countries")]
-    public async Task<PaginatedList<Country>> GetAllCountries([FromQuery] GetAllCountriesQuery query)
+    [HttpGet, Route("countries")] public async Task<PaginatedList<Country>> GetAllCountries([FromQuery] GetAllCountriesQuery query)
         => await Mediator.Send(query);
 
-    [HttpPost, Route("countries")]
-    public async Task<Result> CreateCountry([FromBody] CreateCountryCommand command)
+    [HttpPost, Route("countries")] public async Task<Result> CreateCountry([FromBody] CreateCountryCommand command)
         => await Mediator.Send(command);
 
-    [HttpDelete, Route("countries/{Id:guid}")]
-    public async Task<Result> DeleteCountry([FromRoute] DeleteCountryCommand command)
+    [HttpDelete, Route("countries/{Id:guid}")] public async Task<Result> DeleteCountry([FromRoute] DeleteCountryCommand command)
         => await Mediator.Send(command);
+
+
+    [HttpGet, Route("reviews")] public async Task<PaginatedList<SightReview>> GetAllReviews([FromQuery] GetAllReviewsQuery query)
+        => await Mediator.Send(query);
+
+    [HttpDelete, Route("reviews/{Id:guid}")] public async Task<Result> DeleteReview([FromRoute] DeleteReviewCommand command)
+        => await Mediator.Send(command);
+
+
+    [HttpGet, Route("reports")] public async Task<PaginatedList<Report>> GetAllReports([FromQuery] GetAllReportsQuery query)
+        => await Mediator.Send(query);
+
+
+
+    [HttpDelete, Route("reports/{Id:guid}")] public async Task<Result> DeleteReport([FromRoute] DeleteReportCommand command)
+        => await Mediator.Send(command);
+
+    [HttpPost, Route("reports/{Id:guid}")]
+    public async Task<Result> SetActiveReport([FromRoute] SetActiveReportCommand command)
+        => await Mediator.Send(command);
+
+    [HttpPost, Route("reports/answers")]
+    public async Task<Result> AnswerToReport([FromBody] AnswerReportCommand command)
+        => await Mediator.Send(command);
+
+    [HttpPost, Route("reports/{Id:guid}/rejects")]
+    public async Task<Result> RejectToReport([FromRoute] RejectReportCommand command)
+        => await Mediator.Send(command);
+
 }

@@ -26,7 +26,7 @@ export class AdminMenuUsersComponent {
 
   deleteUser(id: Guid) {
     this.admin.deleteUser(id).subscribe(data=>{
-      if (data) this.getUsers()
+      if (data.succeeded) this.getUsers()
     })
   }
 

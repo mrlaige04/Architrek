@@ -1,4 +1,5 @@
-﻿using Application.Identity;
+﻿using Application.Common.Models;
+using Application.Identity;
 using Domain.Entities;
 
 namespace Application.Common.Interfaces;
@@ -15,6 +16,7 @@ public interface IApplicationDbContext
     DbSet<Report> Reports { get; }
     DbSet<ApplicationUser> Users { get; }
     DbSet<UserAvatar> UserAvatars { get; }
+    DbSet<UserFavoriteSight> UserFavoriteSights { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

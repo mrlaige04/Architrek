@@ -3,5 +3,5 @@
 namespace Application.Common.Interfaces;
 public interface IAuthorizedRequest<out TResponse> : IRequest<TResponse>
 {
-    public ClaimsPrincipal User { get; set; }
+    public ClaimsPrincipal? User { get; set; }
 }

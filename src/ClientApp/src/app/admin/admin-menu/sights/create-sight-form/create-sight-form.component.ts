@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
   AbstractControl,
@@ -34,6 +34,8 @@ export class CreateSightFormComponent {
   form: FormGroup;
   photos?: File[];
 
+  @Output() closeModalEvent = new EventEmitter<any>()
+
   triedToSubmit = false;
   hasValidationError = false;
   validationErrors: Array<string> = []
@@ -60,6 +62,10 @@ export class CreateSightFormComponent {
 
   get location(): FormGroup {
     return this.form.get('location') as FormGroup
+  }
+
+  closeModal() {
+    this.closeModalEvent.emit()
   }
 
   get tags(): FormArray {
