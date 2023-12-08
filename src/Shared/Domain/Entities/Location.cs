@@ -1,4 +1,7 @@
-﻿namespace Domain.Entities;
+﻿using NetTopologySuite.Geometries;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
 public class Location : BaseAuditableEntity
 {
     public Sight Sight { get; set; }
@@ -8,4 +11,10 @@ public class Location : BaseAuditableEntity
     public Guid CountryId { get; set; }
     public double Longitude { get; set; } 
     public double Latitude { get; set; }
+
+    public Point GisLocation { get; set; }
+    public Location()
+    {
+        GisLocation = new Point(Longitude, Latitude);
+    }
 }

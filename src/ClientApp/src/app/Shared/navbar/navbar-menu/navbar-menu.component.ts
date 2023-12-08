@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterLink} from "@angular/router";
-import {ThemeService} from "../../theme.service";
 import {AuthMenuComponent} from "./auth-menu/auth-menu.component";
 import {ThemeSwitcherComponent} from "../../theme-switcher/theme-switcher.component";
 import {AdminService} from "../../../admin/admin.service";

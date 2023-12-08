@@ -37,7 +37,8 @@ public class CreateSightCommandHandler : IRequestHandler<CreateSightCommand, Res
         {
             Country = country,
             Latitude = request.Location.latitude,
-            Longitude = request.Location.longitude
+            Longitude = request.Location.longitude,
+            GisLocation = new NetTopologySuite.Geometries.Point(request.Location.longitude, request.Location.latitude)
         };
 
 
@@ -47,6 +48,15 @@ public class CreateSightCommandHandler : IRequestHandler<CreateSightCommand, Res
             foreach (var photo in request.Photos)
             {
                 sight.SightPhotos.Add(new SightPhoto(photo.Url));
+            }
+        }
+
+        if (request.InfoBlocks != null && request.InfoBlocks.Count > 0)
+        {
+            sight.Information = new List<Information>();
+            foreach (var block in request.InfoBlocks)
+            {
+                sight.Information.Add(new Information { Title = block.Title, Text = block.Text });
             }
         }
 

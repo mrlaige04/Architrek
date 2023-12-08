@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P++vRGZ1AT6jr8wVE3jx38r+bdDoIDOHSxSaEei+FvblMwAqIGBBFvIp6EpErr99xRfhWCA92Wpsor6B8rfnPA==",
+  "dgSpecHash": "K2bGCS6Ef3ilwkAbqIx/aBTfJLu6qJsC3Ygyr3CD8poD9w5TOPdY1E9MGTubZJa0iAINITWChepJUtk8bu34ZA==",
   "success": true,
   "projectFilePath": "D:\\KPI\\3 курс 1 семестр\\ТРПЗ\\Курсова\\Architrek\\src\\Shared\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -29,7 +29,15 @@
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    "C:\\Users\\illia\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\nettopologysuite\\2.5.0\\nettopologysuite.2.5.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\nettopologysuite.features\\2.1.0\\nettopologysuite.features.2.1.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\nettopologysuite.io.postgis\\2.1.0\\nettopologysuite.io.postgis.2.1.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\npgsql\\8.0.1\\npgsql.8.0.1.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.0\\npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql.nettopologysuite\\8.0.0\\npgsql.entityframeworkcore.postgresql.nettopologysuite.8.0.0.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\npgsql.nettopologysuite\\8.0.1\\npgsql.nettopologysuite.8.0.1.nupkg.sha512",
+    "C:\\Users\\illia\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

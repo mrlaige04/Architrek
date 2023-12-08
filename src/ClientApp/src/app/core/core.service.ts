@@ -38,6 +38,18 @@ export class CoreService {
     return this.httpClient.get<PaginatedList<Sight>>(uri, {params: options})
   }
 
+  getNearSights(query: FindNearQuery, pageNumber: number = 1, pageSize: number = 10) {
+    let uri = this.apiUrl + "sights/near"
+    let params = new HttpParams()
+      .set('latitude', query.latitude)
+      .set('longitude', query.longitude)
+      .set('radius', query.radius)
+      .set('pageNumber', pageNumber)
+      .set('pageSize', pageSize)
+
+    return this.httpClient.get<PaginatedList<Sight>>(uri, {params: params})
+  }
+
   getSightById(id: Guid) {
     let uri = this.apiUrl + "sights/" + id;
     return this.httpClient.get<Sight|undefined>(uri)

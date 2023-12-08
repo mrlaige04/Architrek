@@ -7,8 +7,6 @@ import {RouterLink} from "@angular/router";
 import {DynamicLogoComponent} from "./dynamic-logo/dynamic-logo.component";
 import {NavbarMenuComponent} from "./navbar/navbar-menu/navbar-menu.component";
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -20,11 +18,11 @@ import {NavbarMenuComponent} from "./navbar/navbar-menu/navbar-menu.component";
     FooterComponent,
     HideMenuDirective
   ],
-    imports: [
-        CommonModule,
-        RouterLink,
-        DynamicLogoComponent,
-        NavbarMenuComponent
-    ]
+  imports: [
+    CommonModule,
+    RouterLink,
+    DynamicLogoComponent,
+    NavbarMenuComponent,
+  ]
 })
 export class SharedModule { }

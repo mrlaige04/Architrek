@@ -32,8 +32,7 @@ export class SearchPageComponent {
     this.sights = coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
 
     this.findNearForm = fb.group({
-      distance: new FormControl(0, [Validators.required, RxwebValidators.numeric()]),
-      distanceUnit: new FormControl(DistanceUnit.Kilometers, [Validators.required]),
+      radius: new FormControl(0, [Validators.required, RxwebValidators.numeric()]),
     })
   }
 
@@ -61,14 +60,22 @@ export class SearchPageComponent {
     this.sights = this.coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
   }
 
+  findNear() {
+    if (this.findNearForm.valid) {
+      const radius = this.findNearForm.value['radius']
+      navigator.geolocation.getCurrentPosition(pos => {
+        const geo = pos.coords;
+        this.sights = this.coreService.getNearSights({radius: radius, longitude: geo.longitude, latitude: geo.latitude}, this.pageNumber, this.pagesCount)
+      })
+    }
+  }
 
   protected readonly Array = Array;
   protected readonly undefined = undefined;
 }
 
 export type FindNearQuery = {
-  distance: number,
-  distanceUnit: DistanceUnit,
+  radius: number,
   latitude: number,
   longitude: number
 }

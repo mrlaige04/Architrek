@@ -14,3 +14,4 @@ D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Application\obj\Debug\net8.0\refint\Application.dll
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Application\obj\Debug\net8.0\Application.pdb
 D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Application\obj\Debug\net8.0\ref\Application.dll
+D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\Shared\Application\obj\Debug\net8.0\EFCoreNpgsqlNetTopologySuite.cs

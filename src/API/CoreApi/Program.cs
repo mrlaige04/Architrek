@@ -10,8 +10,6 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddWebUI();
 
-
-//builder.Services.AddIdentity(builder.Configuration);
 builder.Services.AddIntegratedIdentity<ApplicationUser>();
 
 var app = builder.Build();
@@ -22,13 +20,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-
-/*app.UseCors(opt =>
-{
-    opt.AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader();
-});*/
 app.UseCors("angular");
 
 app.UseAuthentication();
