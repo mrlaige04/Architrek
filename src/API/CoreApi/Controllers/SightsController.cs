@@ -1,4 +1,5 @@
-﻿using Application.Common.Models;
+﻿using Application.Common.Interfaces;
+using Application.Common.Models;
 using Application.CQRS.SightCollection.GetSights.GetAllSights;
 using Application.CQRS.SightCollection.GetSights.GetNear;
 using Application.CQRS.SightCollection.GetSights.GetSightById;
@@ -41,21 +42,21 @@ public class SightsController : ApiControllerBase
     [HttpGet, Route("{id:guid}/reviews")]
     public async Task<IEnumerable<SightReview>> SightReviews(Guid id)
         => await Mediator.Send(new GetSightReviewsQuery { SightId = id });
-    
+
 
     [HttpPost, Route("{Id:guid}/favorite"), Authorize]
     public async Task<Result> AddToFavorite([FromRoute] AddToFavoriteCommand command)
-        => await Mediator.Send(new AddToFavoriteCommand(command.Id) { User = User});
+        => await Mediator.Send(command.WithUser(User));// new AddToFavoriteCommand(command.Id) { User = User});
 
     [HttpDelete, Route("{Id:guid}/favorite"), Authorize]
     public async Task<Result> RemoveFromFavorite([FromRoute] RemoveSightFromFavoriteCommand command)
-        => await Mediator.Send(new RemoveSightFromFavoriteCommand(command.Id) { User = User });
+        => await Mediator.Send(command.WithUser(User));// new RemoveSightFromFavoriteCommand(command.Id) { User = User });
 
 
 
     [HttpGet, Route("{Id:guid}/hasFav")]
     public async Task<bool> HasInFavorite([FromRoute] HasInFavoriteQuery query)
-        => await Mediator.Send(new HasInFavoriteQuery(query.Id) { User = User });
+        => await Mediator.Send(query.WithUser(User));// new HasInFavoriteQuery(query.Id) { User = User });
 
     [HttpGet, Route("near")]
     public async Task<PaginatedList<Sight>> GetNear([FromQuery] GetNearQuery query)

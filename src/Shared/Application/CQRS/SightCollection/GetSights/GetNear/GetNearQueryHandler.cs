@@ -24,6 +24,8 @@ public class GetNearQueryHandler : IRequestHandler<GetNearQuery, PaginatedList<S
                  .Select(l => l.SightId);
 
         return await _context.Sights
+            .Include(s => s.SightPhotos)
+            .Include(s => s.Tags)
             .Where(s => sightsInRadius.Contains(s.Id))
             .PaginatedListAsync(request.PageNumber, request.PageSize);
     }

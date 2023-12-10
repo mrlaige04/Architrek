@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from "../environments/environment.development";
+import {ToastersService} from "./services/ToastersService";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,9 @@ export class AppComponent{
   hideMenuRoutes = [
     '/auth/login',
     '/auth/register',
-    '/admin'
+    '/auth/forgot',
+    '/admin',
   ]
 
   title = 'Architrek';
-
-
 }

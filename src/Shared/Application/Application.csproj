@@ -23,10 +23,5 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CQRS\User\Reports\" />
-    <Folder Include="CQRS\User\Reviews\" />
-  </ItemGroup>
-
 
 </Project>

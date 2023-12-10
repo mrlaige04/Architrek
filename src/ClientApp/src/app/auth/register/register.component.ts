@@ -4,9 +4,9 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, 
 import {RxwebValidators} from "@rxweb/reactive-form-validators";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
-import {ToastersService} from "../../services/ToastersService";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ValidationProblem} from "../models/ValidationProblem";
+import {passwordValidator} from "@rxweb/reactive-form-validators/reactive-form-validators";
 
 
 @Component({
@@ -31,11 +31,7 @@ export class RegisterComponent {
       email: new FormControl('', [
         requiredValidator("Email is required"),
         emailValidator("Email is invalid")]),
-      password: new FormControl('', [
-        requiredValidator("Password is required"),
-        uppercaseLetterValidator("Password must have at least 1 uppercase letter"),
-        digitValidator("Password must have at least 1 digit"),
-        lowercaseLetterValidator("Password must have at least 1 digit")]),
+      password: new FormControl('', PasswordValidators),
       confirmPassword: new FormControl('', [
         RxwebValidators.compare({fieldName:'password', message: 'Passwords do not match'})])
     })
@@ -179,3 +175,11 @@ export function emailValidator(errorMessage: string): ValidatorFn {
     return null;
   };
 }
+
+
+export const PasswordValidators = [
+  requiredValidator("Password is required"),
+  uppercaseLetterValidator("Password must have at least 1 uppercase letter"),
+  digitValidator("Password must have at least 1 digit"),
+  lowercaseLetterValidator("Password must have at least 1 digit")
+]

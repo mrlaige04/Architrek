@@ -18,7 +18,6 @@ import {SightLocationRouteComponent} from "./sight-location-route/sight-location
         SearchPageComponent,
         SearchSightCardComponent,
         SightDetailComponent,
-        StarRatingComponent
     ],
     imports: [
         CommonModule,
@@ -28,10 +27,11 @@ import {SightLocationRouteComponent} from "./sight-location-route/sight-location
         AddReviewComponent,
         NgxSpinnerModule,
         SightLocationRouteComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      StarRatingComponent
     ],
     exports: [
-        StarRatingComponent
+
     ],
     providers: [AsyncPipe]
 })

@@ -9,7 +9,7 @@ import {Sight} from "../../../../core/Models/Sight";
 import {Guid} from "guid-typescript";
 import {AdminService} from "../../../admin.service";
 import {Modal} from "flowbite";
-import {AdminModalOptions} from "../../category/category-list/category-list.component";
+import {modalOptions} from "../../category/category-list/category-list.component";
 
 @Component({
   selector: 'app-sight-list',
@@ -25,7 +25,7 @@ export class SightListComponent implements AfterViewInit {
 
   @ViewChild('addSightModal') element?: ElementRef
 
-  modal = new Modal(null, AdminModalOptions)
+  modal = new Modal(null, modalOptions)
 
   constructor(private core: CoreService, private admin: AdminService) {
     this.sights$ = core.getAllSights({pageNumber: this.pageNumber, pageSize: this.pageSize})

@@ -7,11 +7,12 @@ import {Guid} from "guid-typescript";
 import {DataResult} from "../../../core/Models/DataResult";
 import {PaginatedList} from "../../../core/Models/PaginatedList";
 import {data} from "autoprefixer";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-favorite-sights',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './favorite-sights.component.html',
   styleUrl: './favorite-sights.component.scss'
 })

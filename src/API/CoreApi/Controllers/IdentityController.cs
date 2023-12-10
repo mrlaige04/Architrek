@@ -9,4 +9,5 @@ public class IdentityController(
 {
     [HttpGet, Route("emailAvailable")] public async Task<bool> EmailIsAvailable([FromQuery] string email)
         => (await userManager.FindByEmailAsync(email)) == null;
+
 }
