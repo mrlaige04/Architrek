@@ -9,6 +9,7 @@ import {Guid} from "guid-typescript";
 import {DistanceUnit} from "../Models/DistanceUnit";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RxwebValidators} from "@rxweb/reactive-form-validators";
+import {ToastersService} from "../../services/ToastersService";
 
 @Component({
   selector: 'app-search-page',
@@ -27,13 +28,12 @@ export class SearchPageComponent {
 
   findNearForm: FormGroup;
 
-  constructor(private coreService: CoreService, private fb: FormBuilder) {
+  constructor(private coreService: CoreService, fb: FormBuilder, private toastr: ToastersService) {
     this.categories = coreService.getAllCategories()
     this.sights = coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
 
     this.findNearForm = fb.group({
-      distance: new FormControl(0, [Validators.required, RxwebValidators.numeric()]),
-      distanceUnit: new FormControl(DistanceUnit.Kilometers, [Validators.required]),
+      radius: new FormControl(0, [Validators.required, RxwebValidators.numeric()]),
     })
   }
 
@@ -61,14 +61,24 @@ export class SearchPageComponent {
     this.sights = this.coreService.getAllSights({pageSize: this.pagesCount, pageNumber: this.pageNumber})
   }
 
+  findNear() {
+    if (this.findNearForm.valid) {
+      const radius = this.findNearForm.value['radius']
+      navigator.geolocation.getCurrentPosition(pos => {
+        const geo = pos.coords;
+        this.sights = this.coreService.getNearSights({radius, longitude: geo.longitude, latitude: geo.latitude}, this.pageNumber, this.pagesCount)
+      }, _ => {
+        this.toastr.showError('We cant find near sights, because you haven\'t allowed geolocation')
+      })
+    }
+  }
 
   protected readonly Array = Array;
   protected readonly undefined = undefined;
 }
 
 export type FindNearQuery = {
-  distance: number,
-  distanceUnit: DistanceUnit,
+  radius: number,
   latitude: number,
   longitude: number
 }

@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 import {CreateCountryFormComponent} from "../create-country-form/create-country-form.component";
 import {Guid} from "guid-typescript";
 import {Modal} from "flowbite";
-import {AdminModalOptions} from "../../category/category-list/category-list.component";
+import {modalOptions} from "../../category/category-list/category-list.component";
 
 @Component({
   selector: 'app-country-list',
@@ -23,7 +23,7 @@ export class CountryListComponent implements AfterViewInit {
   pageSize = 10;
   @ViewChild('addCountryModal') element?: ElementRef
 
-  modal = new Modal(null, AdminModalOptions)
+  modal = new Modal(null, modalOptions)
   constructor(private admin: AdminService) {
     this.countries$ = admin.getAllCountries(this.pageNumber, this.pageSize)
   }

@@ -97,13 +97,16 @@ export class AuthService {
     return this.http.post<void|ValidationProblem>(registerUri, registerModel, {headers: headers})
   }
 
-  // confirmEmail(confirmEmailModel: ConfirmEmail) {
-  //   let confirmEmailUri = this.baseUri+"confirmEmail";
-  //   const headers = new HttpHeaders()
-  //     .set("Content-Type", "application/json")
-  //
-  //   return this.http.post(confirmEmailUri, confirmEmailModel, {headers: headers})
-  // }
+  forgotPassword(email: ForgotPassword) {
+    let uri = this.baseUri + "forgotPassword"
+    console.log(email)
+    return this.http.post<ValidationProblem>(uri, email)
+  }
+
+  resetPassword(reset: ResetPassword) {
+    let uri = this.baseUri + "resetPassword"
+    return this.http.post<ValidationProblem>(uri, reset)
+  }
 
   isAuthenticated(): boolean
   {
@@ -165,6 +168,11 @@ export class AuthService {
     )
   }
 
+  changePassword(password: ChangePassword) {
+    let uri = this.baseUri + "manage/info"
+    return this.http.post<ValidationProblem|ChangePasswordResult>(uri, password)
+  }
+
   isJson(str: string): boolean {
     try {
       JSON.parse(str);
@@ -204,3 +212,8 @@ export class AuthService {
     return currentTime > expiresNumber;
   }
 }
+
+export type ForgotPassword = {email: string}
+export type ResetPassword = {email: string, resetCode: string, newPassword: string}
+export type ChangePassword = {oldPassword: string, newPassword: string}
+export type ChangePasswordResult = {email: string, isEmailConfirmed: boolean}

@@ -25,7 +25,7 @@ import {NgxSpinnerModule} from "ngx-spinner";
     BrowserAnimationsModule,
     NgxSpinnerModule.forRoot({type:'ball-scale-multiple'}),
     ToastrModule.forRoot({
-      maxOpened: 3,
+      maxOpened: 5,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
       tapToDismiss: true

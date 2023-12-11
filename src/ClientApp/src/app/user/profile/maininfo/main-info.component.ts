@@ -7,11 +7,12 @@ import {UserProfile} from "../../models/UserProfile";
 import {ProfileAvatarComponent} from "./profile-avatar/profile-avatar.component";
 import {AuthService} from "../../../auth/auth.service";
 import {Router} from "@angular/router";
+import {ChangePasswordComponent} from "./change-password/change-password.component";
 
 @Component({
   selector: 'app-maininfo',
   standalone: true,
-  imports: [CommonModule, ProfileAvatarComponent],
+  imports: [CommonModule, ProfileAvatarComponent, ChangePasswordComponent],
   templateUrl: './main-info.component.html',
   styleUrl: './main-info.component.scss'
 })

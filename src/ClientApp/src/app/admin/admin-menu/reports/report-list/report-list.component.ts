@@ -9,7 +9,7 @@ import {ReportSubject} from "../../../../Shared/report/models/ReportSubject";
 import {ReportStatus} from "../../../../Shared/report/models/ReportStatus";
 import {Guid} from "guid-typescript";
 import {AnswerReportFormComponent} from "../answer-report-form/answer-report-form.component";
-import {AdminModalOptions} from "../../category/category-list/category-list.component";
+import {modalOptions} from "../../category/category-list/category-list.component";
 import {Modal} from "flowbite";
 
 @Component({
@@ -31,7 +31,7 @@ export class ReportListComponent implements AfterViewInit{
 
   @ViewChild('answerForm') answerForm?: ElementRef
 
-  modal = new Modal(null, AdminModalOptions)
+  modal = new Modal(null, modalOptions)
   constructor(private admin: AdminService, private report: ReportService) {
     this.reports$ = admin.getAllReports()
     this.subjects$ = report.getSubjects()

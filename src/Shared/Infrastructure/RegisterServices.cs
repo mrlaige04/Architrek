@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nest;
+using Npgsql;
 
 namespace Infrastructure;
 
@@ -28,7 +29,8 @@ public static class RegisterServices
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
 
-            options.UseNpgsql(dbConnectionString);
+            options.UseNpgsql(dbConnectionString, x=>x.UseNetTopologySuite());
+            options.EnableDetailedErrors();
         });
 
         

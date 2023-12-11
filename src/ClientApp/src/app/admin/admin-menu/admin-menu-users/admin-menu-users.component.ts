@@ -7,11 +7,13 @@ import {Guid} from "guid-typescript";
 import {CreateCategoryFormComponent} from "../category/create-category-form/create-category-form.component";
 
 import {PaginatedList} from "../../../core/Models/PaginatedList";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from "@angular/material/table";
 
 @Component({
   selector: 'app-admin-menu-users',
   standalone: true,
-  imports: [CommonModule, CreateCategoryFormComponent],
+  imports: [CommonModule, CreateCategoryFormComponent, MatButtonModule, MatTableModule],
   templateUrl: './admin-menu-users.component.html',
   styleUrl: './admin-menu-users.component.scss'
 })

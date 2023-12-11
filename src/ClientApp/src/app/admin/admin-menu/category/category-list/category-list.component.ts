@@ -27,7 +27,7 @@ export class CategoryListComponent implements AfterViewInit{
 
   modal = new Modal(
       null,
-      AdminModalOptions
+      modalOptions
   )
   constructor(private core: CoreService, private admin: AdminService, private toastr: ToastersService) {
     this.categories$ = core.getAllCategories()
@@ -71,4 +71,4 @@ export class CategoryListComponent implements AfterViewInit{
   }
 }
 
-export const AdminModalOptions: ModalOptions = {placement: 'center', backdrop: "static", closable: true}
+export const modalOptions: ModalOptions = {placement: 'center', backdrop: "static", closable: true}

@@ -20,44 +20,44 @@ import {CountryListComponent} from "./admin/admin-menu/countries/country-list/co
 import {UserProfileMainComponent} from "./user/profile/user-profile-main/user-profile-main.component";
 import {MainInfoComponent} from "./user/profile/maininfo/main-info.component";
 import {MyReviewsComponent} from "./user/profile/my-reviews/my-reviews.component";
-import {MyReportsComponent} from "./user/profile/my-reports/my-reports.component";
 import {ReviewListComponent} from "./admin/admin-menu/reviews/review-list/review-list.component";
 import {ReportListComponent} from "./admin/admin-menu/reports/report-list/report-list.component";
+import {ForgotComponent} from "./auth/forgot/forgot.component";
 
 
 const authRoutes: Routes = [
-  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
-  { path: 'register', component: RegisterComponent, data: { title: 'Register' } }
+  { path: 'login', component: LoginComponent, title: 'Login' },
+  { path: 'register', component: RegisterComponent, title: 'Register' },
+  { path: 'forgot', component: ForgotComponent, title: 'Forgot' }
 ];
 
 const adminRoutes: Routes = [
   { path:'', redirectTo: 'users', pathMatch: 'full'},
-  { path: 'users', component: AdminMenuUsersComponent },
-  { path: 'categories', component: CategoryListComponent },
-  { path: 'sights', component: SightListComponent },
-  { path: 'countries', component: CountryListComponent },
-  { path: 'reviews', component: ReviewListComponent },
-  { path: 'reports', component: ReportListComponent }
+  { path: 'users', component: AdminMenuUsersComponent, title: 'Users' },
+  { path: 'categories', component: CategoryListComponent, title: 'Categories' },
+  { path: 'sights', component: SightListComponent, title: 'Sights' },
+  { path: 'countries', component: CountryListComponent, title: "Countries" },
+  { path: 'reviews', component: ReviewListComponent, title: 'Reviews' },
+  { path: 'reports', component: ReportListComponent, title: 'Reports' }
 ];
 
 
 const userRoutes: Routes = [
-  { path: 'favorite', component: FavoriteSightsComponent },
-  { path: 'profile', component: MainInfoComponent },
-  { path: 'reviews', component: MyReviewsComponent },
-  { path: 'reports', component: MyReportsComponent },
+  { path: 'favorite', component: FavoriteSightsComponent, data: {title: 'My favorites'} },
+  { path: 'profile', component: MainInfoComponent, title: 'Profile'},
+  { path: 'reviews', component: MyReviewsComponent, title: 'My reviews' },
   { path: '**', redirectTo: '/user/profile' }
 ]
 
 const routes: Routes = [
   {  path: '', component: StartPageComponent },
   {  path: 'auth', children: authRoutes, canActivateChild: [isNotAuthenticatedGuard] },
-  {  path: 'search', component: SearchPageComponent, data: { title: 'Search' } },
+  {  path: 'search', component: SearchPageComponent, title: 'Search' },
   {  path: 'report', component: ReportComponent },
-  {  path: 'sight/:id', component: SightDetailComponent, data: { title: 'Sight' } },
+  {  path: 'sight/:id', component: SightDetailComponent, title: 'Sight' },
   {  path: 'admin', component: AdminMenuComponent, children: adminRoutes, canActivate: [isAdminGuard], canActivateChild: [isAdminGuard] },
   {  path: 'user', component: UserProfileMainComponent, children: userRoutes, canActivate: [isAuthenticatedGuard], canActivateChild: [isAuthenticatedGuard] },
-  {  path: '**', component: _404Component}
+  {  path: '**', component: _404Component, title: 'Page not found('}
 ];
 
 @NgModule({

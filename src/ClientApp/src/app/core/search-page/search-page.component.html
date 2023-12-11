@@ -2,11 +2,11 @@
   <section class="dark:bg-gray-900 rounded-lg flex items-center">
     <div class="mx-auto w-full">
       <!-- Start coding here -->
-      <div class="relative bg-white border border-gray-500 shadow-md dark:bg-gray-800 sm:rounded-lg">
+      <div class="relative bg-white shadow-lg dark:bg-gray-800 rounded-lg sm:rounded-lg">
         <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
           <div class="w-full md:w-1/2">
             <form class="flex items-center">
-              <label i18n="@@CORE.SEARCH_PAGE.SEARCH" for="sights-query" class="sr-only">Search</label>
+              <label  for="sights-query" class="sr-only">Search</label>
               <div class="relative w-full">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -19,12 +19,19 @@
           </div>
           <div class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
             <div class="flex items-center w-full space-x-3 md:w-auto">
-              <select name="selectedCategory" [(ngModel)]="selectedCategory" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                <option i18n="@@CORE.SEARCH_PAGE.ALL_CATEGORIES" [defaultSelected]="true" [value]="undefined">All categories</option>
-                <option *ngFor="let category of (categories|async)?.items" [value]="category.id">{{category.name}}</option>
+              <select *ngIf="categories|async as categories" name="selectedCategory" [(ngModel)]="selectedCategory" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                <option [defaultSelected]="true" [value]="undefined">All categories</option>
+                <option *ngFor="let category of categories.items" [value]="category.id">{{category.name}}</option>
               </select>
             </div>
-
+            <div class="flex flex-row items-center">
+              <form [formGroup]="findNearForm" class="flex flex-row items-center">
+                <input formControlName="radius" class="bg-gray-50 border min-h-[40px] h-min border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                <button (click)="findNear()" class="py-2.5 px-5 ml-1 me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+              </form>
+            </div>
             <button (click)="searchSubmit()" type="button" class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
               <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -37,27 +44,29 @@
   </section>
 
   <!-- Result -->
-  <div class="mt-6"  *ngIf="(sights | async)?.totalCount! > 0; else notFound;">
-    <p i18n="@@CORE.SEARCH_PAGE.RESULTS" class="text-4xl font-bold text-center">Results</p>
+  <div *ngIf="sights|async as sights">
+    <p class="text-4xl font-bold text-center mt-5">Results</p>
+    <div class="mt-6" *ngIf="sights.totalCount > 0; else notFound;">
     <div class="items my-3 flex flex-wrap justify-between align-items-stretch">
-      <app-search-sight-card *ngFor="let sight of (sights | async)?.items" [sight]="sight"></app-search-sight-card>
+      <app-search-sight-card *ngFor="let sight of sights.items" [sight]="sight"></app-search-sight-card>
     </div>
     <div class="mt-6 text-center mb-2" aria-label="Page navigation example">
-      <ul class="inline-flex -space-x-px text-sm" *ngIf="(sights | async)?.totalPages != 0">
+      <ul class="inline-flex -space-x-px text-sm" *ngIf="sights.totalPages != 0">
         <li class="mr-4">
-          <input type="number" [(ngModel)]="pagesCount" name="pagesCount" min="1" max="{{(sights|async)?.totalCount}}" class="bg-gray-50 border max-w-sm border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <input type="number" [(ngModel)]="pagesCount" name="pagesCount" min="1" max="{{sights.totalCount}}" class="bg-gray-50 border max-w-sm border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </li>
         <li>
-          <button (click)="prevPage()" [disabled]="!(sights | async)?.hasPreviousPage" type="button" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+          <button (click)="prevPage()" [disabled]="!sights.hasPreviousPage" type="button" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
         </li>
-        <li *ngFor="let page of Array.from(Array((sights | async)?.totalPages).keys())">
+        <li *ngFor="let page of Array.from(Array(sights.totalPages).keys())">
           <button [ngClass]="{'bg-gray-100':pageNumber-1==page}" [disabled]="this.pageNumber-1 == page" (click)="exactPage(page)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{page+1}}</button>
         </li>
         <li>
-          <button (click)="nextPage()" [disabled]="!(sights | async)?.hasNextPage" type="button" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+          <button (click)="nextPage()" [disabled]="!sights.hasNextPage" type="button" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
         </li>
       </ul>
     </div>
+  </div>
   </div>
   <ng-template #notFound>
     Not found

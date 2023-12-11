@@ -9,6 +9,8 @@ import {SynchronousPromise} from "synchronous-promise";
 import {forkJoin, switchMap} from "rxjs";
 import {ApiResult} from "../core/Models/ApiResult";
 import {PaginatedList} from "../core/Models/PaginatedList";
+import {SightReview} from "../core/Models/SightReview";
+import {EditReview} from "./profile/my-reviews/edit-review/edit-review.component";
 
 
 @Injectable({
@@ -51,6 +53,60 @@ export class UserService {
     return this.http.delete<ApiResult>(uri)
   }
 
+  getReviews(pageNumber: number = 1, pageSize: number = 10) {
+    let uri = this.baseUrl + "reviews"
+    let params = new HttpParams()
+      .set("pageNumber", pageNumber)
+      .set("pageSize", pageSize)
+    return this.http.get<DataResult<PaginatedList<SightReview>>>(uri, {params: params})
+  }
+
+  deleteReview(id: Guid) {
+    let uri = this.baseUrl + "reviews/" + id.toString()
+    return this.http.delete<ApiResult>(uri)
+  }
+
+  /*changeReviewText(change: ChangeReviewText) {
+    let uri = this.baseUrl + "reviews/" + change.id.toString()
+    return this.http.post<ApiResult>(uri, change)
+  }*/
+
+  editReview(id: Guid, edit: EditReview, photos: { add: Array<File>, remove: Array<Guid> }) {
+    let uri = this.baseUrl + "reviews/" + id.toString()
+
+    let photosReq: {add: Array<string>, remove: Array<Guid>} = {
+      add: [],
+      remove: []
+    };
+    photosReq.remove = photos.remove;
+
+    if (photos.add.length == 0) {
+      return this.http.post<ApiResult>(uri, {
+        id: id, text: edit.text, rating: edit.rating, photos: {
+          add: photosReq.add,
+          remove: photosReq.remove
+        }
+      })
+    }
+    let promises = photos.add.map(file => this.fileToBase64(file)) || [];
+
+    return forkJoin(promises)
+      .pipe(
+        switchMap(base64Strings => {
+          photosReq.add = base64Strings;
+          console.log(edit)
+          const body = {
+            id: id, text: edit.text, rating: edit.rating, photos: {
+              add: photosReq.add,
+              remove: photosReq.remove
+            }
+          }
+          console.log(body)
+          return this.http.post<ApiResult>(uri, body);
+        })
+      );
+  }
+
   deleteAccount() {
     let uri = this.baseUrl + "account"
     return this.http.delete<ApiResult>(uri)
@@ -65,3 +121,5 @@ export class UserService {
     });
   }
 }
+
+export type ChangeReviewText = {id: Guid, text?: string}

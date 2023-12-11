@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {DataResult} from "../../../../core/Models/DataResult";
 import {UserProfile} from "../../../models/UserProfile";
 import {UserService} from "../../../user.service";
+import {UserAvatar} from "../../../../core/Models/UserAvatar";
 
 @Component({
   selector: 'app-profile-avatar',
@@ -42,5 +43,10 @@ export class ProfileAvatarComponent {
         this.avatarUploaded.emit()
       }
     })
+  }
+
+  chooseAvatarIfExists(avatar: UserAvatar) {
+    return !avatar || avatar.url === undefined || avatar.url == "undefined" ?
+      'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg' : avatar.url;
   }
 }
