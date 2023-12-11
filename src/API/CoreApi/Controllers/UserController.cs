@@ -6,13 +6,11 @@ using Application.CQRS.User.Profile.DeleteProfile;
 using Application.CQRS.User.Profile.GetProfile;
 using Application.CQRS.User.Profile.RemoveAvatar;
 using Application.CQRS.User.Profile.SetAvatar;
-using Application.CQRS.User.Reviews.ChangeReviewText;
 using Application.CQRS.User.Reviews.EditReview;
 using Application.CQRS.User.Reviews.GetMyReviews;
 using Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 
 namespace CoreApi.Controllers;
 

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {CreateCategoryFormComponent} from "../../category/create-category-form/create-category-form.component";
 import {CreateSightFormComponent} from "../create-sight-form/create-sight-form.component";
 import {CoreService} from "../../../../core/core.service";
@@ -10,11 +10,12 @@ import {Guid} from "guid-typescript";
 import {AdminService} from "../../../admin.service";
 import {Modal} from "flowbite";
 import {modalOptions} from "../../category/category-list/category-list.component";
+import {QRCodeModule} from "angularx-qrcode";
 
 @Component({
   selector: 'app-sight-list',
   standalone: true,
-  imports: [CommonModule, CreateCategoryFormComponent, CreateSightFormComponent],
+  imports: [CommonModule, CreateCategoryFormComponent, CreateSightFormComponent, QRCodeModule],
   templateUrl: './sight-list.component.html',
   styleUrl: './sight-list.component.scss'
 })
@@ -23,24 +24,42 @@ export class SightListComponent implements AfterViewInit {
   pageNumber= 1;
   pageSize = 10;
 
-  @ViewChild('addSightModal') element?: ElementRef
+  currentQrCodeSightId?: Guid;
 
-  modal = new Modal(null, modalOptions)
+  @ViewChild('addSightModal') addSightModalElement?: ElementRef
+  @ViewChild('qrCodeModal') qrCodeSightModalElement?: ElementRef;
+
+  addSightModal = new Modal(null, modalOptions)
+  qrCodeSightModal = new Modal(null, modalOptions)
 
   constructor(private core: CoreService, private admin: AdminService) {
     this.sights$ = core.getAllSights({pageNumber: this.pageNumber, pageSize: this.pageSize})
   }
 
   ngAfterViewInit() {
-    this.modal._targetEl = this.element?.nativeElement
+    this.addSightModal._targetEl = this.addSightModalElement?.nativeElement
+    this.qrCodeSightModal._targetEl = this.qrCodeSightModalElement?.nativeElement
   }
 
-  openModal() {
-    this.modal.show()
+  openEditModal() {
+    this.addSightModal.show()
   }
 
-  closeModal() {
-    this.modal.hide()
+  openQrCodeModal(id: Guid) {
+    this.currentQrCodeSightId = id;
+    this.qrCodeSightModal.show()
+  }
+
+  getQr(id?: Guid) {
+    return window.origin + "/sight/" + id?.toString()
+  }
+
+  closeEditModal() {
+    this.addSightModal.hide()
+  }
+
+  closeQrCodeModal() {
+    this.qrCodeSightModal.hide()
   }
 
   getSights() {

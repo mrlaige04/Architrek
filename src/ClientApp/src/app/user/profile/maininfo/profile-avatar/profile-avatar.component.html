@@ -1,7 +1,6 @@
 <div *ngIf="profile|async as profile" class="flex flex-col items-center">
   <div class="">
-    <img [src]="profile.data?.avatar?.url ??
-      'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg'" alt="Profile Picture"
+    <img [src]="chooseAvatarIfExists(profile.data.avatar)" alt="Profile Picture"
          class="w-24 h-24 rounded-full shadow-gray-500 shadow-sm-light">
   </div>
   <div class="mt-3">

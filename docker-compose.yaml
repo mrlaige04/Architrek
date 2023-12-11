@@ -28,18 +28,7 @@ services:
 		networks:
 			- corenetwork
 
-	urldb:
-		image: postgres:latest
-		ports:
-			- "5433:5432"
-		environment:
-		    POSTGRES_DB: urldb
-			POSTGRES_USER: sdf
-			POSTGRES_PASSWORD: sdf
-		volumes:
-		    - urldb_data:/var/lib/postgresql/data
-		networks:
-			- corenetwork
+	
 	angular:
 		image: angular
 		ports:
@@ -50,11 +39,11 @@ services:
 
 secrets:
     coredb:
-	urldb:
+	
 
 volumes:
 	coredb_data:
-	urldb_data:
+	
 		
 networks:
 	corenetwork:
