@@ -1,4 +1,4 @@
 export const environment = {
-    locales: ['en', 'ua', 'de'],
-    defaultLocale: 'en'
+  production: false,
+  backendUrl: 'http://localhost:5000'
 };

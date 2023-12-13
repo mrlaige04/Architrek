@@ -1,50 +1,45 @@
-version: '3.1'
-
+version: '3'
 services:
-	coreapi:
-		image: coreapi
-		build:
-			context: .
-			dockerfile: ./src/API/CoreApi/Dockerfile
-		ports:
-			- "90:80"
-		depends_on:
-			- coredb
-		environment:
-			- ConnectionStrings__DefaultConnection=Host=maindb;Port=5432;
-		networks:
-			- corenetwork
+  backend:
+    networks:
+        - main
+    build:
+      context: .
+      dockerfile: ./src/API/CoreApi/Dockerfile
+    ports:
+      - "5000:8080"
+      - "5001:80" 
+    depends_on:
+      - database
+    environment:
+        ConnectionStrings__Database: "host=database;port=5432;database=acrhitrekdb;username=admin;password=admin"
 
-	coredb:
-		image: postgres:latest
-		ports:
-			- "5432:5432"
-		environment:
-			POSTGRES_DB: coredb
-			POSTGRES_USER: sdf
-			POSTGRES_PASSWORD: sdf
-		volumes:
-		    - coredb_data:/var/lib/postgresql/data
-		networks:
-			- corenetwork
+  frontend:
+    build:
+      context: ./src/ClientApp
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+        - backend
 
-	
-	angular:
-		image: angular
-		ports:
-			- "4200:4200"
-		environment:
-			API_URL = "H"
-		    
+  database:
+    image: "postgis/postgis:latest"
+    networks:
+        - main
+    ports:
+    - "5432"
+    volumes:
+        - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: architekdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
 
-secrets:
-    coredb:
-	
 
 volumes:
-	coredb_data:
-	
-		
+    postgres_data:
+
 networks:
-	corenetwork:
-		driver: bridge
+    main:
+        driver: bridge

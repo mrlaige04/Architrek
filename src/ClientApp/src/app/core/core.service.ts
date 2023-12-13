@@ -18,7 +18,7 @@ import {request} from "express";
   providedIn: 'root'
 })
 export class CoreService {
-  apiUrl: string = "https://localhost:7143/api/"
+  apiUrl: string = "http://localhost:5000/api/"
   constructor(private httpClient: HttpClient) { }
 
   getAllCategories(pageNumber:number = 1, pageSize:number = 10): Observable<PaginatedList<Category>> {
