@@ -7,7 +7,7 @@
     </svg>
   </a>
 
-  <a href="/admin" *ngIf="isAdmin$|async" class="">
+  <a routerLink="/admin" *ngIf="isAdmin$|async" class="">
     <i class="fas fa-bolt" style="color: #3e3c3c;"></i>
   </a>
   <app-theme-switcher></app-theme-switcher>

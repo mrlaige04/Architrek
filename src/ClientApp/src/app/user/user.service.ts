@@ -17,7 +17,7 @@ import {EditReview} from "./profile/my-reviews/edit-review/edit-review.component
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl:string = "https://localhost:7143/api/user/"
+  baseUrl:string = "http://localhost:5000/api/user/"
   constructor(private http: HttpClient, private core: CoreService) { }
 
   getMyFavorites(pageNumber: number = 1, pageSize: number = 10) {

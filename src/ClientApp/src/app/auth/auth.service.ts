@@ -12,7 +12,7 @@ import {CryptoService} from '../Shared/crypto.service';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUri = "https://localhost:7143/api/Identity/"
+  baseUri = "http://localhost:5000/api/Identity/"
   authTokenKey = "authToken"
   expiresTokenKey = "tokenExpires"
 

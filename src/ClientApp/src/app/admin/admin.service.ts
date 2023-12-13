@@ -18,7 +18,7 @@ import {Report} from "../Shared/report/models/Report";
   providedIn: 'root'
 })
 export class AdminService {
-  baseUrl = "https://localhost:7143/api/Admin/"
+  baseUrl = "http://localhost:5000/api/Admin/"
   private readonly isAdminSubject : BehaviorSubject<boolean>;
   isAdmin$: Observable<boolean>;
   constructor(private http: HttpClient, private auth: AuthService) {
