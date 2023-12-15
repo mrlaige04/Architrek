@@ -12,4 +12,6 @@ public class SightReview : BaseAuditableEntity
     public string? Reviewer { get; set; }
     public double Rating { get; set; }
     public string? ReviewText { get; set; }
+
+    public SightReviewPhoto SightReviewPhoto { get; set; }
 }

@@ -9,7 +9,7 @@ import {ReportStatus} from "./models/ReportStatus";
   providedIn: 'root'
 })
 export class ReportService {
-  baseUri = "https://localhost:7143/api/reports/"
+  baseUri = "http://localhost:5000/api/reports/"
   constructor(private http: HttpClient) { }
 
   getSubjects() {
