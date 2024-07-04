@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "qF5/Avau2iZlkJdx7tVdUcIYH58S9OG+ljhjfrEF2OU=",
+  "Hash": "H29ry7udoOAGEJnQiguQwvTh16iCUbd7shLueKeIk5Q=",
   "Source": "CoreApi",
   "BasePath": "_content/CoreApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

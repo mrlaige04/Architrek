@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserService} from "../../user.service";
 import {Guid} from "guid-typescript";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {DataResult} from "../../../core/Models/DataResult";
 import {PaginatedList} from "../../../core/Models/PaginatedList";
 import {SightReview} from "../../../core/Models/SightReview";
@@ -16,6 +16,7 @@ import {Modal} from "flowbite";
 import {modalOptions} from "../../../admin/admin-menu/category/category-list/category-list.component";
 import {StarRatingComponent} from "../../../core/star-rating/star-rating.component";
 import {ToastersService} from "../../../services/ToastersService";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-my-reviews',
@@ -31,8 +32,8 @@ export class MyReviewsComponent implements AfterViewInit{
   isEditingMode = false;
   editingReview? : SightReview;
 
-  reviews$: Observable<DataResult<PaginatedList<SightReview>>>
-
+  reviews$ = this.getReviews()
+  reviews = toSignal(this.reviews$)
 
   @ViewChild("editReviewModal") element?: ElementRef;
 
@@ -46,11 +47,12 @@ export class MyReviewsComponent implements AfterViewInit{
   }
 
   constructor(private user: UserService, private toastr: ToastersService) {
-    this.reviews$ = this.user.getReviews(this.pageNumber, this.pageSize)
+    this.getReviews()
   }
 
   getReviews() {
-    this.reviews$ = this.user.getReviews(this.pageNumber, this.pageSize)
+    return this.user.getReviews(this.pageNumber, this.pageSize)
+      .pipe(map(data => data.data))
   }
 
   editReview(review: SightReview) {

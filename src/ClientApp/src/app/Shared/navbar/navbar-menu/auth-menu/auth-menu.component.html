@@ -2,15 +2,9 @@
   <a mat-flat-button routerLink="/auth/login">Login</a>
 } @else {
   <div class="user-menu" *ngIf="userProfile() as profile">
-<!--    <button id="dropdownUserAvatarButton" data-dropdown-toggle="userDropdown" aria-expanded="false" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">-->
-<!--      <span class="sr-only">Open user menu</span>-->
-
-<!--      <img width="32" height="32"-->
-<!--           [ngSrc]="hasAvatar() ? profile.data.avatar.url! : noUserAvatar"-->
-<!--           alt="user-image"/>-->
-<!--    </button>-->
-
-    <button mat-flat-button [matMenuTriggerFor]="userMenu">User</button>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>person</mat-icon>
+    </button>
 
     <mat-menu #userMenu>
       <a routerLink="/user/profile" mat-menu-item>Profile</a>
@@ -18,21 +12,5 @@
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
-
-    <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="userDropdown">
-      <div class="py-3 px-4">
-        <span class="block text-sm font-semibold text-gray-900 dark:text-white">{{profile.data.email}}</span>
-      </div>
-      <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
-        <li>
-          <a routerLink="/user/profile" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My profile</a>
-        </li>
-      </ul>
-      <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
-        <li>
-          <a (click)="logout();" href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-        </li>
-      </ul>
-    </div>
   </div>
 }

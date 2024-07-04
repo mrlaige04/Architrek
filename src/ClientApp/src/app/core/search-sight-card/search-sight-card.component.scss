@@ -1,0 +1,22 @@
+.card-image {
+  max-height: 150px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 1rem 0;
+}
+
+mat-chip.tag {
+  background: rgb(225 239 254);
+  border: none;
+}
+
+
+.visit-button {
+  margin: 5px;
+  width: 100%;
+}

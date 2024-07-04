@@ -1,36 +1,43 @@
 {
   "format": 1,
   "restore": {
-    "/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/CoreApi.csproj": {}
+    "D:\\test\\Architrek\\src\\API\\CoreApi\\CoreApi.csproj": {}
   },
   "projects": {
-    "/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/CoreApi.csproj": {
+    "D:\\test\\Architrek\\src\\API\\CoreApi\\CoreApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/CoreApi.csproj",
+        "projectUniqueName": "D:\\test\\Architrek\\src\\API\\CoreApi\\CoreApi.csproj",
         "projectName": "CoreApi",
-        "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/CoreApi.csproj",
-        "packagesPath": "/Users/illiarudiakov/.nuget/packages/",
-        "outputPath": "/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/",
+        "projectPath": "D:\\test\\Architrek\\src\\API\\CoreApi\\CoreApi.csproj",
+        "packagesPath": "C:\\Users\\illia\\.nuget\\packages\\",
+        "outputPath": "D:\\test\\Architrek\\src\\API\\CoreApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\VS IDE\\SDK\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/illiarudiakov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\illia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj": {
-                "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj"
+              "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj": {
+                "projectPath": "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj"
               },
-              "/Users/illiarudiakov/KPI/Architrek/src/Shared/Infrastructure/Infrastructure.csproj": {
-                "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Infrastructure/Infrastructure.csproj"
+              "D:\\test\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\test\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -39,6 +46,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -101,6 +113,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -109,34 +139,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.4.24267.66/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj": {
+    "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj",
+        "projectUniqueName": "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj",
-        "packagesPath": "/Users/illiarudiakov/.nuget/packages/",
-        "outputPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/obj/",
+        "projectPath": "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\illia\\.nuget\\packages\\",
+        "outputPath": "D:\\test\\Architrek\\src\\Shared\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\VS IDE\\SDK\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/illiarudiakov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\illia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/illiarudiakov/KPI/Architrek/src/Shared/Domain/Domain.csproj": {
-                "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Domain/Domain.csproj"
+              "D:\\test\\Architrek\\src\\Shared\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\test\\Architrek\\src\\Shared\\Domain\\Domain.csproj"
               }
             }
           }
@@ -145,6 +182,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -203,31 +245,52 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.4.24267.66/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/illiarudiakov/KPI/Architrek/src/Shared/Domain/Domain.csproj": {
+    "D:\\test\\Architrek\\src\\Shared\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Domain/Domain.csproj",
+        "projectUniqueName": "D:\\test\\Architrek\\src\\Shared\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Domain/Domain.csproj",
-        "packagesPath": "/Users/illiarudiakov/.nuget/packages/",
-        "outputPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Domain/obj/",
+        "projectPath": "D:\\test\\Architrek\\src\\Shared\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\illia\\.nuget\\packages\\",
+        "outputPath": "D:\\test\\Architrek\\src\\Shared\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\VS IDE\\SDK\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/illiarudiakov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\illia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -240,6 +303,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -270,39 +338,60 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.4.24267.66/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/illiarudiakov/KPI/Architrek/src/Shared/Infrastructure/Infrastructure.csproj": {
+    "D:\\test\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Infrastructure/Infrastructure.csproj",
+        "projectUniqueName": "D:\\test\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Infrastructure/Infrastructure.csproj",
-        "packagesPath": "/Users/illiarudiakov/.nuget/packages/",
-        "outputPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Infrastructure/obj/",
+        "projectPath": "D:\\test\\Architrek\\src\\Shared\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\illia\\.nuget\\packages\\",
+        "outputPath": "D:\\test\\Architrek\\src\\Shared\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\VS IDE\\SDK\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/illiarudiakov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\illia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj": {
-                "projectPath": "/Users/illiarudiakov/KPI/Architrek/src/Shared/Application/Application.csproj"
+              "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj": {
+                "projectPath": "D:\\test\\Architrek\\src\\Shared\\Application\\Application.csproj"
               }
             }
           }
@@ -311,6 +400,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -373,12 +467,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.4, 8.0.4]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.4.24267.66/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

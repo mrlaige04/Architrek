@@ -14,6 +14,7 @@ import {ApiConfig} from "../core/providers/apiConfig.provider";
 })
 export class AuthService {
   private http = inject(HttpClient)
+  private crypto = inject(CryptoService)
   baseUrl : string;
 
   authTokenKey = "authToken"
@@ -25,8 +26,7 @@ export class AuthService {
   isAuthenticated$: Observable<boolean>;
 
   constructor(
-    @Inject('API_CONFIG') apiConfig: ApiConfig,
-    private crypto: CryptoService,
+    @Inject('API_CONFIG') apiConfig: ApiConfig
     )
   {
     this.baseUrl = apiConfig.apiUrl + 'identity/'

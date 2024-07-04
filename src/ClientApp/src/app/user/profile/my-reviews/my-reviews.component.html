@@ -1,6 +1,5 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
   <div class="px-4">
-    <!-- Start coding here -->
     <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Your reviews</h2>
     </div>
@@ -9,7 +8,7 @@
     </div>
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
       <div class="overflow-x-auto">
-        <table *ngIf="reviews$|async as reviewList" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-4 py-3">Sight</th>
@@ -18,8 +17,8 @@
             <th scope="col" class="px-4 py-3">Actions</th>
           </tr>
           </thead>
-          <tbody *ngIf="reviewList.succeeded && reviewList.data as reviews">
-          <tr *ngFor="let review of reviews.items" class="border-b dark:border-gray-700">
+          <tbody>
+          <tr *ngFor="let review of reviews()?.items" class="border-b dark:border-gray-700">
             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
               <a routerLink="/sight/{{review.sightId}}">Visit</a>
             </th>
@@ -37,10 +36,10 @@
           </tbody>
         </table>
       </div>
-      <div *ngIf="reviews$|async as reviewList" class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
-        <ul *ngIf="reviewList.succeeded && reviewList.data" class="inline-flex items-stretch -space-x-px">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
+        <ul class="inline-flex items-stretch -space-x-px">
           <li>
-            <button *ngIf="reviewList.data.hasPreviousPage" class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <button *ngIf="reviews()?.hasPreviousPage" class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
               <span class="sr-only">Previous</span>
               <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -48,7 +47,7 @@
             </button>
           </li>
           <li>
-            <button *ngIf="reviewList.data.hasNextPage" class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <button *ngIf="reviews()?.hasNextPage" class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
               <span class="sr-only">Next</span>
               <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />

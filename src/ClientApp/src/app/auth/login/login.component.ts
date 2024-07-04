@@ -3,8 +3,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {AccessTokenResponse} from "../models/accesstokenresponse";
 import {Router} from "@angular/router";
-import {catchError, of, throwError} from "rxjs";
-import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',

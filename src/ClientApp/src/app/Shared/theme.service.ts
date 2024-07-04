@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ThemeService {
-  savedThemeKey = "svd-thm"
+  savedThemeKey = "usr-thm"
+
   constructor() {
     this.trySetSavedTheme()
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ThemeService} from "../theme.service";
 import {MatButtonModule} from "@angular/material/button";
@@ -12,10 +12,9 @@ import {MatIconModule} from "@angular/material/icon";
   styleUrl: './theme-switcher.component.scss'
 })
 export class ThemeSwitcherComponent {
-  constructor(private themeService: ThemeService) {
-  }
+  private theme = inject(ThemeService)
 
   toggleTheme() {
-    this.themeService.toggleTheme()
+    this.theme.toggleTheme()
   }
 }

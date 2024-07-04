@@ -5,5 +5,5 @@ import {AdminService} from "./admin.service";
 
 export const isAdminGuard: CanActivateFn = (route, state) => {
   const admin = inject(AdminService)
-  return admin.isAdmin() ?? false;
+  return admin.isUserAdmin();
 }

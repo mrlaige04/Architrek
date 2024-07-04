@@ -1,10 +1,9 @@
-import {Component, EventEmitter, inject, Input, OnDestroy, Output} from '@angular/core';
+import {Component, inject, input, OnDestroy, output} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Observable, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
 import {UserProfile} from "../../../models/UserProfile";
 import {UserService} from "../../../user.service";
 import {UserAvatar} from "../../../../core/Models/UserAvatar";
-import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-profile-avatar',
@@ -18,11 +17,9 @@ export class ProfileAvatarComponent implements OnDestroy {
 
   private subscriptions: Subscription[] = []
 
-  @Input({required: true}) profile$!: Observable<UserProfile>
+  profile = input.required<UserProfile>()
 
-  profile = toSignal(this.profile$)
-
-  @Output() avatarUploaded = new EventEmitter<string>();
+  avatarUploaded = output<string>()
 
   imageChoose(event: Event) {
     const target = event.target;
@@ -45,7 +42,7 @@ export class ProfileAvatarComponent implements OnDestroy {
   removeAvatar() {
     const sub = this.user.removeAvatar().subscribe(data => {
       if (data.succeeded) {
-        this.avatarUploaded.emit()
+        this.avatarUploaded.emit('')
       }
     })
 

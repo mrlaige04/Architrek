@@ -1,9 +1,7 @@
 import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserService} from "../../user.service";
-import {map, Observable} from "rxjs";
-import {DataResult} from "../../../core/Models/DataResult";
-import {UserProfile} from "../../models/UserProfile";
+import {map} from "rxjs";
 import {ProfileAvatarComponent} from "./profile-avatar/profile-avatar.component";
 import {AuthService} from "../../../auth/auth.service";
 import {Router} from "@angular/router";

@@ -19,12 +19,11 @@ export class AdminService {
   private http = inject(HttpClient)
   baseUrl: string;
 
+  isAdmin = signal(this.isUserAdmin())
+
   constructor(@Inject('API_CONFIG') apiConfig: ApiConfig) {
     this.baseUrl = apiConfig.apiUrl + 'admin/'
-    this.isAdmin = toSignal(this.isUserAdmin())
   }
-
-  isAdmin: Signal<boolean | undefined>;
 
   getUsers(pageNumber: number, pageSize: number) {
     const url = this.baseUrl + "users";

@@ -9,6 +9,10 @@ import { DynamicLogoComponent } from '../Shared/dynamic-logo/dynamic-logo.compon
 import {NgxSpinnerModule} from "ngx-spinner";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {PassTokenInterceptor} from "./pass-token.interceptor";
+import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
+import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {MatButton} from "@angular/material/button";
 
 
 @NgModule({
@@ -22,14 +26,22 @@ import {PassTokenInterceptor} from "./pass-token.interceptor";
         RegisterComponent,
         ForgotComponent
     ],
-    imports: [
-        CommonModule,
-        RouterLink,
-        ReactiveFormsModule,
-        FormsModule,
-        DynamicLogoComponent,
-        NgxSpinnerModule
-    ],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ReactiveFormsModule,
+    FormsModule,
+    DynamicLogoComponent,
+    NgxSpinnerModule,
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    MatButton,
+    MatError
+  ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

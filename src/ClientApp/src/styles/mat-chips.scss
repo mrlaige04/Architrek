@@ -1,0 +1,14 @@
+@import 'variables';
+
+:root {
+  --mdc-chip-container-height: 25px;
+  --mdc-chip-text-color: rgba(0, 0, 0, 0.5);
+  --mdc-chip-label-text-font: $fontFamily;
+  --mdc-chip-container-shape-radius: 15px;
+  --mdc-chip-outline-color: transparent;
+  --mdc-chip-label-text-color: #1e429f;
+}
+
+.mat-mdc-card-header {
+  padding-top: 0 !important;
+}

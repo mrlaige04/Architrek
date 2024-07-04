@@ -10,6 +10,9 @@ import {ReviewComponent} from "./review/review.component";
 import {AddReviewComponent} from "./add-review/add-review.component";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {SightLocationRouteComponent} from "./sight-location-route/sight-location-route.component";
+import {MatCard, MatCardActions, MatCardContent, MatCardHeader} from "@angular/material/card";
+import {MatChip, MatChipSet} from "@angular/material/chips";
+import {MatAnchor} from "@angular/material/button";
 
 
 
@@ -19,17 +22,24 @@ import {SightLocationRouteComponent} from "./sight-location-route/sight-location
         SearchSightCardComponent,
         SightDetailComponent,
     ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        RouterLink,
-        ReviewComponent,
-        AddReviewComponent,
-        NgxSpinnerModule,
-        SightLocationRouteComponent,
-        ReactiveFormsModule,
-      StarRatingComponent
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    ReviewComponent,
+    AddReviewComponent,
+    NgxSpinnerModule,
+    SightLocationRouteComponent,
+    ReactiveFormsModule,
+    StarRatingComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    MatChipSet,
+    MatChip,
+    MatCardActions,
+    MatAnchor
+  ],
     exports: [
 
     ],

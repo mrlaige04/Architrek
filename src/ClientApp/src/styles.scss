@@ -1,18 +1,24 @@
-@import "@angular/material/prebuilt-themes/azure-blue.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import 'ngx-toastr/toastr';
 @import 'leaflet/dist/leaflet';
 @import 'leaflet-routing-machine/dist/leaflet-routing-machine';
 
+/*  ANGULAR MATERIAL OVERWRITES  */
+@import 'styles/mat-chips';
+
 html, body {
   height: 100%;
-  font-family: Montserrat, sans-serif;
 }
-body { margin: 0;  }
+body { margin: 0; padding: 0; box-sizing: border-box; }
 
+* {
+  font-family: $fontFamily;
+}
 
 .spacer {
   flex: 1 1 auto;
 }
+
