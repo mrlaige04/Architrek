@@ -44,25 +44,25 @@
   </section>
 
   <!-- Result -->
-  <div *ngIf="sights|async as sights">
+  <div>
     <p class="text-4xl font-bold text-center mt-5">Results</p>
-    <div class="mt-6" *ngIf="sights.totalCount > 0; else notFound;">
-    <div class="items my-3 flex flex-wrap justify-between align-items-stretch">
-      <app-search-sight-card *ngFor="let sight of sights.items" [sight]="sight"></app-search-sight-card>
+    <div class="mt-6" *ngIf="totalCount() > 0; else notFound;">
+    <div class="cards-container">
+      <app-search-sight-card *ngFor="let sight of sights$()" [sight]="sight"></app-search-sight-card>
     </div>
     <div class="mt-6 text-center mb-2" aria-label="Page navigation example">
-      <ul class="inline-flex -space-x-px text-sm" *ngIf="sights.totalPages != 0">
+      <ul class="inline-flex -space-x-px text-sm" *ngIf="totalCount() != 0">
         <li class="mr-4">
-          <input type="number" [(ngModel)]="pagesCount" name="pagesCount" min="1" max="{{sights.totalCount}}" class="bg-gray-50 border max-w-sm border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <input type="number" [(ngModel)]="pageSize" name="pagesCount" min="1" max="{{totalCount()}}" class="bg-gray-50 border max-w-sm border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </li>
         <li>
-          <button (click)="prevPage()" [disabled]="!sights.hasPreviousPage" type="button" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+          <button (click)="prevPage()" [disabled]="pageNumber() == 1" type="button" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
         </li>
-        <li *ngFor="let page of Array.from(Array(sights.totalPages).keys())">
-          <button [ngClass]="{'bg-gray-100':pageNumber-1==page}" [disabled]="this.pageNumber-1 == page" (click)="exactPage(page)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{page+1}}</button>
+        <li *ngFor="let page of Array.from(Array(totalPages()).keys())">
+          <button [ngClass]="{'bg-gray-100':pageNumber()-1==page}" [disabled]="pageNumber()-1 == page" (click)="exactPage(page)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{page+1}}</button>
         </li>
         <li>
-          <button (click)="nextPage()" [disabled]="!sights.hasNextPage" type="button" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+          <button (click)="nextPage()" [disabled]="pageNumber() == totalPages()" type="button" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
         </li>
       </ul>
     </div>

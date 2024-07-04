@@ -1,118 +1,238 @@
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.csproj.AssemblyReference.cache
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.GeneratedMSBuildEditorConfig.editorconfig
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.AssemblyInfoInputs.cache
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.AssemblyInfo.cs
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.csproj.CoreCompileInputs.cache
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.MvcApplicationPartsAssemblyInfo.cs
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.MvcApplicationPartsAssemblyInfo.cache
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.sourcelink.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\appsettings.Development.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\appsettings.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\CoreApi.exe
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\CoreApi.deps.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\CoreApi.runtimeconfig.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\CoreApi.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\CoreApi.pdb
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Ardalis.GuardClauses.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Bogus.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Elasticsearch.Net.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\FluentValidation.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MailKit.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MediatR.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MediatR.Contracts.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\MimeKit.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Nest.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Npgsql.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Application.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Domain.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Infrastructure.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Application.pdb
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Infrastructure.pdb
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Domain.pdb
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets.build.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets.development.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets\msbuild.CoreApi.Microsoft.AspNetCore.StaticWebAssets.props
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets\msbuild.build.CoreApi.props
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CoreApi.props
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CoreApi.props
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\staticwebassets.pack.json
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\scopedcss\bundle\CoreApi.styles.css
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.csproj.CopyComplete
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\refint\CoreApi.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.pdb
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\CoreApi.genruntimeconfig.cache
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\obj\Debug\net8.0\ref\CoreApi.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Azure.Core.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Azure.Identity.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Drawing.Common.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Memory.Data.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Runtime.Caching.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Security.Permissions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\System.Windows.Extensions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\NetTopologySuite.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\NetTopologySuite.IO.PostGis.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Npgsql.NetTopologySuite.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Castle.Core.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\NetTopologySuite.Features.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.barcodes.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.bouncy-castle-connector.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.forms.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.io.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.kernel.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.layout.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.pdfa.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.sign.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.styledxmlparser.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.svg.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\itext.commons.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.DotNet.PlatformAbstractions.dll
-D:\KPI\3 курс 1 семестр\ТРПЗ\Курсова\Architrek\src\API\CoreApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.csproj.AssemblyReference.cache
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.GeneratedMSBuildEditorConfig.editorconfig
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.AssemblyInfoInputs.cache
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.AssemblyInfo.cs
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.csproj.CoreCompileInputs.cache
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.MvcApplicationPartsAssemblyInfo.cs
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.MvcApplicationPartsAssemblyInfo.cache
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.sourcelink.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/appsettings.Development.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/appsettings.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.exe
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.deps.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.runtimeconfig.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.pdb
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Ardalis.GuardClauses.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Bogus.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Elasticsearch.Net.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/FluentValidation.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/MailKit.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/MediatR.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/MediatR.Contracts.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.OpenApi.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/MimeKit.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Nest.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Newtonsoft.Json.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Application.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Domain.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Infrastructure.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Application.pdb
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Infrastructure.pdb
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Domain.pdb
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets.build.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets.development.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.CoreApi.Microsoft.AspNetCore.StaticWebAssets.props
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.build.CoreApi.props
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.CoreApi.props
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.CoreApi.props
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets.pack.json
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/scopedcss/bundle/CoreApi.styles.css
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.csproj.CopyComplete
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/refint/CoreApi.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.pdb
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.genruntimeconfig.cache
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/obj/Debug/net8.0/ref/CoreApi.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Azure.Core.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Azure.Identity.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Data.SqlClient.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Identity.Client.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.SqlServer.Server.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Drawing.Common.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Memory.Data.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Runtime.Caching.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Security.Permissions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Windows.Extensions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.UI.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/NetTopologySuite.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/NetTopologySuite.IO.PostGis.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.NetTopologySuite.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Castle.Core.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Proxies.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/NetTopologySuite.Features.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.barcodes.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.bouncy-castle-connector.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.forms.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.io.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.kernel.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.layout.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.pdfa.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.sign.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.styledxmlparser.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.svg.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.commons.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.DotNet.PlatformAbstractions.dll
+D:/KPI/3 курс 1 семестр/ТРПЗ/Курсова/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/appsettings.Development.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/appsettings.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.deps.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.runtimeconfig.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/CoreApi.pdb
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Ardalis.GuardClauses.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Azure.Core.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Azure.Identity.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Bogus.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Castle.Core.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Elasticsearch.Net.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/FluentValidation.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.barcodes.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.bouncy-castle-connector.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.forms.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.io.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.kernel.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.layout.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.pdfa.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.sign.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.styledxmlparser.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.svg.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/itext.commons.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/MailKit.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/MediatR.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/MediatR.Contracts.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.UI.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Data.SqlClient.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Proxies.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Identity.Client.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.SqlServer.Server.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/MimeKit.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Nest.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/NetTopologySuite.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/NetTopologySuite.Features.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/NetTopologySuite.IO.PostGis.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Npgsql.NetTopologySuite.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Drawing.Common.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Memory.Data.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Runtime.Caching.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Security.Permissions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/System.Windows.Extensions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Application.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Domain.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Infrastructure.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Application.pdb
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Infrastructure.pdb
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/bin/Debug/net8.0/Domain.pdb
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.csproj.AssemblyReference.cache
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.AssemblyInfoInputs.cache
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.AssemblyInfo.cs
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.csproj.CoreCompileInputs.cache
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.MvcApplicationPartsAssemblyInfo.cs
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.MvcApplicationPartsAssemblyInfo.cache
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.sourcelink.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets.build.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets.development.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.CoreApi.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.build.CoreApi.props
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.CoreApi.props
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.CoreApi.props
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/scopedcss/bundle/CoreApi.styles.css
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.csproj.CopyComplete
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/refint/CoreApi.dll
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.pdb
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/CoreApi.genruntimeconfig.cache
+/Users/illiarudiakov/KPI/Architrek/src/API/CoreApi/obj/Debug/net8.0/ref/CoreApi.dll

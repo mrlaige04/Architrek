@@ -7,8 +7,8 @@ services:
       context: .
       dockerfile: ./src/API/CoreApi/Dockerfile
     ports:
-      - "5000:8080"
-      - "5001:80" 
+      - "5001:8080"
+      - "5002:80" 
     depends_on:
       - database
     environment:

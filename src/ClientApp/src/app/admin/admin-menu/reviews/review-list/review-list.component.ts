@@ -23,7 +23,7 @@ export class ReviewListComponent {
   pageSize = 10;
 
   constructor(private admin: AdminService) {
-    this.reviews$ = admin.getAllReviews()
+    this.reviews$ = admin.getAllReviews(this.pageNumber, this.pageSize);
   }
 
   getReviews() {

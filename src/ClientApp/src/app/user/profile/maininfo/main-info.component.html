@@ -1,6 +1,6 @@
 <div class="container text-md mt-8 p-8 bg-white dark:bg-gray-700 shadow-md rounded-md">
   <!-- Section 1: Profile Picture -->
-  <app-profile-avatar [profile]="profile" (avatarUploaded)="getProfile()"></app-profile-avatar>
+  <app-profile-avatar [profile$]="profile$" (avatarUploaded)="getProfile()"></app-profile-avatar>
   <!-- Section 3: Delete Profile -->
   <app-change-password></app-change-password>
   <div class="mt-12">

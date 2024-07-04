@@ -30,15 +30,17 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss",
               "node_modules/slick-carousel/slick/slick.scss",
-              "node_modules/slick-carousel/slick/slick-theme.scss",
-              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              "node_modules/slick-carousel/slick/slick-theme.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/slick-carousel/slick/slick.min.js",
-              "node_modules/flowbite/dist/flowbite.min.js"
+              "node_modules/flowbite/dist/flowbite.min.js",
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"
             ]
           },
           "configurations": {
@@ -108,7 +110,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []

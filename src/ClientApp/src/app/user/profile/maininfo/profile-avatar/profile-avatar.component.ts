@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Input, OnDestroy, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Observable} from "rxjs";
-import {DataResult} from "../../../../core/Models/DataResult";
+import {Observable, Subscription } from "rxjs";
 import {UserProfile} from "../../../models/UserProfile";
 import {UserService} from "../../../user.service";
 import {UserAvatar} from "../../../../core/Models/UserAvatar";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-profile-avatar',
@@ -13,13 +13,16 @@ import {UserAvatar} from "../../../../core/Models/UserAvatar";
   templateUrl: './profile-avatar.component.html',
   styleUrl: './profile-avatar.component.scss'
 })
-export class ProfileAvatarComponent {
-  @Input({required: true}) profile?: Observable<DataResult<UserProfile>>
+export class ProfileAvatarComponent implements OnDestroy {
+  private user = inject(UserService);
 
-  @Output() avatarUploaded: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private user: UserService) {
+  private subscriptions: Subscription[] = []
 
-  }
+  @Input({required: true}) profile$!: Observable<UserProfile>
+
+  profile = toSignal(this.profile$)
+
+  @Output() avatarUploaded = new EventEmitter<string>();
 
   imageChoose(event: Event) {
     const target = event.target;
@@ -29,24 +32,35 @@ export class ProfileAvatarComponent {
     if (!files) return;
 
     const image = files[0]
-    this.user.setAvatar(image)
-      .subscribe(result => {
+    const sub = this.user.setAvatar(image)
+      .subscribe(async result => {
         if (result.succeeded) {
-          this.avatarUploaded.emit()
+          this.avatarUploaded.emit(await image.text())
         }
       })
+
+    this.subscriptions.push(sub)
   }
 
   removeAvatar() {
-    this.user.removeAvatar().subscribe(data => {
+    const sub = this.user.removeAvatar().subscribe(data => {
       if (data.succeeded) {
         this.avatarUploaded.emit()
       }
     })
+
+    this.subscriptions.push(sub)
   }
+
+  private readonly noUserImage = 'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg'
 
   chooseAvatarIfExists(avatar: UserAvatar) {
     return !avatar || avatar.url === undefined || avatar.url == "undefined" ?
-      'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg' : avatar.url;
+      this.noUserImage :
+      avatar.url;
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }

@@ -10,12 +10,11 @@ import {Guid} from "guid-typescript";
 import {AdminService} from "../../../admin.service";
 import {Modal} from "flowbite";
 import {modalOptions} from "../../category/category-list/category-list.component";
-import {QRCodeModule} from "angularx-qrcode";
 
 @Component({
   selector: 'app-sight-list',
   standalone: true,
-  imports: [CommonModule, CreateCategoryFormComponent, CreateSightFormComponent, QRCodeModule],
+  imports: [CommonModule, CreateCategoryFormComponent, CreateSightFormComponent],
   templateUrl: './sight-list.component.html',
   styleUrl: './sight-list.component.scss'
 })

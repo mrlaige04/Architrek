@@ -1,29 +1,34 @@
-import {Component, OnChanges, SimpleChanges} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, computed, inject} from '@angular/core';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from "@angular/router";
-import {AuthService} from "../../../../auth/auth.service";
-import {catchError, Observable, of} from "rxjs";
-import {AdminService} from "../../../../admin/admin.service";
 import {UserService} from "../../../../user/user.service";
-import {UserProfile} from "../../../../user/models/UserProfile";
-import {DataResult} from "../../../../core/Models/DataResult";
-
+import {AuthService} from "../../../../auth/auth.service";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {MatButtonModule} from "@angular/material/button";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatDivider} from "@angular/material/divider";
 
 @Component({
   selector: 'app-auth-menu',
   standalone: true,
-    imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, NgOptimizedImage, MatButtonModule, MatMenuModule, MatDivider],
   templateUrl: './auth-menu.component.html',
   styleUrl: './auth-menu.component.scss'
 })
 export class AuthMenuComponent{
-  isAuthenticated$: Observable<boolean>
-  userProfile$: Observable<DataResult<UserProfile>>
+  private authService = inject(AuthService);
+  private userService = inject(UserService);
 
-  constructor(private authService: AuthService, private user: UserService) {
-    this.isAuthenticated$ = authService.isAuthenticated$;
-    this.userProfile$ = user.getProfile()
-  }
+  readonly noUserAvatar = 'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg'
+
+  isAuthenticated = this.authService.isAuthenticated;
+  userProfile$ = this.userService.getProfile()
+  userProfile = toSignal(this.userProfile$)
+
+  hasAvatar = computed(() =>
+    !!this.userProfile()?.data.avatar &&
+    !!this.userProfile()?.data.avatar.url
+  )
 
   logout() {
     this.authService.logout()

@@ -23,7 +23,7 @@ export class AdminMenuUsersComponent {
   pageSize = 10;
 
   constructor(private admin: AdminService) {
-    this.users$ = this.admin.getUsers({pageNumber: this.pageNumber, pageSize: this.pageSize})
+    this.users$ = this.admin.getUsers(this.pageNumber, this.pageSize)
   }
 
   deleteUser(id: Guid) {
@@ -33,7 +33,7 @@ export class AdminMenuUsersComponent {
   }
 
   getUsers() {
-    this.users$ = this.admin.getUsers({pageNumber: this.pageNumber, pageSize: this.pageSize})
+    this.users$ = this.admin.getUsers(this.pageNumber, this.pageSize)
   }
 
   nextPage() {

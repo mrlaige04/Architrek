@@ -23,6 +23,7 @@ export class SightDetailComponent implements OnInit {
   rating: number = 0;
   isAuthenticated$: Observable<boolean>
   hasInFavorite?: Observable<boolean>
+
   constructor(private route: ActivatedRoute,
               private location: Location,
               private coreService: CoreService,

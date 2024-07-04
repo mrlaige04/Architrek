@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Inject, inject, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Sight} from "../core/Models/Sight";
 import {Guid} from "guid-typescript";
@@ -11,14 +11,20 @@ import {ApiResult} from "../core/Models/ApiResult";
 import {PaginatedList} from "../core/Models/PaginatedList";
 import {SightReview} from "../core/Models/SightReview";
 import {EditReview} from "./profile/my-reviews/edit-review/edit-review.component";
+import {ApiConfig} from "../core/providers/apiConfig.provider";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl:string = "http://localhost:5000/api/user/"
-  constructor(private http: HttpClient, private core: CoreService) { }
+  private http = inject(HttpClient)
+  private core = inject(CoreService)
+  baseUrl: string;
+
+  constructor(@Inject('API_CONFIG') private config: ApiConfig) {
+    this.baseUrl = config.apiUrl + 'user/'
+  }
 
   getMyFavorites(pageNumber: number = 1, pageSize: number = 10) {
     let uri = this.baseUrl+"favorites"

@@ -33,7 +33,7 @@ export class ReportListComponent implements AfterViewInit{
 
   modal = new Modal(null, modalOptions)
   constructor(private admin: AdminService, private report: ReportService) {
-    this.reports$ = admin.getAllReports()
+    this.reports$ = admin.getAllReports(this.pageNumber, this.pageSize);
     this.subjects$ = report.getSubjects()
     this.statuses$ = report.getStatuses()
   }

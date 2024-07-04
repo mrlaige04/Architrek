@@ -6,6 +6,7 @@ import { HideMenuDirective } from './hide-menu.directive';
 import {RouterLink} from "@angular/router";
 import {DynamicLogoComponent} from "./dynamic-logo/dynamic-logo.component";
 import {NavbarMenuComponent} from "./navbar/navbar-menu/navbar-menu.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import {NavbarMenuComponent} from "./navbar/navbar-menu/navbar-menu.component";
     FooterComponent,
     HideMenuDirective
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    DynamicLogoComponent,
-    NavbarMenuComponent,
-  ]
+    imports: [
+        CommonModule,
+        RouterLink,
+        DynamicLogoComponent,
+        NavbarMenuComponent,
+        MatToolbarModule,
+    ]
 })
 export class SharedModule { }

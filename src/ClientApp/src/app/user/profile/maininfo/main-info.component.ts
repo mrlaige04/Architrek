@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserService} from "../../user.service";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {DataResult} from "../../../core/Models/DataResult";
 import {UserProfile} from "../../models/UserProfile";
 import {ProfileAvatarComponent} from "./profile-avatar/profile-avatar.component";
 import {AuthService} from "../../../auth/auth.service";
 import {Router} from "@angular/router";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-maininfo',
@@ -17,15 +18,20 @@ import {ChangePasswordComponent} from "./change-password/change-password.compone
   styleUrl: './main-info.component.scss'
 })
 export class MainInfoComponent {
-  profile: Observable<DataResult<UserProfile>>
-  constructor(private user: UserService,
-              private auth: AuthService,
-              private router: Router) {
-    this.profile = user.getProfile()
-  }
+  private user = inject(UserService);
+  private auth = inject(AuthService)
+  private router = inject(Router)
+
+  profile$ = this.getProfile()
+
+  profile = toSignal(this.profile$)
+
   getProfile() {
-    this.profile = this.user.getProfile()
+    return this.user.getProfile().pipe(
+      map(profile => profile.data)
+    )
   }
+
   deleteAccount() {
     this.user.deleteAccount().subscribe(
       async result => {

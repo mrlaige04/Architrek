@@ -8,7 +8,8 @@ import { HttpClientModule} from "@angular/common/http";
 import {CoreModule} from "./core/core.module";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {NgxSpinnerModule} from "ngx-spinner";
+import {apiConfigProvider} from "./core/providers/apiConfig.provider";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -23,7 +24,6 @@ import {NgxSpinnerModule} from "ngx-spinner";
     AuthModule,
     CoreModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule.forRoot({type:'ball-scale-multiple'}),
     ToastrModule.forRoot({
       maxOpened: 5,
       positionClass: 'toast-top-right',
@@ -32,7 +32,9 @@ import {NgxSpinnerModule} from "ngx-spinner";
     })
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    apiConfigProvider,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

@@ -1,78 +1,75 @@
-import { Injectable } from '@angular/core';
+import {inject, Inject, Injectable, signal, Signal} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {BehaviorSubject, catchError, forkJoin, map, Observable, of, switchMap, tap} from "rxjs";
-import {AuthService} from "../auth/auth.service";
-import {AsyncPipe} from "@angular/common";
+import {catchError, forkJoin, of, switchMap} from "rxjs";
 import {User} from "./models/user";
 import {Guid} from "guid-typescript";
-import {Result} from "postcss";
 import {ApiResult} from "../core/Models/ApiResult";
 import {SynchronousPromise} from "synchronous-promise";
 import {Country} from "../core/Models/Country";
 import {PaginatedList} from "../core/Models/PaginatedList";
-import {UrlSegment} from "@angular/router";
 import {SightReview} from "../core/Models/SightReview";
 import {Report} from "../Shared/report/models/Report";
+import {ApiConfig} from "../core/providers/apiConfig.provider";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  baseUrl = "http://localhost:5000/api/Admin/"
-  private readonly isAdminSubject : BehaviorSubject<boolean>;
-  isAdmin$: Observable<boolean>;
-  constructor(private http: HttpClient, private auth: AuthService) {
-    this.isAdminSubject = new BehaviorSubject<boolean>(this.isAdmin());
-    this.isAdmin$ = this.isAdminSubject.asObservable();
+  private http = inject(HttpClient)
+  baseUrl: string;
+
+  constructor(@Inject('API_CONFIG') apiConfig: ApiConfig) {
+    this.baseUrl = apiConfig.apiUrl + 'admin/'
+    this.isAdmin = toSignal(this.isUserAdmin())
   }
 
-  getUsers(query: {pageNumber: number, pageSize: number}): Observable<PaginatedList<User>> {
-    let uri = this.baseUrl + "users";
-    let options = new HttpParams()
-      .set('pageNumber', query.pageNumber)
-      .set('pageSize', query.pageSize)
-    return this.http.get<PaginatedList<User>>(uri, {params: options})
-  }
-  deleteUser(id: Guid):Observable<ApiResult> {
-    let uri = this.baseUrl + 'users/' + id.toString()
-    return this.http.delete<ApiResult>(uri)
+  isAdmin: Signal<boolean | undefined>;
+
+  getUsers(pageNumber: number, pageSize: number) {
+    const url = this.baseUrl + "users";
+    const params = new HttpParams()
+      .set('pageNumber', pageNumber)
+      .set('pageSize', pageSize)
+
+    return this.http.get<PaginatedList<User>>(url, { params })
   }
 
-  isAdmin(): boolean {
-    let isAdmin = false;
-    let uri = this.baseUrl + "isAdmin";
-    this.http.get<boolean>(uri).pipe(catchError(er=>{
-      return of(false)
-    }))
-    return isAdmin;
-  }
-  get isInAdmin$(): Observable<boolean> {
-    let uri = this.baseUrl + "isAdmin";
-    return this.http.get<boolean>(uri)
+  deleteUser(id: Guid) {
+    const url = this.baseUrl + 'users/' + id.toString()
+    return this.http.delete<ApiResult>(url)
   }
 
-
+  isUserAdmin() {
+    const url = this.baseUrl + "isAdmin";
+    return this.http.get<boolean>(url)
+  }
 
   createCategory(category: CreateCategory) {
-    let uri = this.baseUrl + "categories"
-    return this.http.post<ApiResult>(uri, category).pipe(catchError(err=> {
-      return of({succeeded: false, errors: [err]})
-    }))
+    const url = this.baseUrl + "categories"
+    return this.http.post<ApiResult>(url, category)
+      .pipe(catchError(err=> {
+        return of({succeeded: false, errors: [err]})
+      }))
   }
-  deleteCategory(id: Guid) {
-    let uri = this.baseUrl + "categories/" + id.toString()
 
-    return this.http.delete<ApiResult>(uri).pipe(catchError(err=> {
-      return of({succeeded: false, errors: [err]})
-    }))
+  deleteCategory(id: Guid) {
+    const url = this.baseUrl + "categories/" + id.toString()
+
+    return this.http.delete<ApiResult>(url)
+      .pipe(catchError(err=> {
+        return of({succeeded: false, errors: [err]})
+      }))
   }
 
   createSight(sight: CreateSight, photos?: Array<File>) {
-    let uri = this.baseUrl + "sights"
-    const convertPhotosToBase64Promises = photos?.map(file => this.fileToBase64(file)) || [];
+    const url = this.baseUrl + "sights"
+    const convertPhotosToBase64Promises =
+      photos?.map(file =>
+        this.fileToBase64(file)) || [];
 
     if (convertPhotosToBase64Promises.length === 0) {
-      return this.http.post<ApiResult>(uri, sight)
+      return this.http.post<ApiResult>(url, sight)
     }
 
     return forkJoin(convertPhotosToBase64Promises)
@@ -83,72 +80,75 @@ export class AdminService {
           });
 
           console.log(sight)
-          return this.http.post<ApiResult>(uri, sight)
+          return this.http.post<ApiResult>(url, sight)
         })
       )
   }
   deleteSight(id: Guid) {
-    let uri = this.baseUrl + "sights/" + id.toString();
-    return this.http.delete<ApiResult>(uri)
+    const url = this.baseUrl + "sights/" + id.toString();
+    return this.http.delete<ApiResult>(url)
   }
 
   getAllCountries(pageNumber: number = 1, pageSize: number = 10) {
-    let uri = this.baseUrl + "countries";
-    let params = new HttpParams()
+    const url = this.baseUrl + "countries";
+    const params = new HttpParams()
       .set("pageNumber", pageNumber)
       .set("pageSize", pageSize)
 
-    return this.http.get<PaginatedList<Country>>(uri, {params: params})
+    return this.http.get<PaginatedList<Country>>(url, { params })
   }
-  createCountry(command: {name: string}) {
-    let uri = this.baseUrl + "countries"
-    return this.http.post<ApiResult>(uri, command)
+
+  createCountry(name: string) {
+    const url = this.baseUrl + "countries"
+    return this.http.post<ApiResult>(url, { name })
   }
+
   deleteCountry(id: Guid) {
-    let uri = this.baseUrl + "countries/" + id.toString()
-    return this.http.delete<ApiResult>(uri)
+    const url = this.baseUrl + "countries/" + id.toString()
+    return this.http.delete<ApiResult>(url)
   }
 
-  getAllReviews(pageNumber: number = 1, pageSize: number = 10) {
-    let uri = this.baseUrl + "reviews"
-    let params = new HttpParams()
+  getAllReviews(pageNumber: number, pageSize: number) {
+    const url = this.baseUrl + "reviews"
+    const params = new HttpParams()
       .set("pageNumber", pageNumber)
       .set("pageSize", pageSize)
 
-    return this.http.get<PaginatedList<SightReview>>(uri, {params: params})
-  }
-  deleteReview(id: Guid) {
-    let uri = this.baseUrl + "reviews/" + id.toString()
-    return this.http.delete<ApiResult>(uri)
+    return this.http.get<PaginatedList<SightReview>>(url, { params })
   }
 
-  getAllReports(pageNumber: number = 1, pageSize: number = 10) {
-    let uri = this.baseUrl + "reports";
-    let params = new HttpParams()
+  deleteReview(id: Guid) {
+    const url = this.baseUrl + "reviews/" + id.toString()
+    return this.http.delete<ApiResult>(url)
+  }
+
+  getAllReports(pageNumber: number, pageSize: number) {
+    const url = this.baseUrl + "reports";
+    const params = new HttpParams()
         .set("pageNumber", pageNumber)
         .set("pageSize", pageSize)
 
-    return this.http.get<PaginatedList<Report>>(uri, {params: params})
+    return this.http.get<PaginatedList<Report>>(url, { params })
   }
 
   deleteReport(id: Guid) {
-    let uri = this.baseUrl + "reports/" + id.toString()
-    return this.http.delete<ApiResult>(uri)
+    const url = this.baseUrl + "reports/" + id.toString()
+    return this.http.delete<ApiResult>(url)
   }
 
   setActiveReport(id: Guid) {
-    let uri = this.baseUrl + "reports/" + id.toString()
-    return this.http.post<ApiResult>(uri, {})
+    const url = this.baseUrl + "reports/" + id.toString()
+    return this.http.post<ApiResult>(url, {})
   }
 
   rejectReport(id: Guid) {
-    let uri = this.baseUrl + "reports/" + id.toString() + "/rejects"
-    return this.http.post<ApiResult>(uri, {})
+    const url = this.baseUrl + "reports/" + id.toString() + "/rejects"
+    return this.http.post<ApiResult>(url, {})
   }
 
   answerReport(id: Guid, message: string) {
-    let uri = this.baseUrl + "reports/answers"
-    return this.http.post<ApiResult>(uri, {id: id, message: message})
+    const url = this.baseUrl + "reports/answers"
+    return this.http.post<ApiResult>(url, { id, message })
   }
 
   private fileToBase64(file: File) {

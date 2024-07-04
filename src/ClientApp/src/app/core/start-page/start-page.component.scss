@@ -7,3 +7,11 @@
 .main-block {
   height: calc(100vh - 4rem);
 }
+
+.first-section {
+  background-image: url('https://eufordigital.eu/wp-content/uploads/2019/08/Ukraine-1-wpv_1920x645_center_center.jpg');
+
+  background-size: cover;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}

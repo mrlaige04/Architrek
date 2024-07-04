@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Inject, inject, Injectable, signal} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {LoginModel} from "./models/loginmodel";
 import {BehaviorSubject, catchError, map, Observable, of} from "rxjs";
@@ -6,25 +6,32 @@ import {RegisterModel} from "./models/registermodel";
 import {AccessTokenResponse} from "./models/accesstokenresponse";
 import {ValidationProblem} from "./models/ValidationProblem";
 import {CryptoService} from '../Shared/crypto.service';
+import {ApiConfig} from "../core/providers/apiConfig.provider";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  baseUri = "http://localhost:5000/api/Identity/"
+  private http = inject(HttpClient)
+  baseUrl : string;
+
   authTokenKey = "authToken"
   expiresTokenKey = "tokenExpires"
+
+  isAuthenticated = signal(this.isUserAuthenticated());
 
   private readonly isAuthenticatedSubject : BehaviorSubject<boolean>;
   isAuthenticated$: Observable<boolean>;
 
   constructor(
-    private http: HttpClient,
+    @Inject('API_CONFIG') apiConfig: ApiConfig,
     private crypto: CryptoService,
     )
   {
-    this.isAuthenticatedSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
+    this.baseUrl = apiConfig.apiUrl + 'identity/'
+
+    this.isAuthenticatedSubject = new BehaviorSubject<boolean>(this.isUserAuthenticated());
     this.isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
   }
 
@@ -70,107 +77,108 @@ export class AuthService {
 
 
   checkEmailAvailability(email: string): Observable<boolean> {
-    let uri = this.baseUri + "emailAvailable?email=" + email;
+    let uri = this.baseUrl + "emailAvailable?email=" + email;
     return this.http.get<boolean>(uri);
   }
 
-  login(loginModel: LoginModel): Observable<AccessTokenResponse|ValidationProblem|{failed:boolean, reason:string}|null> {
-    let loginUri = this.baseUri + "login"
+  login(loginModel: LoginModel) {
+    const url = this.baseUrl + "login"
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("accept", "application/json")
-    return this.http.post<AccessTokenResponse|ValidationProblem>(loginUri, loginModel, {headers:headers})
-        .pipe(
-          catchError((error: HttpErrorResponse) => {
-            if (error.status == 401) {
-              return of({failed: true, reason: "Invalid credentials or (user does not exists or has not confirmed account)"})
-            }
-            return of(null)
-          }))
+
+    return this.http.post<AccessTokenResponse | ValidationProblem>(url, loginModel, { headers })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status == 401) {
+            return of({
+              failed: true,
+              reason: "Invalid credentials or (user does not exists or has not confirmed account)"
+            })
+          }
+          return of(null)
+        })
+      )
   }
 
-  register(registerModel: RegisterModel): Observable<void|ValidationProblem> {
-    let registerUri = this.baseUri + "register"
+  register(registerModel: RegisterModel) {
+    const url = this.baseUrl + "register"
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("accept", "application/json")
-    return this.http.post<void|ValidationProblem>(registerUri, registerModel, {headers: headers})
+
+    return this.http.post<void|ValidationProblem>(url, registerModel, { headers })
   }
 
   forgotPassword(email: ForgotPassword) {
-    let uri = this.baseUri + "forgotPassword"
-    console.log(email)
-    return this.http.post<ValidationProblem>(uri, email)
+    const url = this.baseUrl + "forgotPassword"
+    return this.http.post<ValidationProblem>(url, email)
   }
 
   resetPassword(reset: ResetPassword) {
-    let uri = this.baseUri + "resetPassword"
-    return this.http.post<ValidationProblem>(uri, reset)
+    const url = this.baseUrl + "resetPassword"
+    return this.http.post<ValidationProblem>(url, reset)
   }
 
-  isAuthenticated(): boolean
+  isUserAuthenticated()
   {
-    let codedToken = localStorage.getItem(this.authTokenKey)
-    let expires = localStorage.getItem(this.expiresTokenKey)
+    const codedToken = localStorage.getItem(this.authTokenKey)
+    const expires = localStorage.getItem(this.expiresTokenKey)
 
     if (!codedToken || !expires) {
-      //this.isAuthenticatedSubject.next(false);
       this.clearAuthData()
       return false;
     }
 
-    let numericExpires = parseFloat(expires)
+    const numericExpires = parseFloat(expires)
     if (isNaN(numericExpires) && !isFinite(numericExpires)) {
-      //this.isAuthenticatedSubject.next(false);
       this.clearAuthData();
       return false;
     }
 
-    let tokenString = this.crypto.decrypt(codedToken);
-
+    const tokenString = this.crypto.decrypt(codedToken);
     if (this.isJson(tokenString)) {
-      let json = <AccessTokenResponse>JSON.parse(tokenString);
+      const json = <AccessTokenResponse>JSON.parse(tokenString);
 
-      let token = json as AccessTokenResponse;
+      const token = json as AccessTokenResponse;
       if (this.tokenExpired(numericExpires)) {
         let refreshResult = false;
         this.refresh(token.refreshToken).subscribe(
           (_refreshResult: boolean) => { refreshResult = _refreshResult; }
         )
-        //this.isAuthenticatedSubject.next(refreshResult);
         if (!refreshResult) this.clearAuthData()
         return refreshResult;
       } else return true;
     } else {
-     // this.isAuthenticatedSubject.next(false);
       this.clearAuthData()
       return false;
     }
   }
 
-  refresh(refreshToken: string): Observable<boolean> {
-    let uri = this.baseUri + "refresh";
+  refresh(refreshToken: string) {
+    const url = this.baseUrl + "refresh";
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
 
-    return this.http.post(uri, JSON.stringify({refreshToken: refreshToken}), {headers: headers}).pipe(
-      map((response:any)=>{
-        if (response instanceof AccessTokenResponse) {
-          this.authenticateFromToken(response);
-          return true;
-        }
-        return false;
-      }),
-      catchError(error => {
-        if (error.status === 401) return of(false);
-        throw error;
-      })
+    return this.http.post(url,{ refreshToken }, { headers })
+      .pipe(
+        map((response:any)=>{
+          if (response instanceof AccessTokenResponse) {
+            this.authenticateFromToken(response);
+            return true;
+          }
+          return false;
+        }),
+        catchError(error => {
+          if (error.status === 401) return of(false);
+          throw error;
+        })
     )
   }
 
   changePassword(password: ChangePassword) {
-    let uri = this.baseUri + "manage/info"
-    return this.http.post<ValidationProblem|ChangePasswordResult>(uri, password)
+    const url = this.baseUrl + "manage/info"
+    return this.http.post<ValidationProblem | ChangePasswordResult>(url, password)
   }
 
   isJson(str: string): boolean {
@@ -190,7 +198,8 @@ export class AuthService {
     let codedToken = this.crypto.encrypt(JSON.stringify(token));
     localStorage.setItem(this.authTokenKey, codedToken)
     localStorage.setItem(this.expiresTokenKey, expires.toString())
-    this.isAuthenticatedSubject.next(true);
+
+    this.isAuthenticated.set(true)
   }
 
 
@@ -200,8 +209,8 @@ export class AuthService {
   }
 
   logout() {
-    if (this.isAuthenticated()) {
-      this.isAuthenticatedSubject.next(false);
+    if (this.isUserAuthenticated()) {
+      this.isAuthenticated.set(false)
     }
     localStorage.removeItem(this.authTokenKey)
     localStorage.removeItem(this.expiresTokenKey)

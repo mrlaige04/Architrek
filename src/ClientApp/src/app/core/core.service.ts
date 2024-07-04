@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import {EMPTY, forkJoin, Observable, switchMap} from "rxjs";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {Inject, inject, Injectable} from '@angular/core';
+import {forkJoin, switchMap} from "rxjs";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Category} from "./Models/category";
 import {GetAllSightsQuery} from "./cqrs/sights/getSights/getAllSights/GetAllSightsQuery";
 import {PaginatedList} from "./Models/PaginatedList";
@@ -12,99 +12,100 @@ import {SynchronousPromise} from "synchronous-promise";
 import {SightReview} from "./Models/SightReview";
 import {ApiResult} from "./Models/ApiResult";
 import {FindNearQuery} from "./search-page/search-page.component";
-import {request} from "express";
+import {ApiConfig} from "./providers/apiConfig.provider";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoreService {
-  apiUrl: string = "http://localhost:5000/api/"
-  constructor(private httpClient: HttpClient) { }
+  private httpClient = inject(HttpClient)
+  constructor(@Inject('API_CONFIG') private apiConfig: ApiConfig) { }
 
-  getAllCategories(pageNumber:number = 1, pageSize:number = 10): Observable<PaginatedList<Category>> {
-    let uri = this.apiUrl + "categories";
-    let params = new HttpParams()
+  getAllCategories(pageNumber:number = 1, pageSize:number = 10) {
+    const url = this.apiConfig.apiUrl + 'categories'
+    const params = new HttpParams()
       .set("pageNumber", pageNumber)
       .set("pageSize", pageSize)
 
-    return this.httpClient.get<PaginatedList<Category>>(uri, {params: params});
+    return this.httpClient.get<PaginatedList<Category>>(url, { params });
   }
 
-  getAllSights(query: GetAllSightsQuery): Observable<PaginatedList<Sight>> {
-    let uri = this.apiUrl + "sights"
-    let options = new HttpParams()
+  getAllSights(query: GetAllSightsQuery) {
+    const url = this.apiConfig.apiUrl + "sights"
+    const params = new HttpParams()
       .set('pageNumber', query.pageNumber)
       .set('pageSize', query.pageSize)
-    return this.httpClient.get<PaginatedList<Sight>>(uri, {params: options})
+
+    return this.httpClient.get<PaginatedList<Sight>>(url, { params })
   }
 
   getNearSights(query: FindNearQuery, pageNumber: number = 1, pageSize: number = 10) {
-    let uri = this.apiUrl + "sights/near"
-    let params = new HttpParams()
+    const url = this.apiConfig.apiUrl + "sights/near"
+    const params = new HttpParams()
       .set('latitude', query.latitude)
       .set('longitude', query.longitude)
       .set('radius', query.radius)
       .set('pageNumber', pageNumber)
       .set('pageSize', pageSize)
 
-    return this.httpClient.get<PaginatedList<Sight>>(uri, {params: params})
+    return this.httpClient.get<PaginatedList<Sight>>(url, { params })
   }
 
   getSightById(id: Guid) {
-    let uri = this.apiUrl + "sights/" + id;
-    return this.httpClient.get<Sight|undefined>(uri)
+    const url = this.apiConfig.apiUrl + "sights/" + id;
+    return this.httpClient.get<Sight | undefined>(url)
   }
 
   searchSights(filter: GetSightsFilteredQuery) {
-    let uri = this.apiUrl + "Sights/filter?";
-    if (filter.query && filter.query.length > 1)
-      uri += `q=${filter.query}`;
+    const url = this.apiConfig.apiUrl + "sights/filter?";
+    const params = new HttpParams()
+      .set("pageNumber", filter.pageNumber)
+      .set("pageSize", filter.pageSize)
+      .set("q", filter.query ?? '')
+      .set('categoryId', filter.categoryId?.toString() ?? '')
 
-    if (filter.categoryId && filter.categoryId.toString() != 'undefined' && this.isGuid(filter.categoryId.toString()))
-      uri += `&categoryId=${filter.categoryId.toString()}`;
-
-    uri += `&pageNumber=${filter.pageNumber}&pageSize=${filter.pageSize}`
-    return this.httpClient.get<PaginatedList<Sight>>(uri)
+    return this.httpClient.get<PaginatedList<Sight>>(url, { params })
   }
 
   reviewSight(review: AddReviewCommand, photos?: File[]) {
-    let uri = this.apiUrl + "Sights/review/" + review.sightId.toString()
+    const url = this.apiConfig.apiUrl + "sights/review/" + review.sightId.toString()
 
-    const promises = photos?.map(file => this.fileToBase64(file)) || [];
+    const promises = photos?.map(file =>
+      this.fileToBase64(file)) || [];
 
     if (promises.length === 0) {
-      return this.httpClient.post<ApiResult>(uri, review);
+      return this.httpClient.post<ApiResult>(url, review);
     }
 
     return forkJoin(promises)
       .pipe(
         switchMap(base64Strings => {
           review.photos = base64Strings;
-          return this.httpClient.post<ApiResult>(uri, review);
+          return this.httpClient.post<ApiResult>(url, review);
         })
       );
   }
 
   hasSightInFavorite(id: Guid) {
-    let uri = this.apiUrl + "Sights/" + id.toString() + "/hasFav"
-    return this.httpClient.get<boolean>(uri)
+    const url = this.apiConfig.apiUrl + "sights/" + id.toString() + "/hasFav"
+    return this.httpClient.get<boolean>(url)
   }
 
   sightReviews(id: Guid) {
-    let uri = this.apiUrl + "Sights/" + id.toString() + "/reviews"
-    return this.httpClient.get<SightReview[]>(uri)
+    const url = this.apiConfig.apiUrl + "sights/" + id.toString() + "/reviews"
+    return this.httpClient.get<SightReview[]>(url)
   }
 
   addToFavorite(id: Guid) {
-    let uri = this.apiUrl + "Sights/" + id.toString() + "/favorite"
-    return this.httpClient.post(uri, {})
+    const url = this.apiConfig.apiUrl + "sights/" + id.toString() + "/favorite"
+    return this.httpClient.post(url, {})
   }
 
   removeFromFavorite(id: Guid) {
-    let uri = this.apiUrl + "Sights/" + id.toString() + "/favorite"
-    return this.httpClient.delete<ApiResult>(uri, {})
+    const url = this.apiConfig.apiUrl + "sights/" + id.toString() + "/favorite"
+    return this.httpClient.delete<ApiResult>(url, {})
   }
-
 
   private fileToBase64(file: File) {
     return new SynchronousPromise<string>((resolve, reject) => {
@@ -114,13 +115,4 @@ export class CoreService {
       reader.onerror = reject;
     });
   }
-  private isGuid(text: string) {
-    try {
-      Guid.parse(text);
-      return true;
-    } catch {
-      return false;
-    }
-  }
-
 }

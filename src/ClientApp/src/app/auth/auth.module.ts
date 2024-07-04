@@ -5,13 +5,10 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import {RouterLink} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { SharedModule } from '../Shared/shared.module';
 import { DynamicLogoComponent } from '../Shared/dynamic-logo/dynamic-logo.component';
 import {NgxSpinnerModule} from "ngx-spinner";
-import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {PassTokenInterceptor} from "./pass-token.interceptor";
-import {AuthService} from "./auth.service";
-
 
 
 @NgModule({
@@ -37,8 +34,7 @@ import {AuthService} from "./auth.service";
         {
             provide: HTTP_INTERCEPTORS,
             useClass: PassTokenInterceptor,
-            multi: true,
-
+            multi: true
         }
     ]
 })

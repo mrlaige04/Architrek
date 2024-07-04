@@ -29,7 +29,8 @@ public static class RegisterServices
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
 
-            options.UseNpgsql(dbConnectionString, x=>x.UseNetTopologySuite());
+            options.UseInMemoryDatabase("architrek-db");
+            //options.UseNpgsql(dbConnectionString, x=>x.UseNetTopologySuite());
             options.EnableDetailedErrors();
         });
 
