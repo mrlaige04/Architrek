@@ -1,8 +1,6 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SightReview} from "../Models/SightReview";
-import {CoreService} from "../core.service";
-import {tap} from "rxjs";
 import {StarRatingComponent} from "../star-rating/star-rating.component";
 
 @Component({

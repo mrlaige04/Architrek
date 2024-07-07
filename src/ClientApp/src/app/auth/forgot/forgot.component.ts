@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {
   digitValidator,
   emailValidator, lowercaseLetterValidator,
@@ -7,12 +7,19 @@ import {
   uppercaseLetterValidator
 } from "../register/register.component";
 import {AuthService} from "../auth.service";
-import {RxwebValidators} from "@rxweb/reactive-form-validators";
 import {Router} from "@angular/router";
+import {DynamicLogoComponent} from "../../Shared/dynamic-logo/dynamic-logo.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-forgot',
+  standalone: true,
   templateUrl: './forgot.component.html',
+  imports: [
+    DynamicLogoComponent,
+    ReactiveFormsModule,
+    NgIf
+  ],
   styleUrls: ['./forgot.component.scss']
 })
 export class ForgotComponent {

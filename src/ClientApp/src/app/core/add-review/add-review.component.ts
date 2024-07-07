@@ -5,8 +5,6 @@ import {FormsModule} from "@angular/forms";
 import {CoreService} from "../core.service";
 import {ToastersService} from "../../services/ToastersService";
 
-
-
 @Component({
   selector: 'app-add-review',
   standalone: true,

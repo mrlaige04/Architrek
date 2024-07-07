@@ -2,12 +2,9 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserService} from "../../user.service";
 import {Guid} from "guid-typescript";
-import {map, Observable} from "rxjs";
-import {DataResult} from "../../../core/Models/DataResult";
-import {PaginatedList} from "../../../core/Models/PaginatedList";
+import {map} from "rxjs";
 import {SightReview} from "../../../core/Models/SightReview";
 import {RouterLink} from "@angular/router";
-import {CoreModule} from "../../../core/core.module";
 import {EditReviewComponent} from "./edit-review/edit-review.component";
 import {
   CreateCategoryFormComponent
@@ -21,7 +18,7 @@ import {toSignal} from "@angular/core/rxjs-interop";
 @Component({
   selector: 'app-my-reviews',
   standalone: true,
-  imports: [CommonModule, RouterLink, CoreModule, EditReviewComponent, CreateCategoryFormComponent, StarRatingComponent],
+  imports: [CommonModule, RouterLink, EditReviewComponent, CreateCategoryFormComponent, StarRatingComponent],
   templateUrl: './my-reviews.component.html',
   styleUrl: './my-reviews.component.scss'
 })

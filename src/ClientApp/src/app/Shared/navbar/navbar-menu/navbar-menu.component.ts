@@ -4,7 +4,6 @@ import {RouterLink} from "@angular/router";
 import {AuthMenuComponent} from "./auth-menu/auth-menu.component";
 import {ThemeSwitcherComponent} from "../../theme-switcher/theme-switcher.component";
 import {AdminService} from "../../../admin/admin.service";
-import {catchError, Observable, of} from "rxjs";
 import {MatAnchor, MatIconAnchor} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {NotificationsComponent} from "../../../user/notifications/notifications.component";
@@ -18,9 +17,8 @@ import {AuthService} from "../../../auth/auth.service";
   styleUrl: './navbar-menu.component.scss'
 })
 export class NavbarMenuComponent {
-  private adminService = inject(AdminService)
   private auth = inject(AuthService);
 
-  isAdmin = this.adminService.isAdmin;
+  isAdmin = this.auth.isAdmin;
   isAuthenticated = this.auth.isAuthenticated;
 }

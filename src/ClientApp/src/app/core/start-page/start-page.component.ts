@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { SliderComponent} from "../../Shared/slider/slider.component";
 import {RouterLink} from "@angular/router";
 
-
 @Component({
   selector: 'app-start-page',
   standalone: true,

@@ -48,7 +48,9 @@
     <p class="text-4xl font-bold text-center mt-5">Results</p>
     <div class="mt-6" *ngIf="totalCount() > 0; else notFound;">
     <div class="cards-container">
-      <app-search-sight-card *ngFor="let sight of sights$()" [sight]="sight"></app-search-sight-card>
+      @for(sight of sights$(); track sight.id) {
+        <app-search-sight-card [sight]="sight"></app-search-sight-card>
+      }
     </div>
     <div class="mt-6 text-center mb-2" aria-label="Page navigation example">
       <ul class="inline-flex -space-x-px text-sm" *ngIf="totalCount() != 0">

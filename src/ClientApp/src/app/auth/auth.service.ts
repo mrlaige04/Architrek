@@ -1,7 +1,7 @@
 import {Inject, inject, Injectable, signal} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {LoginModel} from "./models/loginmodel";
-import {BehaviorSubject, catchError, map, Observable, of} from "rxjs";
+import {catchError, map, Observable, of} from "rxjs";
 import {RegisterModel} from "./models/registermodel";
 import {AccessTokenResponse} from "./models/accesstokenresponse";
 import {ValidationProblem} from "./models/ValidationProblem";
@@ -21,18 +21,10 @@ export class AuthService {
   expiresTokenKey = "tokenExpires"
 
   isAuthenticated = signal(this.isUserAuthenticated());
+  isAdmin = signal(this.isUserAdmin());
 
-  private readonly isAuthenticatedSubject : BehaviorSubject<boolean>;
-  isAuthenticated$: Observable<boolean>;
-
-  constructor(
-    @Inject('API_CONFIG') apiConfig: ApiConfig
-    )
-  {
+  constructor(@Inject('API_CONFIG') apiConfig: ApiConfig) {
     this.baseUrl = apiConfig.apiUrl + 'identity/'
-
-    this.isAuthenticatedSubject = new BehaviorSubject<boolean>(this.isUserAuthenticated());
-    this.isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
   }
 
   private get currentToken(): AccessTokenResponse | null {
@@ -75,7 +67,6 @@ export class AuthService {
     } else return null;
   }
 
-
   checkEmailAvailability(email: string): Observable<boolean> {
     let uri = this.baseUrl + "emailAvailable?email=" + email;
     return this.http.get<boolean>(uri);
@@ -100,6 +91,7 @@ export class AuthService {
         })
       )
   }
+
 
   register(registerModel: RegisterModel) {
     const url = this.baseUrl + "register"
@@ -195,6 +187,9 @@ export class AuthService {
     const timespan = token.expiresIn * 1000;
     const expires = new Date().getTime() + timespan;
 
+    const role = this.getRole(token.accessToken)
+    this.isAdmin.set(role === 'Administrator')
+
     let codedToken = this.crypto.encrypt(JSON.stringify(token));
     localStorage.setItem(this.authTokenKey, codedToken)
     localStorage.setItem(this.expiresTokenKey, expires.toString())
@@ -202,6 +197,18 @@ export class AuthService {
     this.isAuthenticated.set(true)
   }
 
+  getRole(token: string) {
+    const payload = token.split('.')[1]
+    const payloadObject = JSON.parse(atob(payload))
+    return payloadObject.role;
+  }
+
+  isUserAdmin() {
+    const accessToken = this.accessToken;
+    if (!accessToken) return false;
+
+    return this.getRole(accessToken.accessToken) === 'Administrator';
+  }
 
   private clearAuthData() {
     localStorage.removeItem(this.authTokenKey)
@@ -209,9 +216,8 @@ export class AuthService {
   }
 
   logout() {
-    if (this.isUserAuthenticated()) {
-      this.isAuthenticated.set(false)
-    }
+    this.isAuthenticated.set(false)
+    this.isAdmin.set(false)
     localStorage.removeItem(this.authTokenKey)
     localStorage.removeItem(this.expiresTokenKey)
   }

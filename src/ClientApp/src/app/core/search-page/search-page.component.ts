@@ -5,14 +5,26 @@ import {PaginatedList} from "../Models/PaginatedList";
 import {Sight} from "../Models/Sight";
 import {Category} from "../Models/category";
 import {Guid} from "guid-typescript";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RxwebValidators} from "@rxweb/reactive-form-validators";
 import {ToastersService} from "../../services/ToastersService";
 import {toSignal} from "@angular/core/rxjs-interop";
+import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {SearchSightCardComponent} from "../search-sight-card/search-sight-card.component";
 
 @Component({
   selector: 'app-search-page',
+  standalone: true,
   templateUrl: './search-page.component.html',
+  imports: [
+    AsyncPipe,
+    NgIf,
+    FormsModule,
+    ReactiveFormsModule,
+    NgForOf,
+    SearchSightCardComponent,
+    NgClass
+  ],
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
@@ -63,7 +75,6 @@ export class SearchPageComponent implements OnInit {
 
 
   searchSubmit() {
-
     runInInjectionContext(this.injector, () => {
       this.sights$ = toSignal(
         this.coreService.searchSights({

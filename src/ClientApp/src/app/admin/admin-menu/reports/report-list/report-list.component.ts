@@ -5,7 +5,6 @@ import {Observable} from "rxjs";
 import {PaginatedList} from "../../../../core/Models/PaginatedList";
 import {Report} from "../../../../Shared/report/models/Report";
 import {ReportService} from "../../../../Shared/report/report.service";
-import {ReportSubject} from "../../../../Shared/report/models/ReportSubject";
 import {ReportStatus} from "../../../../Shared/report/models/ReportStatus";
 import {Guid} from "guid-typescript";
 import {AnswerReportFormComponent} from "../answer-report-form/answer-report-form.component";

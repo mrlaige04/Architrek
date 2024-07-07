@@ -6,14 +6,13 @@ import {Observable} from "rxjs";
 import {PaginatedList} from "../../../../core/Models/PaginatedList";
 import {Category} from "../../../../core/Models/category";
 import {Guid} from "guid-typescript";
-import {CoreService} from "../../../../core/core.service";
 import {AdminService} from "../../../admin.service";
 import {ToastersService} from "../../../../services/ToastersService";
 
 @Component({
   selector: 'app-create-category-form',
   standalone: true,
-    imports: [CommonModule, FormsModule, ReactiveTypedFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveTypedFormsModule],
   templateUrl: './create-category-form.component.html',
   styleUrl: './create-category-form.component.scss'
 })

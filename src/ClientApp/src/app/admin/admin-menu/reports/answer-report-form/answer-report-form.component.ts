@@ -7,7 +7,7 @@ import {AdminService} from "../../../admin.service";
 @Component({
   selector: 'app-answer-report-form',
   standalone: true,
-    imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './answer-report-form.component.html',
   styleUrl: './answer-report-form.component.scss'
 })

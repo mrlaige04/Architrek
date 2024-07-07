@@ -1,4 +1,4 @@
-import {inject, Inject, Injectable, signal, Signal} from '@angular/core';
+import {inject, Inject, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, forkJoin, of, switchMap} from "rxjs";
 import {User} from "./models/user";
@@ -10,16 +10,17 @@ import {PaginatedList} from "../core/Models/PaginatedList";
 import {SightReview} from "../core/Models/SightReview";
 import {Report} from "../Shared/report/models/Report";
 import {ApiConfig} from "../core/providers/apiConfig.provider";
-import {toSignal} from "@angular/core/rxjs-interop";
+import {AuthService} from "../auth/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
   private http = inject(HttpClient)
+  private auth = inject(AuthService)
   baseUrl: string;
 
-  isAdmin = signal(this.isUserAdmin())
+  isAdmin = this.auth.isAdmin;
 
   constructor(@Inject('API_CONFIG') apiConfig: ApiConfig) {
     this.baseUrl = apiConfig.apiUrl + 'admin/'

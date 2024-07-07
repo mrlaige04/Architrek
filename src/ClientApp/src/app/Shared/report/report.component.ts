@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ReportService} from "./report.service";
 import {Observable} from "rxjs";
-import {ReportSubject} from "./models/ReportSubject";
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {emailValidator, requiredValidator} from "../../auth/register/register.component";
-import {ApiResult} from "../../core/Models/ApiResult";
-ApiResult
+
 @Component({
   selector: 'app-report',
   standalone: true,

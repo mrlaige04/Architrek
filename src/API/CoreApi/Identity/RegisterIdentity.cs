@@ -14,14 +14,14 @@ namespace CoreApi.Identity;
 
 public static class RegisterIdentity
 {
-    public static IServiceCollection AddIdentity(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddMyIdentity(this IServiceCollection services, IConfiguration configuration)
     {
         var jwtOptions = configuration.GetSection("JwtOptions")
             .Get<JwtOptions>();
 
         Guard.Against.Null(jwtOptions, message: "JwtOptions are not set");
 
-        services.AddSingleton<JwtOptions>(jwtOptions);
+        services.AddSingleton(jwtOptions);
 
         services.AddAuthentication()
             .AddJwtBearer(IdentityConstants.BearerScheme, opt =>
@@ -41,26 +41,23 @@ public static class RegisterIdentity
                 };
             });
 
-
-        
-
         services
             .AddIdentityCore<ApplicationUser>(opt =>
-            {
-                opt.User.RequireUniqueEmail = true;
-                opt.Password.RequireDigit = true;
-                opt.Password.RequireLowercase = true;
-                opt.Password.RequireUppercase = true;
-                opt.Password.RequireNonAlphanumeric = false;
+                {
+                    opt.User.RequireUniqueEmail = true;
+                    opt.Password.RequireDigit = true;
+                    opt.Password.RequireLowercase = true;
+                    opt.Password.RequireUppercase = true;
+                    opt.Password.RequireNonAlphanumeric = false;
 
-                opt.Tokens.EmailConfirmationTokenProvider = "SixDigitUserTokenProvider";
+                    opt.Tokens.EmailConfirmationTokenProvider = "SixDigitUserTokenProvider";
 
-                opt.ClaimsIdentity.UserIdClaimType = JwtRegisteredClaimNames.NameId;
-                opt.ClaimsIdentity.UserNameClaimType = JwtRegisteredClaimNames.Name;
-                opt.ClaimsIdentity.EmailClaimType = JwtRegisteredClaimNames.Email;
-                opt.ClaimsIdentity.RoleClaimType = ClaimTypes.Role;
-            })
-            .AddRoles<IdentityRole<Guid>>()
+                    opt.ClaimsIdentity.UserIdClaimType = JwtRegisteredClaimNames.NameId;
+                    opt.ClaimsIdentity.UserNameClaimType = JwtRegisteredClaimNames.Name;
+                    opt.ClaimsIdentity.EmailClaimType = JwtRegisteredClaimNames.Email;
+                    opt.ClaimsIdentity.RoleClaimType = "role";
+                })
+                .AddRoles<IdentityRole<Guid>>()
             .AddDefaultTokenProviders()
             .AddEntityFrameworkStores<ApplicationDbContext>();
         

@@ -30,6 +30,24 @@ public class TokenService
         return accessToken;
     }
 
+    public string CreateAccessToken(ClaimsPrincipal claimsPrincipal)
+    {
+        var keyBytes = Encoding.UTF8.GetBytes(_jwtOptions.SigningKey);
+        var symmetricKey = new SymmetricSecurityKey(keyBytes);
+
+        var signingCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256);
+
+        var token = new JwtSecurityToken(
+            issuer: _jwtOptions.Issuer,
+            audience: _jwtOptions.Audience,
+            claims: claimsPrincipal.Claims,
+            expires: DateTime.Now.Add(TimeSpan.FromSeconds(_jwtOptions.ExpirationSeconds)),
+            signingCredentials: signingCredentials);
+        
+        var rawToken = new JwtSecurityTokenHandler().WriteToken(token);
+        return rawToken;
+    }
+    
     public string CreateAccessToken(Guid userId, string[] roles)
     {
         var keyBytes = Encoding.UTF8.GetBytes(_jwtOptions.SigningKey);

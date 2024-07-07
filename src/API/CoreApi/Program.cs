@@ -10,7 +10,8 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddWebUI();
 
-builder.Services.AddIntegratedIdentity<ApplicationUser>();
+
+builder.Services.AddMyIdentity(builder.Configuration);
 
 var app = builder.Build();
 await app.IdentityInitialize();
@@ -26,8 +27,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+/*
 app
     .MapGroup("api/Identity")
     .MapIdentityApi<ApplicationUser>();
+    */
 
 app.Run();

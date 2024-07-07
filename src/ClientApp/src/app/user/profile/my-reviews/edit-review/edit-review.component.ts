@@ -1,13 +1,11 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Guid} from "guid-typescript";
 import {SightReview} from "../../../../core/Models/SightReview";
 import {UserService} from "../../../user.service";
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SightReviewPhoto} from "../../../../core/Models/SightReviewPhoto";
 import {SynchronousPromise} from "synchronous-promise";
-import {ApiResult} from "../../../../core/Models/ApiResult";
-import {forkJoin, switchMap} from "rxjs";
 import {RxwebValidators} from "@rxweb/reactive-form-validators";
 
 @Component({

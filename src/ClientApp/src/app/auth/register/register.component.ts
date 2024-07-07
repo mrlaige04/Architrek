@@ -1,18 +1,30 @@
 import {Component} from '@angular/core';
 import {debounceTime} from 'rxjs';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn} from "@angular/forms";
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn
+} from "@angular/forms";
 import {RxwebValidators} from "@rxweb/reactive-form-validators";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ValidationProblem} from "../models/ValidationProblem";
-import {passwordValidator} from "@rxweb/reactive-form-validators/reactive-form-validators";
-
+import {DynamicLogoComponent} from "../../Shared/dynamic-logo/dynamic-logo.component";
 
 @Component({
   selector: 'app-register',
+  standalone: true,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  imports: [
+    DynamicLogoComponent,
+    ReactiveFormsModule
+  ]
 })
 export class RegisterComponent {
   step: 1|2 = 1;

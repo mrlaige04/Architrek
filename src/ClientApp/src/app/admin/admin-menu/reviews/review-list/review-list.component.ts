@@ -7,13 +7,12 @@ import {SightReview} from "../../../../core/Models/SightReview";
 import {AdminService} from "../../../admin.service";
 import {Guid} from "guid-typescript";
 import {RouterLink} from "@angular/router";
-import {CoreModule} from "../../../../core/core.module";
 import {StarRatingComponent} from "../../../../core/star-rating/star-rating.component";
 
 @Component({
   selector: 'app-review-list',
   standalone: true,
-  imports: [CommonModule, CreateCategoryFormComponent, RouterLink, CoreModule, StarRatingComponent],
+  imports: [CommonModule, CreateCategoryFormComponent, RouterLink, StarRatingComponent],
   templateUrl: './review-list.component.html',
   styleUrl: './review-list.component.scss'
 })

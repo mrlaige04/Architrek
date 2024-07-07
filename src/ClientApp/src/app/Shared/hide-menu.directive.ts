@@ -2,7 +2,8 @@ import {Directive, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 
 @Directive({
-  selector: '[hideMenu]'
+  selector: '[hideMenu]',
+  standalone: true
 })
 export class HideMenuDirective implements OnInit {
   @Input() appHideOnRoute: string[] = [];

@@ -1,7 +1,7 @@
 @if (!isAuthenticated()) {
   <a mat-flat-button routerLink="/auth/login">Login</a>
 } @else {
-  <div class="user-menu" *ngIf="userProfile() as profile">
+  <div class="user-menu">
     <button mat-icon-button [matMenuTriggerFor]="userMenu">
       <mat-icon>person</mat-icon>
     </button>

@@ -18,13 +18,12 @@ import {Category} from "../../../../core/Models/category";
 import {AdminService} from "../../../admin.service";
 import {Country} from "../../../../core/Models/Country";
 import {ToastersService} from "../../../../services/ToastersService";
-import {NgxSpinnerService} from "ngx-spinner";
 
 
 @Component({
   selector: 'app-create-sight-form',
   standalone: true,
-    imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './create-sight-form.component.html',
   styleUrl: './create-sight-form.component.scss'
 })
